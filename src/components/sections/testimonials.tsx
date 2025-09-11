@@ -42,7 +42,7 @@ export default function Testimonials() {
           <div className="space-y-2">
             
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Veja o que nossos clientes satisfeitos têm a dizer sobre sua experiência com a Porto Vale.
+              
             </p>
           </div>
         </div>
