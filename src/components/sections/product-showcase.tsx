@@ -1,26 +1,26 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Landmark, ShieldCheck, Home, Briefcase } from 'lucide-react'
+import { Landmark, Home, Car, ShieldCheck } from 'lucide-react'
 
 const products = [
   {
-    icon: <Landmark className="h-10 w-10 text-primary" />,
-    title: 'Empréstimos com Garantia',
-    description: 'Use seus ativos para obter empréstimos com taxas de juros mais baixas e melhores condições.',
+    icon: <Home className="h-10 w-10 text-primary" />,
+    title: 'Empréstimo com Garantia de Imóvel',
+    description: 'Use seu imóvel para obter empréstimos com taxas de juros mais baixas e melhores condições.',
   },
   {
-    icon: <Home className="h-10 w-10 text-primary" />,
+    icon: <Car className="h-10 w-10 text-primary" />,
+    title: 'Empréstimo com Garantia de Veículo',
+    description: 'Utilize seu veículo como garantia para conseguir crédito de forma rápida e com juros reduzidos.',
+  },
+  {
+    icon: <Landmark className="h-10 w-10 text-primary" />,
     title: 'Financiamento',
     description: 'Opções de financiamento flexíveis para suas necessidades pessoais ou empresariais, de veículos a equipamentos.',
   },
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
     title: 'Seguros',
-    description: 'Proteja-se e seus ativos com nossos planos de seguro abrangentes.',
-  },
-  {
-    icon: <Briefcase className="h-10 w-10 text-primary" />,
-    title: 'Outros Serviços',
-    description: 'Explore uma gama de outros serviços financeiros projetados para ajudá-lo a atingir seus objetivos.',
+    description: 'Proteja-se e seus ativos com nossos planos de seguro abrangentes para sua tranquilidade.',
   },
 ]
 
