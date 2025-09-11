@@ -7,6 +7,12 @@
       "imageHint": "finance abstract"
     },
     {
+      "id": "about-us-image",
+      "description": "Modern office environment",
+      "imageUrl": "https://picsum.photos/seed/about_us/600/400",
+      "imageHint": "office meeting"
+    },
+    {
       "id": "testimonial-1",
       "description": "Avatar for first testimonial",
       "imageUrl": "https://picsum.photos/seed/t1/100/100",

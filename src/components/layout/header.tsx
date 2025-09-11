@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "#products", label: "Produtos" },
-  { href: "#recommendations", label: "Consultor AI" },
-  { href: "#calculator", label: "Calculadora" },
+  { href: "#about", label: "Sobre Nós" },
+  { href: "#reviews", label: "Avaliações" },
   { href: "#faq", label: "Dúvidas" },
   { href: "#contact", label: "Contato" },
 ];
