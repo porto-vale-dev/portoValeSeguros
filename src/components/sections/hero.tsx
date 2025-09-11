@@ -11,7 +11,7 @@ export default function Hero() {
             Soluções de Crédito Inteligentes para o seu Futuro
           </h1>
           <p className="text-lg text-primary-foreground/90 md:text-xl" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
-            Encontre o produto de crédito perfeito com nossas recomendações baseadas em IA. Desbloqueie seu potencial financeiro com a CreditWave.
+            Encontre o produto de crédito perfeito com nossas recomendações baseadas em IA. Desbloqueie seu potencial financeiro com a Porto Vale.
           </p>
           <div className="flex justify-center">
             <Button asChild size="lg">

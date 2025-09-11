@@ -8,10 +8,10 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           <div className="flex items-center gap-2">
             <Mountain className="h-6 w-6 text-primary" />
-            <span className="text-lg font-semibold">CreditWave</span>
+            <span className="text-lg font-semibold">Porto Vale</span>
           </div>
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} CreditWave. Todos os direitos reservados.
+            © {new Date().getFullYear()} Porto Vale. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-4">
             <Link href="#" className="text-muted-foreground hover:text-primary">

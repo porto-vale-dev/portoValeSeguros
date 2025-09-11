@@ -38,7 +38,7 @@ export default function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold">
           <Mountain className="h-6 w-6 text-primary" />
-          <span className="text-lg font-semibold">CreditWave</span>
+          <span className="text-lg font-semibold">Porto Vale</span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
@@ -67,7 +67,7 @@ export default function Header() {
                  <div className="flex items-center justify-between border-b p-4">
                     <Link href="/" className="flex items-center gap-2 font-bold" onClick={() => setIsMenuOpen(false)}>
                       <Mountain className="h-6 w-6 text-primary" />
-                      <span className="text-lg font-semibold">CreditWave</span>
+                      <span className="text-lg font-semibold">Porto Vale</span>
                     </Link>
                     <SheetTrigger asChild>
                        <Button variant="ghost" size="icon">

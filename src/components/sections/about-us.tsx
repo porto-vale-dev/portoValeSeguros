@@ -30,10 +30,10 @@ export default function AboutUs() {
           <div className="flex flex-col justify-center space-y-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Sobre a CreditWave
+                Sobre a Porto Vale
               </h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Com vasta experiência no mercado financeiro, a CreditWave se dedica a transformar seus planos em realidade. Somos especialistas em encontrar as melhores soluções de crédito para você.
+                Com vasta experiência no mercado financeiro, a Porto Vale se dedica a transformar seus planos em realidade. Somos especialistas em encontrar as melhores soluções de crédito para você.
               </p>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Nossa equipe de especialistas está pronta para oferecer um atendimento personalizado e encontrar a opção ideal que se encaixa perfeitamente em seu orçamento e em seus objetivos de vida.

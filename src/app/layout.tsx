@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'CreditWave | Início',
+  title: 'Porto Vale | Início',
   description: 'Soluções de Crédito Inteligentes para um Futuro Financeiro Mais Brilhante',
 };
 

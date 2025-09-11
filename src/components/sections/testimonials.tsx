@@ -15,13 +15,13 @@ const testimonials = [
   {
     name: 'Sarah J.',
     role: 'Dona de Pequena Empresa',
-    quote: "O consultor de IA da CreditWave encontrou um empréstimo para mim que eu nem sabia que me qualificava. Foi um divisor de águas para a expansão do meu negócio!",
+    quote: "O consultor de IA da Porto Vale encontrou um empréstimo para mim que eu nem sabia que me qualificava. Foi um divisor de águas para a expansão do meu negócio!",
     avatarId: 'testimonial-1',
   },
   {
     name: 'Michael B.',
     role: 'Comprador de Imóvel',
-    quote: "As opções de financiamento eram claras e a calculadora nos ajudou a fazer o orçamento perfeitamente. Estamos em nossa nova casa graças à CreditWave.",
+    quote: "As opções de financiamento eram claras e a calculadora nos ajudou a fazer o orçamento perfeitamente. Estamos em nossa nova casa graças à Porto Vale.",
     avatarId: 'testimonial-2',
   },
   {
@@ -40,9 +40,9 @@ export default function Testimonials() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Aprovado por Nossos Clientes</h2>
+            
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Veja o que nossos clientes satisfeitos têm a dizer sobre sua experiência com a CreditWave.
+              Veja o que nossos clientes satisfeitos têm a dizer sobre sua experiência com a Porto Vale.
             </p>
           </div>
         </div>
