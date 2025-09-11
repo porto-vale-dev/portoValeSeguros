@@ -3,7 +3,6 @@ import Hero from "@/components/sections/hero";
 import ProductShowcase from "@/components/sections/product-showcase";
 import AboutUs from "@/components/sections/about-us";
 import GoogleReviews from "@/components/sections/google-reviews";
-import Testimonials from "@/components/sections/testimonials";
 import Faq from "@/components/sections/faq";
 import Contact from "@/components/sections/contact";
 import Footer from "@/components/layout/footer";
@@ -17,7 +16,6 @@ export default function Home() {
         <ProductShowcase />
         <AboutUs />
         <GoogleReviews />
-        <Testimonials />
         <Faq />
         <Contact />
       </main>
