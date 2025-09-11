@@ -9,11 +9,11 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "#products", label: "Products" },
-  { href: "#recommendations", label: "AI Advisor" },
-  { href: "#calculator", label: "Calculator" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
+  { href: "#products", label: "Produtos" },
+  { href: "#recommendations", label: "Consultor AI" },
+  { href: "#calculator", label: "Calculadora" },
+  { href: "#faq", label: "Dúvidas" },
+  { href: "#contact", label: "Contato" },
 ];
 
 export default function Header() {
@@ -53,13 +53,13 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-4">
            <Button variant="outline" size="sm" asChild className="hidden md:flex">
-            <Link href="#contact">Get Started</Link>
+            <Link href="#contact">Comece Agora</Link>
           </Button>
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle navigation menu</span>
+                <span className="sr-only">Alternar menu de navegação</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-full max-w-xs bg-background">
@@ -72,7 +72,7 @@ export default function Header() {
                     <SheetTrigger asChild>
                        <Button variant="ghost" size="icon">
                         <X className="h-6 w-6" />
-                        <span className="sr-only">Close menu</span>
+                        <span className="sr-only">Fechar menu</span>
                       </Button>
                     </SheetTrigger>
                 </div>
@@ -90,7 +90,7 @@ export default function Header() {
                 </nav>
                  <div className="border-t p-4">
                     <Button asChild className="w-full">
-                       <Link href="#contact" onClick={() => setIsMenuOpen(false)}>Get Started</Link>
+                       <Link href="#contact" onClick={() => setIsMenuOpen(false)}>Comece Agora</Link>
                     </Button>
                  </div>
               </div>

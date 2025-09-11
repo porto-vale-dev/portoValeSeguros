@@ -8,14 +8,14 @@ export default function Hero() {
        <div className="container relative mx-auto px-4 text-center md:px-6">
         <div className="max-w-3xl mx-auto space-y-4">
           <h1 className="font-headline text-4xl font-bold tracking-tighter text-primary-foreground sm:text-5xl md:text-6xl" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.3)' }}>
-            Smart Credit Solutions for Your Future
+            Soluções de Crédito Inteligentes para o seu Futuro
           </h1>
           <p className="text-lg text-primary-foreground/90 md:text-xl" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
-            Find the perfect credit product with our AI-powered recommendations. Unlock your financial potential with CreditWave.
+            Encontre o produto de crédito perfeito com nossas recomendações baseadas em IA. Desbloqueie seu potencial financeiro com a CreditWave.
           </p>
           <div className="flex justify-center">
             <Button asChild size="lg">
-              <Link href="#recommendations">Get Your Recommendation</Link>
+              <Link href="#recommendations">Receba sua Recomendação</Link>
             </Button>
           </div>
         </div>

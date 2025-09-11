@@ -4,23 +4,23 @@ import { Landmark, ShieldCheck, Home, Briefcase } from 'lucide-react'
 const products = [
   {
     icon: <Landmark className="h-10 w-10 text-primary" />,
-    title: 'Secured Loans',
-    description: 'Leverage your assets to get loans with lower interest rates and better terms.',
+    title: 'Empréstimos com Garantia',
+    description: 'Use seus ativos para obter empréstimos com taxas de juros mais baixas e melhores condições.',
   },
   {
     icon: <Home className="h-10 w-10 text-primary" />,
-    title: 'Financing',
-    description: 'Flexible financing options for your personal or business needs, from vehicles to equipment.',
+    title: 'Financiamento',
+    description: 'Opções de financiamento flexíveis para suas necessidades pessoais ou empresariais, de veículos a equipamentos.',
   },
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
-    title: 'Insurance',
-    description: 'Protect yourself and your assets with our comprehensive insurance plans.',
+    title: 'Seguros',
+    description: 'Proteja-se e seus ativos com nossos planos de seguro abrangentes.',
   },
   {
     icon: <Briefcase className="h-10 w-10 text-primary" />,
-    title: 'Other Services',
-    description: 'Explore a range of other financial services designed to help you achieve your goals.',
+    title: 'Outros Serviços',
+    description: 'Explore uma gama de outros serviços financeiros projetados para ajudá-lo a atingir seus objetivos.',
   },
 ]
 
@@ -30,9 +30,9 @@ export default function ProductShowcase() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Financial Products</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Nossos Produtos Financeiros</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              We offer a diverse range of credit and financial solutions to meet your unique needs. Explore our products and find the right fit for you.
+              Oferecemos uma gama diversificada de soluções de crédito e financeiras para atender às suas necessidades únicas. Explore nossos produtos e encontre o ideal para você.
             </p>
           </div>
         </div>

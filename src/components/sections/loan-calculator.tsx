@@ -31,9 +31,9 @@ export default function LoanCalculator() {
   const totalInterest = useMemo(() => totalPayment - amount, [totalPayment, amount]);
 
   const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'BRL',
     }).format(value);
   };
   
@@ -42,9 +42,9 @@ export default function LoanCalculator() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Loan Payment Calculator</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Calculadora de Empréstimos</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Estimate your monthly payments for loans and financing. Adjust the values to see how they affect your payments.
+              Estime suas parcelas mensais para empréstimos e financiamentos. Ajuste os valores para ver como eles afetam seus pagamentos.
             </p>
           </div>
         </div>
@@ -53,7 +53,7 @@ export default function LoanCalculator() {
             <div className="space-y-6">
               <div>
                 <Label htmlFor="amount" className="flex justify-between text-base">
-                  <span>Loan Amount</span>
+                  <span>Valor do Empréstimo</span>
                   <span className="font-bold text-primary">{formatCurrency(amount)}</span>
                 </Label>
                 <Slider
@@ -68,7 +68,7 @@ export default function LoanCalculator() {
               </div>
               <div>
                 <Label htmlFor="interest" className="flex justify-between text-base">
-                  <span>Interest Rate (%)</span>
+                  <span>Taxa de Juros (%)</span>
                    <span className="font-bold text-primary">{interest.toFixed(2)}%</span>
                 </Label>
                  <Slider
@@ -83,8 +83,8 @@ export default function LoanCalculator() {
               </div>
               <div>
                  <Label htmlFor="term" className="flex justify-between text-base">
-                  <span>Loan Term (Months)</span>
-                   <span className="font-bold text-primary">{term} months</span>
+                  <span>Prazo do Empréstimo (Meses)</span>
+                   <span className="font-bold text-primary">{term} meses</span>
                 </Label>
                 <Slider
                   id="term"
@@ -99,18 +99,18 @@ export default function LoanCalculator() {
             </div>
             <div className="flex flex-col items-center justify-center rounded-lg bg-background p-6 space-y-4">
               <div className="text-center">
-                <p className="text-lg text-muted-foreground">Monthly Payment</p>
+                <p className="text-lg text-muted-foreground">Parcela Mensal</p>
                 <p className="text-4xl font-bold text-primary">
                   {formatCurrency(monthlyPayment)}
                 </p>
               </div>
               <div className="w-full text-sm space-y-2 text-center">
                   <div className="flex justify-between">
-                      <span className="text-muted-foreground">Total Payment:</span>
+                      <span className="text-muted-foreground">Pagamento Total:</span>
                       <span>{formatCurrency(totalPayment)}</span>
                   </div>
                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Total Interest:</span>
+                      <span className="text-muted-foreground">Juros Totais:</span>
                       <span>{formatCurrency(totalInterest)}</span>
                   </div>
               </div>

@@ -7,24 +7,24 @@ import {
 
 const faqs = [
   {
-    question: 'What credit score do I need to qualify?',
-    answer: 'The required credit score varies depending on the product. Our AI Recommendation tool can help you find products that match your credit profile. Generally, a score above 650 opens up more options.',
+    question: 'Qual a pontuação de crédito necessária para me qualificar?',
+    answer: 'A pontuação de crédito necessária varia de acordo com o produto. Nossa ferramenta de Recomendação de IA pode ajudá-lo a encontrar produtos que correspondam ao seu perfil de crédito. Geralmente, uma pontuação acima de 650 abre mais opções.',
   },
   {
-    question: 'How long does the approval process take?',
-    answer: 'Approval times can range from a few minutes for online applications to a few business days for more complex loans. We strive to process all applications as quickly as possible.',
+    question: 'Quanto tempo leva o processo de aprovação?',
+    answer: 'Os tempos de aprovação podem variar de alguns minutos para solicitações online a alguns dias úteis para empréstimos mais complexos. Nós nos esforçamos para processar todas as solicitações o mais rápido possível.',
   },
   {
-    question: 'Are there any hidden fees?',
-    answer: 'We believe in full transparency. All potential fees, such as origination fees or late payment penalties, are clearly outlined in your loan agreement before you commit.',
+    question: 'Existem taxas ocultas?',
+    answer: 'Acreditamos na transparência total. Todas as taxas potenciais, como taxas de originação ou multas por atraso no pagamento, são claramente descritas em seu contrato de empréstimo antes de você se comprometer.',
   },
   {
-    question: 'Can I pay off my loan early?',
-    answer: 'Yes, most of our loan products allow for early repayment without any prepayment penalties. We encourage responsible financial management.',
+    question: 'Posso quitar meu empréstimo antecipadamente?',
+    answer: 'Sim, a maioria dos nossos produtos de empréstimo permite o pagamento antecipado sem nenhuma penalidade. Incentivamos o gerenciamento financeiro responsável.',
   },
   {
-    question: 'Is my personal information secure?',
-    answer: 'Absolutely. We use industry-standard encryption and security protocols to protect your data at all times. Your privacy and security are our top priorities.',
+    question: 'Minhas informações pessoais estão seguras?',
+    answer: 'Com certeza. Usamos criptografia e protocolos de segurança padrão do setor para proteger seus dados o tempo todo. Sua privacidade e segurança são nossas principais prioridades.',
   },
 ]
 
@@ -34,9 +34,9 @@ export default function Faq() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Perguntas Frequentes</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Have questions? We have answers. Find quick solutions to common inquiries below.
+              Tem perguntas? Nós temos respostas. Encontre soluções rápidas para perguntas comuns abaixo.
             </p>
           </div>
         </div>

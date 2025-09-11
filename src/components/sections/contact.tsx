@@ -14,9 +14,9 @@ import { useToast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/app/actions";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().email("Please enter a valid email address."),
-  message: z.string().min(10, "Message must be at least 10 characters."),
+  name: z.string().min(2, "O nome deve ter pelo menos 2 caracteres."),
+  email: z.string().email("Por favor, insira um endereço de e-mail válido."),
+  message: z.string().min(10, "A mensagem deve ter pelo menos 10 caracteres."),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -38,15 +38,15 @@ export default function Contact() {
     try {
       await submitContactForm(values);
       toast({
-        title: "Message Sent!",
-        description: "Thank you for contacting us. We'll get back to you shortly.",
+        title: "Mensagem Enviada!",
+        description: "Obrigado por nos contatar. Retornaremos em breve.",
       });
       form.reset();
     } catch (error) {
       toast({
         variant: "destructive",
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: "Erro",
+        description: "Falha ao enviar mensagem. Por favor, tente novamente.",
       });
     }
   }
@@ -56,16 +56,16 @@ export default function Contact() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Entre em Contato</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Have a question or need support? Fill out the form below and our team will get back to you.
+              Tem alguma dúvida ou precisa de suporte? Preencha o formulário abaixo e nossa equipe retornará.
             </p>
           </div>
         </div>
         <Card className="mx-auto mt-12 max-w-xl">
           <CardHeader>
-            <CardTitle>Contact Us</CardTitle>
-            <CardDescription>We're here to help with any questions you may have.</CardDescription>
+            <CardTitle>Fale Conosco</CardTitle>
+            <CardDescription>Estamos aqui para ajudar com qualquer dúvida que você possa ter.</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -75,9 +75,9 @@ export default function Contact() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name</FormLabel>
+                      <FormLabel>Nome</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your Name" {...field} />
+                        <Input placeholder="Seu Nome" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -90,7 +90,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="your.email@example.com" {...field} />
+                        <Input type="email" placeholder="seu.email@exemplo.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -101,9 +101,9 @@ export default function Contact() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel>Mensagem</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="How can we help you?" {...field} />
+                        <Textarea placeholder="Como podemos te ajudar?" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -111,7 +111,7 @@ export default function Contact() {
                 />
                 <Button type="submit" disabled={isSubmitting} className="w-full">
                   {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  Send Message
+                  Enviar Mensagem
                 </Button>
               </form>
             </Form>

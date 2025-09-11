@@ -11,7 +11,7 @@ export default function Footer() {
             <span className="text-lg font-semibold">CreditWave</span>
           </div>
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} CreditWave. All rights reserved.
+            © {new Date().getFullYear()} CreditWave. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-4">
             <Link href="#" className="text-muted-foreground hover:text-primary">
