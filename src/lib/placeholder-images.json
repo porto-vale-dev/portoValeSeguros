@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Abstract background with blue tones",
+      "imageUrl": "https://picsum.photos/seed/creditwave_hero/1920/1080",
+      "imageHint": "finance abstract"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Avatar for first testimonial",
+      "imageUrl": "https://picsum.photos/seed/t1/100/100",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Avatar for second testimonial",
+      "imageUrl": "https://picsum.photos/seed/t2/100/100",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Avatar for third testimonial",
+      "imageUrl": "https://picsum.photos/seed/t3/100/100",
+      "imageHint": "person portrait"
+    }
+  ]
 }
