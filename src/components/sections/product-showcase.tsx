@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Landmark, Home, Car, ShieldCheck } from 'lucide-react'
+import Link from 'next/link';
 
 const products = [
   {
@@ -21,6 +22,7 @@ const products = [
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
     title: 'Seguros',
     description: 'Proteja-se e seus ativos com nossos planos de seguro abrangentes para sua tranquilidade.',
+    href: 'https://consorcioportovale.com.br/',
   },
 ]
 
@@ -37,17 +39,29 @@ export default function ProductShowcase() {
           </div>
         </div>
         <div className="mx-auto grid max-w-5xl items-start gap-8 py-12 sm:grid-cols-2 md:gap-12 lg:max-w-none lg:grid-cols-4">
-          {products.map((product) => (
-            <Card key={product.title} className="flex flex-col items-center justify-center text-center p-6 transition-all hover:scale-105 hover:shadow-xl">
-              <CardHeader className="items-center">
-                {product.icon}
-                <CardTitle>{product.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">{product.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+          {products.map((product) => {
+            const card = (
+               <Card key={product.title} className="flex h-full flex-col items-center justify-start text-center p-6 transition-all hover:scale-105 hover:shadow-xl">
+                <CardHeader className="items-center">
+                  {product.icon}
+                  <CardTitle>{product.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">{product.description}</p>
+                </CardContent>
+              </Card>
+            )
+
+            if (product.href) {
+              return (
+                <Link href={product.href} target="_blank" rel="noopener noreferrer" className="h-full">
+                  {card}
+                </Link>
+              )
+            }
+            
+            return card;
+          })}
         </div>
       </div>
     </section>
