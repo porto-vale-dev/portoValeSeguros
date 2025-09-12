@@ -11,8 +11,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Car, Home } from 'lucide-react'
 
 // Image paths are now direct URL paths from the `public` directory.
-const imovelBgPath = '/img/slide2-carrossel-home.jpg';
-const veiculoBgPath = '/img/slide1-carrossel-home.jpg';
+const imovelBgPath = '/img/slide1-carrossel-home.jpg';
+const veiculoBgPath = '/img/slide2-carrossel-home.jpg';
 
 
 function SimulationForm({ type }: { type: 'imovel' | 'veiculo' }) {
