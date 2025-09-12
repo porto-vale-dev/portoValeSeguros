@@ -7,9 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Slider } from '@/components/ui/slider'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Car, Home, Landmark, ShieldCheck } from 'lucide-react'
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Car, Home, Landmark } from 'lucide-react'
 
 function SimulationForm({ type }: { type: 'imovel' | 'veiculo' | 'financiamento' }) {
     const [amount, setAmount] = useState(type === 'imovel' ? 100000 : 30000);
@@ -28,6 +26,7 @@ function SimulationForm({ type }: { type: 'imovel' | 'veiculo' | 'financiamento'
     let sliderMin = 0;
     let sliderMax = 0;
     let sliderStep = 100;
+    let buttonText = 'Simular empréstimo';
 
     switch (type) {
         case 'imovel':
@@ -50,6 +49,7 @@ function SimulationForm({ type }: { type: 'imovel' | 'veiculo' | 'financiamento'
             sliderMin = 10000;
             sliderMax = 1000000;
             sliderStep = 5000;
+            buttonText = 'Simular financiamento';
             break;
     }
 
@@ -82,9 +82,11 @@ function SimulationForm({ type }: { type: 'imovel' | 'veiculo' | 'financiamento'
                         onValueChange={(value) => setAmount(value[0])}
                     />
                 </div>
-                <Button size="lg" className="w-full h-12 text-lg">
-                    Simular empréstimo
-                </Button>
+                {type !== 'financiamento' && (
+                    <Button size="lg" className="w-full h-12 text-lg">
+                        {buttonText}
+                    </Button>
+                )}
             </CardContent>
         </Card>
     );
@@ -92,7 +94,6 @@ function SimulationForm({ type }: { type: 'imovel' | 'veiculo' | 'financiamento'
 
 
 export default function Hero() {
-    const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
     return (
     <section className="relative w-full bg-muted/20 py-20 md:py-32 lg:py-40">
         <div className="container mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-16 items-center">
