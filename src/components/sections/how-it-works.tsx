@@ -25,7 +25,7 @@ export default function HowItWorks() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Empréstimo online rápido e descomplicado
+            Online rápido e descomplicado
           </h2>
           <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
             Veja como é simples conseguir seu empréstimo com a Porto Vale.
