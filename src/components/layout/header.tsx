@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Menu, Mountain, X } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -34,7 +35,7 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold">
-          <Mountain className="h-6 w-6 text-primary" />
+          <Image src="/img/Logo_PortoSeguro_Novo_Azul.png" alt="Porto Vale Logo" width={120} height={40} />
         </Link>
         
         <div className="flex items-center gap-4">
@@ -63,7 +64,7 @@ export default function Header() {
               <div className="flex h-full flex-col">
                  <div className="flex items-center justify-between border-b p-4">
                     <Link href="/" className="flex items-center gap-2 font-bold" onClick={() => setIsMenuOpen(false)}>
-                      <Mountain className="h-6 w-6 text-primary" />
+                      <Image src="/img/Logo_PortoSeguro_Novo_Azul.png" alt="Porto Vale Logo" width={120} height={40} />
                     </Link>
                     <SheetTrigger asChild>
                        <Button variant="ghost" size="icon">

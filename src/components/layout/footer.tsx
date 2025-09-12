@@ -1,4 +1,5 @@
-import { Mountain, Twitter, Linkedin, Facebook } from 'lucide-react'
+import Image from 'next/image'
+import { Twitter, Linkedin, Facebook } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Footer() {
@@ -7,7 +8,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-8 md:px-6">
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           <div className="flex items-center gap-2">
-            <Mountain className="h-6 w-6 text-primary" />
+            <Image src="/img/Logo_PortoSeguro_Novo_Azul.png" alt="Porto Vale Logo" width={120} height={40} />
           </div>
           <p className="text-center text-sm text-muted-foreground">
             © {new Date().getFullYear()} Porto Vale. Todos os direitos reservados.
