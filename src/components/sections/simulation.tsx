@@ -10,7 +10,7 @@ import { Slider } from '@/components/ui/slider'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Car, Home } from 'lucide-react'
 
-const imovelBgPath = '/img/slide2-carrossel-home.jpg';
+const imovelBgPath = '/img/slide1-carrossel-home.jpg';
 const veiculoBgPath = '/img/slide2-carrossel-home.jpg';
 
 
