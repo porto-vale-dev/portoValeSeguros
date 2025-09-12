@@ -1,28 +1,10 @@
-import { Briefcase, Gem, Target } from 'lucide-react';
-
-const values = [
-  {
-    icon: <Target className="h-8 w-8 text-primary" />,
-    title: 'Missão',
-    description: 'Nossa missão é realizar sonhos e facilitar conquistas, oferecendo soluções de crédito acessíveis e transparentes que impulsionam o futuro financeiro de nossos clientes.',
-  },
-  {
-    icon: <Briefcase className="h-8 w-8 text-primary" />,
-    title: 'Visão',
-    description: 'Ser a principal referência em assessoria financeira, reconhecida pela excelência no atendimento e pela inovação em nossos produtos e serviços.',
-  },
-  {
-    icon: <Gem className="h-8 w-8 text-primary" />,
-    title: 'Valores',
-    description: 'Atuamos com ética, transparência, segurança, inovação e um compromisso inabalável com a satisfação e o sucesso de nossos clientes e parceiros.',
-  },
-];
+import Image from 'next/image';
 
 export default function AboutUs() {
   return (
     <section id="about" className="w-full bg-background py-12 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
           <div className="flex flex-col justify-center space-y-6">
             <div className="space-y-3">
                <span className="text-sm font-semibold uppercase tracking-wider text-primary">Sobre Nós</span>
@@ -37,16 +19,15 @@ export default function AboutUs() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col justify-center space-y-8">
-            {values.map((value) => (
-              <div key={value.title} className="flex items-start gap-4">
-                {value.icon}
-                <div>
-                  <h3 className="text-xl font-bold">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
-                </div>
-              </div>
-            ))}
+          <div className="flex items-center justify-center">
+            <Image
+              src="https://picsum.photos/seed/office/600/400"
+              width={600}
+              height={400}
+              alt="Equipe da Porto Vale"
+              className="overflow-hidden rounded-xl object-cover"
+              data-ai-hint="office meeting"
+            />
           </div>
         </div>
       </div>
