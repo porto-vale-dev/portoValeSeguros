@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -17,18 +16,24 @@ const testimonials = [
     name: 'Sarah J.',
     role: 'Dona de Pequena Empresa',
     text: 'A assessoria da Porto Vale foi um divisor de águas para a expansão do meu negócio! Encontraram a melhor solução de crédito para mim.',
+    imageUrl: 'https://picsum.photos/seed/t1/100/100',
+    imageHint: 'person portrait',
   },
   {
     id: 'testimonial-2',
     name: 'Michael B.',
     role: 'Comprador de Imóvel',
     text: 'As opções de financiamento eram claras e o processo foi rápido. Estamos em nossa nova casa graças à Porto Vale.',
+    imageUrl: 'https://picsum.photos/seed/t2/100/100',
+    imageHint: 'person portrait',
   },
   {
     id: 'testimonial-3',
     name: 'Emily R.',
     role: 'Autônoma',
     text: 'Consegui o capital de giro que precisava com ótimas condições. A equipe de suporte foi incrivelmente prestativa e atenciosa.',
+    imageUrl: 'https://picsum.photos/seed/t3/100/100',
+    imageHint: 'person portrait',
   },
 ];
 
@@ -54,7 +59,6 @@ export default function Testimonials() {
           >
             <CarouselContent>
               {testimonials.map((testimonial) => {
-                const testimonialImage = PlaceHolderImages.find((img) => img.id === testimonial.id);
                 return (
                   <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
                     <div className="p-4">
@@ -62,16 +66,14 @@ export default function Testimonials() {
                         <CardContent className="flex h-full flex-col justify-between p-6">
                           <p className="mb-4 text-lg italic text-muted-foreground">"{testimonial.text}"</p>
                           <div className="flex items-center gap-4">
-                            {testimonialImage && (
                               <Avatar>
                                 <AvatarImage
-                                  src={testimonialImage.imageUrl}
-                                  alt={testimonialImage.description}
-                                  data-ai-hint={testimonialImage.imageHint}
+                                  src={testimonial.imageUrl}
+                                  alt={`Avatar de ${testimonial.name}`}
+                                  data-ai-hint={testimonial.imageHint}
                                 />
                                 <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                               </Avatar>
-                            )}
                             <div>
                               <p className="font-semibold">{testimonial.name}</p>
                               <p className="text-sm text-muted-foreground">{testimonial.role}</p>

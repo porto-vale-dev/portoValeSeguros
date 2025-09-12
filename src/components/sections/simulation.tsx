@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label'
 import { Slider } from '@/components/ui/slider'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Car, Home } from 'lucide-react'
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import placeholderImages from '@/lib/placeholder-images.json';
 
 function SimulationForm({ type }: { type: 'imovel' | 'veiculo' }) {
     const [amount, setAmount] = useState(type === 'imovel' ? 100000 : 30000);
@@ -88,32 +88,26 @@ function SimulationForm({ type }: { type: 'imovel' | 'veiculo' }) {
 
 export default function Simulation() {
     const [activeTab, setActiveTab] = useState('imovel');
-    const bgImovel = PlaceHolderImages.find(img => img.id === 'simulation-bg-imovel');
-    const bgVeiculo = PlaceHolderImages.find(img => img.id === 'simulation-bg-veiculo');
 
     return (
     <section className="relative w-full py-20 md:py-32 lg:py-40 overflow-hidden">
         <div className="absolute inset-0 z-[-1]">
-            {bgImovel && (
-                <Image
-                    src={bgImovel.imageUrl}
-                    alt={bgImovel.description}
-                    fill
-                    className={`object-cover transition-opacity duration-500 ${activeTab === 'imovel' ? 'opacity-100' : 'opacity-0'}`}
-                    data-ai-hint={bgImovel.imageHint}
-                    priority
-                />
-            )}
-            {bgVeiculo && (
-                 <Image
-                    src={bgVeiculo.imageUrl}
-                    alt={bgVeiculo.description}
-                    fill
-                    className={`object-cover transition-opacity duration-500 ${activeTab === 'veiculo' ? 'opacity-100' : 'opacity-0'}`}
-                    data-ai-hint={bgVeiculo.imageHint}
-                    priority
-                />
-            )}
+            <Image
+                src={placeholderImages.simulationBgImovel.url}
+                alt="Background para simulação de imóvel"
+                fill
+                className={`object-cover transition-opacity duration-500 ${activeTab === 'imovel' ? 'opacity-100' : 'opacity-0'}`}
+                data-ai-hint={placeholderImages.simulationBgImovel.hint}
+                priority
+            />
+             <Image
+                src={placeholderImages.simulationBgVeiculo.url}
+                alt="Background para simulação de veículo"
+                fill
+                className={`object-cover transition-opacity duration-500 ${activeTab === 'veiculo' ? 'opacity-100' : 'opacity-0'}`}
+                data-ai-hint={placeholderImages.simulationBgVeiculo.hint}
+                priority
+            />
             <div className="absolute inset-0 bg-black/50" />
         </div>
 
