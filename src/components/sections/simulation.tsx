@@ -118,43 +118,37 @@ export default function Simulation() {
         </div>
 
         <div className="container mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
-            <div className="space-y-6 text-center lg:text-left">
-                <h1 className="font-headline text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl">
-                    Empréstimo com garantia, <span className="text-primary">fácil e rápido.</span>
-                </h1>
-                <p className="text-lg text-gray-200 md:text-xl">
-                    Use seu imóvel ou veículo para conseguir as melhores taxas de juros do mercado. Dinheiro na sua conta em poucos dias.
-                </p>
-                <div className="flex gap-4 justify-center lg:justify-start">
-                    <Button size="lg" asChild>
-                        <a href="#contact">Simule agora</a>
-                    </Button>
-                     <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white hover:text-black">
-                        <a href="#about">Saiba mais</a>
-                    </Button>
-                </div>
+            <div className="lg:col-start-2 flex flex-col items-center lg:items-start">
+              <div className="space-y-6 text-center lg:text-left">
+                  <h1 className="font-headline text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl">
+                      Empréstimo com garantia, <span className="text-primary">fácil e rápido.</span>
+                  </h1>
+                  <p className="text-lg text-gray-200 md:text-xl">
+                      Use seu imóvel ou veículo para conseguir as melhores taxas de juros do mercado. Dinheiro na sua conta em poucos dias.
+                  </p>
+              </div>
+              
+               <div className="relative mt-8 w-full">
+                   <Tabs defaultValue="imovel" className="w-full max-w-md mx-auto" onValueChange={setActiveTab}>
+                      <TabsList className="grid w-full grid-cols-2 h-16">
+                          <TabsTrigger value="imovel" className="flex flex-col gap-1 h-full">
+                              <Home className="w-6 h-6 text-[#009de1]" />
+                              <span className="text-xs">Imóvel</span>
+                          </TabsTrigger>
+                          <TabsTrigger value="veiculo" className="flex flex-col gap-1 h-full">
+                              <Car className="w-6 h-6 text-[#009de1]" />
+                              <span className="text-xs">Veículo</span>
+                          </TabsTrigger>
+                      </TabsList>
+                      <TabsContent value="imovel" className="mt-4">
+                          <SimulationForm type="imovel" />
+                      </TabsContent>
+                      <TabsContent value="veiculo" className="mt-4">
+                          <SimulationForm type="veiculo" />
+                      </TabsContent>
+                  </Tabs>
+               </div>
             </div>
-            
-             <div className="relative">
-                 <Tabs defaultValue="imovel" className="w-full max-w-md mx-auto" onValueChange={setActiveTab}>
-                    <TabsList className="grid w-full grid-cols-2 h-16">
-                        <TabsTrigger value="imovel" className="flex flex-col gap-1 h-full">
-                            <Home className="w-6 h-6 text-[#009de1]" />
-                            <span className="text-xs">Imóvel</span>
-                        </TabsTrigger>
-                        <TabsTrigger value="veiculo" className="flex flex-col gap-1 h-full">
-                            <Car className="w-6 h-6 text-[#009de1]" />
-                            <span className="text-xs">Veículo</span>
-                        </TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="imovel" className="mt-4">
-                        <SimulationForm type="imovel" />
-                    </TabsContent>
-                    <TabsContent value="veiculo" className="mt-4">
-                        <SimulationForm type="veiculo" />
-                    </TabsContent>
-                </Tabs>
-             </div>
         </div>
     </section>
   )
