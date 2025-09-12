@@ -1,10 +1,10 @@
 {
   "simulationBgImovel": {
-    "url": "https://picsum.photos/seed/house/1920/1080",
+    "url": "/img/slide2-carrossel-home.jpg",
     "hint": "modern house"
   },
   "simulationBgVeiculo": {
-    "url": "https://picsum.photos/seed/road/1920/1080",
+    "url": "/img/slide1-carrossel-home.jpg",
     "hint": "car road"
   }
 }
