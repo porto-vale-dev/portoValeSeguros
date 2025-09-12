@@ -21,7 +21,7 @@ export default function AboutUs() {
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src="https://picsum.photos/seed/office/600/400"
+              src="/img/porto vale.png"
               width={600}
               height={400}
               alt="Equipe da Porto Vale"
