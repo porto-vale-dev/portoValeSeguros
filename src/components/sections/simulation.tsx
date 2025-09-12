@@ -9,8 +9,11 @@ import { Label } from '@/components/ui/label'
 import { Slider } from '@/components/ui/slider'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Car, Home } from 'lucide-react'
-import imovelBg from '@/assets/slide2-carrossel-home.jpg';
-import veiculoBg from '@/assets/slide1-carrossel-home.jpg';
+
+// Image paths are now direct URL paths from the `public` directory.
+const imovelBgPath = '/img/slide2-carrossel-home.jpg';
+const veiculoBgPath = '/img/slide1-carrossel-home.jpg';
+
 
 function SimulationForm({ type }: { type: 'imovel' | 'veiculo' }) {
     const [amount, setAmount] = useState(type === 'imovel' ? 100000 : 30000);
@@ -94,17 +97,19 @@ export default function Simulation() {
     <section className="relative w-full py-20 md:py-32 lg:py-40 overflow-hidden">
         <div className="absolute inset-0 z-[-1]">
             <Image
-                src={imovelBg}
+                src={imovelBgPath}
                 alt="Background para simulação de imóvel"
                 fill
+                quality={100}
                 className={`object-cover transition-opacity duration-500 ${activeTab === 'imovel' ? 'opacity-100' : 'opacity-0'}`}
                 data-ai-hint="modern house"
                 priority
             />
              <Image
-                src={veiculoBg}
+                src={veiculoBgPath}
                 alt="Background para simulação de veículo"
                 fill
+                quality={100}
                 className={`object-cover transition-opacity duration-500 ${activeTab === 'veiculo' ? 'opacity-100' : 'opacity-0'}`}
                 data-ai-hint="car road"
                 priority
