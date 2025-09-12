@@ -118,15 +118,15 @@ export default function Hero() {
                  <Tabs defaultValue="imovel" className="w-full max-w-md mx-auto">
                     <TabsList className="grid w-full grid-cols-3 h-16">
                         <TabsTrigger value="imovel" className="flex flex-col gap-1 h-full">
-                            <Home className="w-6 h-6" />
+                            <Home className="w-6 h-6 text-[#009de1]" />
                             <span className="text-xs">Imóvel</span>
                         </TabsTrigger>
                         <TabsTrigger value="veiculo" className="flex flex-col gap-1 h-full">
-                            <Car className="w-6 h-6" />
+                            <Car className="w-6 h-6 text-[#009de1]" />
                             <span className="text-xs">Veículo</span>
                         </TabsTrigger>
                         <TabsTrigger value="financiamento" className="flex flex-col gap-1 h-full">
-                            <Landmark className="w-6 h-6" />
+                            <Landmark className="w-6 h-6 text-[#009de1]" />
                              <span className="text-xs">Financiamento</span>
                         </TabsTrigger>
                     </TabsList>
