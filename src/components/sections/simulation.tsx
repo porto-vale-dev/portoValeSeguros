@@ -9,7 +9,8 @@ import { Label } from '@/components/ui/label'
 import { Slider } from '@/components/ui/slider'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Car, Home } from 'lucide-react'
-import placeholderImages from '@/lib/placeholder-images.json';
+import imovelBg from '@/assets/slide2-carrossel-home.jpg';
+import veiculoBg from '@/assets/slide1-carrossel-home.jpg';
 
 function SimulationForm({ type }: { type: 'imovel' | 'veiculo' }) {
     const [amount, setAmount] = useState(type === 'imovel' ? 100000 : 30000);
@@ -93,19 +94,19 @@ export default function Simulation() {
     <section className="relative w-full py-20 md:py-32 lg:py-40 overflow-hidden">
         <div className="absolute inset-0 z-[-1]">
             <Image
-                src={placeholderImages.simulationBgImovel.url}
+                src={imovelBg}
                 alt="Background para simulação de imóvel"
                 fill
                 className={`object-cover transition-opacity duration-500 ${activeTab === 'imovel' ? 'opacity-100' : 'opacity-0'}`}
-                data-ai-hint={placeholderImages.simulationBgImovel.hint}
+                data-ai-hint="modern house"
                 priority
             />
              <Image
-                src={placeholderImages.simulationBgVeiculo.url}
+                src={veiculoBg}
                 alt="Background para simulação de veículo"
                 fill
                 className={`object-cover transition-opacity duration-500 ${activeTab === 'veiculo' ? 'opacity-100' : 'opacity-0'}`}
-                data-ai-hint={placeholderImages.simulationBgVeiculo.hint}
+                data-ai-hint="car road"
                 priority
             />
             <div className="absolute inset-0 bg-black/50" />
