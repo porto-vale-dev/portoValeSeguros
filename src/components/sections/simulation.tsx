@@ -109,7 +109,7 @@ export default function Simulation() {
                 alt="Background para simulação de veículo"
                 fill
                 quality={100}
-                className={`object-cover object-left-center transition-opacity duration-500 transform scale-90 ${activeTab === 'veiculo' ? 'opacity-100' : 'opacity-0'}`}
+                className={`object-cover object-left-center transition-opacity duration-500 transform scale-110 ${activeTab === 'veiculo' ? 'opacity-100' : 'opacity-0'}`}
                 data-ai-hint="car road"
                 priority
             />
