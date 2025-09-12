@@ -9,7 +9,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "#products", label: "Produtos" },
   { href: "#about", label: "Sobre Nós" },
   { href: "#faq", label: "Dúvidas" },
   { href: "#contact", label: "Contato" },
@@ -31,10 +30,10 @@ export default function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-sm shadow-md" : "bg-transparent"
+        isScrolled ? "bg-background/80 backdrop-blur-sm shadow-sm" : "bg-muted/20"
       )}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold">
           <Mountain className="h-6 w-6 text-primary" />
           <span className="text-lg font-semibold">Porto Vale</span>
@@ -51,8 +50,8 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-4">
-           <Button variant="outline" size="sm" asChild className="hidden md:flex">
-            <Link href="#contact">Comece Agora</Link>
+           <Button variant="outline" asChild>
+            <Link href="#contact">Simule Agora</Link>
           </Button>
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
@@ -89,7 +88,7 @@ export default function Header() {
                 </nav>
                  <div className="border-t p-4">
                     <Button asChild className="w-full">
-                       <Link href="#contact" onClick={() => setIsMenuOpen(false)}>Comece Agora</Link>
+                       <Link href="#contact" onClick={() => setIsMenuOpen(false)}>Simule Agora</Link>
                     </Button>
                  </div>
               </div>
