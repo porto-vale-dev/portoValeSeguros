@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Slider } from '@/components/ui/slider'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Car, Home, Landmark } from 'lucide-react'
+import { Car, Home } from 'lucide-react'
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 function SimulationForm({ type }: { type: 'imovel' | 'veiculo' }) {
     const [amount, setAmount] = useState(type === 'imovel' ? 100000 : 30000);
@@ -85,28 +87,56 @@ function SimulationForm({ type }: { type: 'imovel' | 'veiculo' }) {
 
 
 export default function Simulation() {
+    const [activeTab, setActiveTab] = useState('imovel');
+    const bgImovel = PlaceHolderImages.find(img => img.id === 'simulation-bg-imovel');
+    const bgVeiculo = PlaceHolderImages.find(img => img.id === 'simulation-bg-veiculo');
+
     return (
-    <section className="relative w-full bg-muted/20 py-20 md:py-32 lg:py-40">
-        <div className="container mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <section className="relative w-full py-20 md:py-32 lg:py-40 overflow-hidden">
+        <div className="absolute inset-0 z-[-1]">
+            {bgImovel && (
+                <Image
+                    src={bgImovel.imageUrl}
+                    alt={bgImovel.description}
+                    fill
+                    className={`object-cover transition-opacity duration-500 ${activeTab === 'imovel' ? 'opacity-100' : 'opacity-0'}`}
+                    data-ai-hint={bgImovel.imageHint}
+                    priority
+                />
+            )}
+            {bgVeiculo && (
+                 <Image
+                    src={bgVeiculo.imageUrl}
+                    alt={bgVeiculo.description}
+                    fill
+                    className={`object-cover transition-opacity duration-500 ${activeTab === 'veiculo' ? 'opacity-100' : 'opacity-0'}`}
+                    data-ai-hint={bgVeiculo.imageHint}
+                    priority
+                />
+            )}
+            <div className="absolute inset-0 bg-black/50" />
+        </div>
+
+        <div className="container mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
             <div className="space-y-6 text-center lg:text-left">
-                <h1 className="font-headline text-4xl font-bold tracking-tighter text-foreground sm:text-5xl md:text-6xl">
+                <h1 className="font-headline text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl">
                     Empréstimo com garantia, <span className="text-primary">fácil e rápido.</span>
                 </h1>
-                <p className="text-lg text-muted-foreground md:text-xl">
+                <p className="text-lg text-gray-200 md:text-xl">
                     Use seu imóvel ou veículo para conseguir as melhores taxas de juros do mercado. Dinheiro na sua conta em poucos dias.
                 </p>
                 <div className="flex gap-4 justify-center lg:justify-start">
                     <Button size="lg" asChild>
                         <a href="#contact">Simule agora</a>
                     </Button>
-                     <Button size="lg" variant="outline" asChild>
+                     <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white hover:text-black">
                         <a href="#about">Saiba mais</a>
                     </Button>
                 </div>
             </div>
             
              <div className="relative">
-                 <Tabs defaultValue="imovel" className="w-full max-w-md mx-auto">
+                 <Tabs defaultValue="imovel" className="w-full max-w-md mx-auto" onValueChange={setActiveTab}>
                     <TabsList className="grid w-full grid-cols-2 h-16">
                         <TabsTrigger value="imovel" className="flex flex-col gap-1 h-full">
                             <Home className="w-6 h-6 text-[#009de1]" />

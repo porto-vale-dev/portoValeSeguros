@@ -29,6 +29,18 @@
       "description": "Avatar for third testimonial",
       "imageUrl": "https://picsum.photos/seed/t3/100/100",
       "imageHint": "person portrait"
+    },
+    {
+      "id": "simulation-bg-imovel",
+      "description": "Background image for property loan simulation",
+      "imageUrl": "https://picsum.photos/seed/sim_imovel/1920/1080",
+      "imageHint": "modern house"
+    },
+    {
+      "id": "simulation-bg-veiculo",
+      "description": "Background image for vehicle loan simulation",
+      "imageUrl": "https://picsum.photos/seed/sim_veiculo/1920/1080",
+      "imageHint": "car road"
     }
   ]
 }
