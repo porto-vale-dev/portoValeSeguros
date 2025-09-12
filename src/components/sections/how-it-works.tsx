@@ -1,5 +1,7 @@
 import { FileText, Clock, CircleDollarSign, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const steps = [
   {
@@ -22,7 +24,7 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section className="w-full bg-secondary py-12 md:py-24 lg:py-32">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto flex flex-col items-center px-4 md:px-6">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Online rápido e descomplicado
@@ -44,6 +46,11 @@ export default function HowItWorks() {
               )}
             </div>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <Button asChild size="lg">
+            <Link href="#contact">Simule agora</Link>
+          </Button>
         </div>
       </div>
     </section>
