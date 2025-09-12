@@ -19,11 +19,10 @@ export default function AboutUs() {
               </p>
             </div>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="relative h-full min-h-[300px] w-full lg:min-h-full">
             <Image
               src="/img/porto vale.png"
-              width={600}
-              height={400}
+              fill
               alt="Equipe da Porto Vale"
               className="overflow-hidden rounded-xl object-cover"
               data-ai-hint="office meeting"
