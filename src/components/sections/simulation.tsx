@@ -109,7 +109,7 @@ export default function Simulation() {
                 alt="Background para simulação de veículo"
                 fill
                 quality={100}
-                className={`object-cover object-left-center transition-opacity duration-500 transform scale-110 ${activeTab === 'veiculo' ? 'opacity-100' : 'opacity-0'}`}
+                className={`object-cover object-top transition-opacity duration-500 transform scale-110 ${activeTab === 'veiculo' ? 'opacity-100' : 'opacity-0'}`}
                 data-ai-hint="car road"
                 priority
             />
@@ -130,11 +130,11 @@ export default function Simulation() {
                <Tabs defaultValue="imovel" className="w-full max-w-md" onValueChange={setActiveTab}>
                   <TabsList className="grid w-full grid-cols-2 h-16">
                       <TabsTrigger value="imovel" className="flex flex-col gap-1 h-full">
-                          <Home className="w-6 h-6 text-[#009de1]" />
+                          <Home className="w-6 h-6 text-primary" />
                           <span className="text-xs">Imóvel</span>
                       </TabsTrigger>
                       <TabsTrigger value="veiculo" className="flex flex-col gap-1 h-full">
-                          <Car className="w-6 h-6 text-[#009de1]" />
+                          <Car className="w-6 h-6 text-primary" />
                           <span className="text-xs">Veículo</span>
                       </TabsTrigger>
                   </TabsList>
