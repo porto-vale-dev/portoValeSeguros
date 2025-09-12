@@ -9,7 +9,7 @@ import { Slider } from '@/components/ui/slider'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Car, Home, Landmark } from 'lucide-react'
 
-function SimulationForm({ type }: { type: 'imovel' | 'veiculo' | 'financiamento' }) {
+function SimulationForm({ type }: { type: 'imovel' | 'veiculo' }) {
     const [amount, setAmount] = useState(type === 'imovel' ? 100000 : 30000);
 
     const formatCurrency = (value: number) => {
@@ -43,14 +43,6 @@ function SimulationForm({ type }: { type: 'imovel' | 'veiculo' | 'financiamento'
             sliderMax = 150000;
             sliderStep = 1000;
             break;
-        case 'financiamento':
-             title = 'Financiamento';
-             description = 'Financie seu imóvel ou veículo com as melhores condições.';
-            sliderMin = 10000;
-            sliderMax = 1000000;
-            sliderStep = 5000;
-            buttonText = 'Simular financiamento';
-            break;
     }
 
 
@@ -82,11 +74,10 @@ function SimulationForm({ type }: { type: 'imovel' | 'veiculo' | 'financiamento'
                         onValueChange={(value) => setAmount(value[0])}
                     />
                 </div>
-                {type !== 'financiamento' && (
-                    <Button size="lg" className="w-full h-12 text-lg">
-                        {buttonText}
-                    </Button>
-                )}
+                
+                <Button size="lg" className="w-full h-12 text-lg">
+                    {buttonText}
+                </Button>
             </CardContent>
         </Card>
     );
@@ -116,7 +107,7 @@ export default function Hero() {
             
              <div className="relative">
                  <Tabs defaultValue="imovel" className="w-full max-w-md mx-auto">
-                    <TabsList className="grid w-full grid-cols-3 h-16">
+                    <TabsList className="grid w-full grid-cols-2 h-16">
                         <TabsTrigger value="imovel" className="flex flex-col gap-1 h-full">
                             <Home className="w-6 h-6 text-[#009de1]" />
                             <span className="text-xs">Imóvel</span>
@@ -125,19 +116,12 @@ export default function Hero() {
                             <Car className="w-6 h-6 text-[#009de1]" />
                             <span className="text-xs">Veículo</span>
                         </TabsTrigger>
-                        <TabsTrigger value="financiamento" className="flex flex-col gap-1 h-full">
-                            <Landmark className="w-6 h-6 text-[#009de1]" />
-                             <span className="text-xs">Financiamento</span>
-                        </TabsTrigger>
                     </TabsList>
                     <TabsContent value="imovel" className="mt-4">
                         <SimulationForm type="imovel" />
                     </TabsContent>
                     <TabsContent value="veiculo" className="mt-4">
                         <SimulationForm type="veiculo" />
-                    </TabsContent>
-                     <TabsContent value="financiamento" className="mt-4">
-                        <SimulationForm type="financiamento" />
                     </TabsContent>
                 </Tabs>
              </div>
