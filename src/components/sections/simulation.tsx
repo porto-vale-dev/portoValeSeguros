@@ -84,7 +84,7 @@ function SimulationForm({ type }: { type: 'imovel' | 'veiculo' }) {
 }
 
 
-export default function Hero() {
+export default function Simulation() {
     return (
     <section className="relative w-full bg-muted/20 py-20 md:py-32 lg:py-40">
         <div className="container mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-16 items-center">

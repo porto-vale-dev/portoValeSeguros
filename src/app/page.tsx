@@ -1,5 +1,5 @@
 import Header from "@/components/layout/header";
-import Hero from "@/components/sections/hero";
+import Simulation from "@/components/sections/simulation";
 import LoanTypes from "@/components/sections/loan-types";
 import HowItWorks from "@/components/sections/how-it-works";
 import AboutUs from "@/components/sections/about-us";
@@ -13,7 +13,7 @@ export default function Home() {
     <div className="flex min-h-screen w-full flex-col bg-muted/20">
       <Header />
       <main className="flex-1">
-        <Hero />
+        <Simulation />
         <LoanTypes />
         <HowItWorks />
         <AboutUs />
