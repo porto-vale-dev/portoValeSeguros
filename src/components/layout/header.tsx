@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "#about", label: "Sobre Nós" },
   { href: "#faq", label: "Dúvidas" },
-  { href: "#contact", label: "Contato" },
 ];
 
 export default function Header() {
@@ -38,18 +37,19 @@ export default function Header() {
           <Mountain className="h-6 w-6 text-primary" />
           <span className="text-lg font-semibold">Porto Vale</span>
         </Link>
-        <nav className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        
         <div className="flex items-center gap-4">
+          <nav className="hidden items-center gap-6 md:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
            <Button asChild>
             <Link href="#contact">Simule Agora</Link>
           </Button>
@@ -85,6 +85,13 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
+                   <Link
+                      href="#contact"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="rounded-md px-3 py-2 text-base font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
+                    >
+                      Contato
+                    </Link>
                 </nav>
                  <div className="border-t p-4">
                     <Button asChild className="w-full">
