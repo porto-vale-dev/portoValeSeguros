@@ -117,16 +117,16 @@ export default function Simulation() {
         </div>
 
         <div className="container mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
-            <div className="space-y-6 text-center">
+            <div className="space-y-6 text-left">
                 <h1 className="font-headline text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl">
                     Empréstimo com garantia, <span className="text-primary">fácil e rápido.</span>
                 </h1>
-                <p className="max-w-[600px] text-lg text-gray-200 md:text-xl mx-auto">
+                <p className="max-w-[600px] text-lg text-gray-200 md:text-xl">
                     Use seu imóvel ou veículo para conseguir as melhores taxas de juros do mercado. Dinheiro na sua conta em poucos dias.
                 </p>
             </div>
               
-            <div className="relative w-full flex justify-center lg:justify-start">
+            <div className="relative w-full flex justify-center lg:justify-end">
                <Tabs defaultValue="imovel" className="w-full max-w-md" onValueChange={setActiveTab}>
                   <TabsList className="grid w-full grid-cols-2 h-16">
                       <TabsTrigger value="imovel" className="flex flex-col gap-1 h-full">
