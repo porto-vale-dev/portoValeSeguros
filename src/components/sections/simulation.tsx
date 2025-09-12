@@ -10,8 +10,8 @@ import { Slider } from '@/components/ui/slider'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Car, Home } from 'lucide-react'
 
-const imovelBgPath = '/img/slide1-carrossel-home.jpg';
-const veiculoBgPath = '/img/slide1-carrossel-home.jpg';
+const imovelBgPath = '/img/slide2-carrossel-home.jpg';
+const veiculoBgPath = '/img/slide2-carrossel-home.jpg';
 
 
 function SimulationForm({ type }: { type: 'imovel' | 'veiculo' }) {
@@ -100,7 +100,7 @@ export default function Simulation() {
                 alt="Background para simulação de imóvel"
                 fill
                 quality={100}
-                className={`object-cover transition-opacity duration-500 ${activeTab === 'imovel' ? 'opacity-100' : 'opacity-0'}`}
+                className={`object-cover object-center transition-opacity duration-500 ${activeTab === 'imovel' ? 'opacity-100' : 'opacity-0'}`}
                 data-ai-hint="modern house"
                 priority
             />
@@ -109,24 +109,24 @@ export default function Simulation() {
                 alt="Background para simulação de veículo"
                 fill
                 quality={100}
-                className={`object-cover transition-opacity duration-500 ${activeTab === 'veiculo' ? 'opacity-100' : 'opacity-0'}`}
+                className={`object-cover object-center transition-opacity duration-500 ${activeTab === 'veiculo' ? 'opacity-100' : 'opacity-0'}`}
                 data-ai-hint="car road"
                 priority
             />
             <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        <div className="container mx-auto px-4 md:px-6 grid lg:grid-cols-5 gap-16 items-center relative z-10">
-            <div className="lg:col-span-3 space-y-6 text-center lg:text-left">
+        <div className="container mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div className="space-y-6 text-center">
                 <h1 className="font-headline text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl">
                     Empréstimo com garantia, <span className="text-primary">fácil e rápido.</span>
                 </h1>
-                <p className="max-w-[600px] text-lg text-gray-200 md:text-xl mx-auto lg:mx-0">
+                <p className="max-w-[600px] text-lg text-gray-200 md:text-xl mx-auto">
                     Use seu imóvel ou veículo para conseguir as melhores taxas de juros do mercado. Dinheiro na sua conta em poucos dias.
                 </p>
             </div>
               
-            <div className="lg:col-span-2 relative w-full flex justify-center lg:justify-end">
+            <div className="relative w-full flex justify-center lg:justify-start">
                <Tabs defaultValue="imovel" className="w-full max-w-md" onValueChange={setActiveTab}>
                   <TabsList className="grid w-full grid-cols-2 h-16">
                       <TabsTrigger value="imovel" className="flex flex-col gap-1 h-full">
