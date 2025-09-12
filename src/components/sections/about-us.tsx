@@ -19,7 +19,7 @@ export default function AboutUs() {
               </p>
             </div>
           </div>
-          <div className="relative h-full min-h-[300px] w-full lg:min-h-full">
+          <div className="relative mx-auto h-full min-h-[300px] w-full max-w-lg lg:max-w-none lg:min-h-full">
             <Image
               src="/img/porto vale.png"
               fill
