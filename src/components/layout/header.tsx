@@ -50,7 +50,7 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-4">
-           <Button variant="outline" asChild>
+           <Button asChild>
             <Link href="#contact">Simule Agora</Link>
           </Button>
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
