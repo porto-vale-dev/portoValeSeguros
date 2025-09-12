@@ -80,6 +80,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image: url('/img/bg.png');
+    background-repeat: repeat;
   }
   html {
     scroll-behavior: smooth;
