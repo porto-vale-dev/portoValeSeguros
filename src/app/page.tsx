@@ -5,7 +5,6 @@ import HowItWorks from "@/components/sections/how-it-works";
 import AboutUs from "@/components/sections/about-us";
 import Testimonials from "@/components/sections/testimonials";
 import Faq from "@/components/sections/faq";
-import Contact from "@/components/sections/contact";
 import Footer from "@/components/layout/footer";
 
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
         <AboutUs />
         <Testimonials />
         <Faq />
-        <Contact />
       </main>
       <Footer />
     </div>
