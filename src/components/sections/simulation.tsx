@@ -17,8 +17,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { simulateCredit } from "@/app/actions";
-import imovelBg from '@/assets/images/siled1-carrossel-home.jpg';
-import veiculoBg from '@/assets/images/siled2-carrossel-home.jpg';
 
 
 type LoanType = 'imovel' | 'veiculo';
@@ -51,6 +49,10 @@ const states = [
   { value: "SP", label: "São Paulo" }, { value: "SE", label: "Sergipe" }, { value: "TO", label: "Tocantins" }
 ];
 
+const backgroundImages = {
+  imovel: 'https://picsum.photos/seed/imovel/1280/720',
+  veiculo: 'https://picsum.photos/seed/veiculo/1280/720'
+};
 
 function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoanType: (type: LoanType) => void; }) {
     const { toast } = useToast();
@@ -252,7 +254,9 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
 export default function Simulation() {
     const [loanType, setLoanType] = useState<LoanType>('imovel');
     
-    const bgImage = loanType === 'imovel' ? imovelBg : veiculoBg;
+    const bgImage = backgroundImages[loanType];
+    const dataAiHint = loanType === 'imovel' ? 'modern house' : 'new car';
+
 
     return (
     <section className="relative w-full overflow-hidden">
@@ -265,7 +269,7 @@ export default function Simulation() {
                 quality={100}
                 className="object-cover object-center"
                 priority
-                
+                data-ai-hint={dataAiHint}
             />
             <div className="absolute inset-0 bg-black/50" />
         </div>
