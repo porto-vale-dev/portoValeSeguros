@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -17,6 +17,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { simulateCredit } from "@/app/actions";
+import imovelBg from '@/assets/images/siled1-carrossel-home.jpg';
+import veiculoBg from '@/assets/images/siled2-carrossel-home.jpg';
+
 
 type LoanType = 'imovel' | 'veiculo';
 
@@ -249,9 +252,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
 export default function Simulation() {
     const [loanType, setLoanType] = useState<LoanType>('imovel');
     
-    const bgImage = loanType === 'imovel' 
-      ? '/img/siled1-carrossel-home.jpg'
-      : '/img/siled2-carrossel-home.jpg';
+    const bgImage = loanType === 'imovel' ? imovelBg : veiculoBg;
 
     return (
     <section className="relative w-full overflow-hidden">
@@ -264,6 +265,7 @@ export default function Simulation() {
                 quality={100}
                 className="object-cover object-center"
                 priority
+                placeholder="blur"
             />
             <div className="absolute inset-0 bg-black/50" />
         </div>

@@ -34,9 +34,14 @@ const nextConfig: NextConfig = {
     config.module.rules.push({
       test: /\.(jpe?g|png|gif|svg)$/i,
       type: 'asset/resource',
+      generator: {
+        filename: 'static/chunks/[path][name].[hash][ext]',
+      },
     });
     return config;
   },
 };
 
 export default nextConfig;
+
+    
