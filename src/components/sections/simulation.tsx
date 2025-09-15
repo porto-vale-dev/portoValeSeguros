@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Loader2 } from 'lucide-react';
+import { Loader2, Home, Car } from 'lucide-react';
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
@@ -17,7 +17,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { simulateCredit } from "@/app/actions";
-import placeholderImages from '@/lib/placeholder-images.json';
 
 type LoanType = 'imovel' | 'veiculo';
 
@@ -68,8 +67,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
         },
     });
 
-    const { watch } = form;
-    const { isSubmitting } = form.formState;
+    const { watch, formState: { isSubmitting } } = form;
 
     const watchedPrazo = watch('prazo', prazoMaximo);
 
@@ -161,8 +159,12 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
             <CardContent className="p-0">
               <Tabs value={loanType} onValueChange={handleLoanTypeChange} className="w-full">
                 <TabsList className="grid w-full grid-cols-2 h-16 rounded-t-lg rounded-b-none">
-                  <TabsTrigger value="imovel" className="h-full text-lg">Garantia de Imóvel</TabsTrigger>
-                  <TabsTrigger value="veiculo" className="h-full text-lg">Garantia de Veículo</TabsTrigger>
+                  <TabsTrigger value="imovel" className="h-full text-lg gap-2">
+                    <Home /> Imóvel
+                  </TabsTrigger>
+                  <TabsTrigger value="veiculo" className="h-full text-lg gap-2">
+                    <Car /> Veículo
+                  </TabsTrigger>
                 </TabsList>
                 <div className="p-6">
                   <Form {...form}>
@@ -248,20 +250,19 @@ export default function Simulation() {
     const [loanType, setLoanType] = useState<LoanType>('imovel');
     
     const bgImage = loanType === 'imovel' 
-      ? placeholderImages.simulationBgImovel 
-      : placeholderImages.simulationBgVeiculo;
+      ? '/img/siled1-carrossel-home.jpg'
+      : '/img/siled2-carrossel-home.jpg';
 
     return (
     <section className="relative w-full overflow-hidden">
         <div className="absolute inset-0 z-[-1]">
             <Image
                 key={loanType}
-                src={bgImage.url}
+                src={bgImage}
                 alt={`Background para simulação de ${loanType}`}
                 fill
                 quality={100}
                 className="object-cover object-center"
-                data-ai-hint={bgImage.hint}
                 priority
             />
             <div className="absolute inset-0 bg-black/50" />
