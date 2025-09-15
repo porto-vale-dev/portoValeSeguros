@@ -14,16 +14,20 @@ import { Label } from '@/components/ui/label'
 import { Slider } from '@/components/ui/slider'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { simulateCredit } from "@/app/actions";
 import placeholderImages from '@/lib/placeholder-images.json';
 
+type LoanType = 'imovel' | 'veiculo';
+
 const formSchema = z.object({
-  valorImovel: z.string().min(1, "Campo obrigatório"),
+  valorBem: z.string().min(1, "Campo obrigatório"),
   valorDesejado: z.string().min(1, "Campo obrigatório"),
   estado: z.string().min(1, "Selecione um estado"),
   tipoCredito: z.string(),
-  prazo: z.number().min(36).max(240),
+  prazo: z.number().min(12).max(240),
+  tipoGarantia: z.enum(['imovel', 'veiculo'])
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -46,27 +50,51 @@ const states = [
 ];
 
 
-function SimulationForm() {
+function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoanType: (type: LoanType) => void; }) {
     const { toast } = useToast();
     const [resultado, setResultado] = useState<SimulationResult | null>(null);
+
+    const prazoMaximo = loanType === 'imovel' ? 240 : 60;
 
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            valorImovel: "",
+            valorBem: "",
             valorDesejado: "",
             estado: "",
             tipoCredito: "Pessoa Física",
-            prazo: 240,
+            prazo: prazoMaximo,
+            tipoGarantia: loanType,
         },
     });
+
+    const { watch } = form;
     const { isSubmitting } = form.formState;
 
+    const watchedPrazo = watch('prazo', prazoMaximo);
+
+    const handleLoanTypeChange = (value: string) => {
+      const newLoanType = value as LoanType;
+      setLoanType(newLoanType);
+      const newPrazoMaximo = newLoanType === 'imovel' ? 240 : 60;
+      form.reset({
+        ...form.getValues(),
+        tipoGarantia: newLoanType,
+        prazo: newPrazoMaximo
+      });
+    };
+
     const formatCurrency = (value: number | string) => {
+        let numericValue = 0;
         if (typeof value === 'string') {
-            value = parseFloat(value.replace(/\D/g, '')) / 100;
+            numericValue = parseFloat(value.replace(/\D/g, '')) / 100;
+        } else {
+            numericValue = value;
         }
-        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+        
+        if (isNaN(numericValue)) return "";
+
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(numericValue);
     }
     
     const handleCurrencyChange = (e: React.ChangeEvent<HTMLInputElement>, field: any) => {
@@ -78,9 +106,12 @@ function SimulationForm() {
       try {
         const numericValues = {
             ...values,
-            valorImovel: parseFloat(values.valorImovel),
+            valorImovel: values.tipoGarantia === 'imovel' ? parseFloat(values.valorBem) : undefined,
+            valorVeiculo: values.tipoGarantia === 'veiculo' ? parseFloat(values.valorBem) : undefined,
             valorDesejado: parseFloat(values.valorDesejado),
         }
+        delete (numericValues as any).valorBem;
+
         const result = await simulateCredit(numericValues);
         if (result.success && result.data) {
           setResultado(result.data);
@@ -117,7 +148,7 @@ function SimulationForm() {
               <p className="text-3xl font-bold text-primary">R$ {resultado.parcelaFinal}</p>
             </div>
             <p className="text-sm text-muted-foreground">Taxa de juros: {resultado.taxaJuros}</p>
-            <Button size="lg" className="w-full" onClick={() => setResultado(null)}>
+            <Button size="lg" className="w-full" onClick={() => { setResultado(null); form.reset(); }}>
               Fazer Nova Simulação
             </Button>
           </CardContent>
@@ -127,98 +158,110 @@ function SimulationForm() {
 
     return (
         <Card className="w-full max-w-md shadow-2xl">
-            <CardHeader>
-                <CardTitle className="text-center">Simulação de Crédito</CardTitle>
-            </CardHeader>
-            <CardContent className="p-6">
-                <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                        <FormField control={form.control} name="valorImovel" render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Valor do imóvel</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="R$ 0,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={field.value ? formatCurrency(field.value) : ""} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}/>
-                        <FormField control={form.control} name="valorDesejado" render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Valor desejado</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="R$ 0,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={field.value ? formatCurrency(field.value) : ""}/>
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}/>
-                         <FormField control={form.control} name="estado" render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Estado</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                    <FormControl>
-                                        <SelectTrigger>
-                                            <SelectValue placeholder="Selecione o estado" />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent>
-                                        {states.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}/>
-                        <FormField control={form.control} name="tipoCredito" render={({ field }) => (
+            <CardContent className="p-0">
+              <Tabs value={loanType} onValueChange={handleLoanTypeChange} className="w-full">
+                <TabsList className="grid w-full grid-cols-2 h-16 rounded-t-lg rounded-b-none">
+                  <TabsTrigger value="imovel" className="h-full text-lg">Garantia de Imóvel</TabsTrigger>
+                  <TabsTrigger value="veiculo" className="h-full text-lg">Garantia de Veículo</TabsTrigger>
+                </TabsList>
+                <div className="p-6">
+                  <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                          <FormField control={form.control} name="valorBem" render={({ field }) => (
+                              <FormItem>
+                                  <FormLabel>{loanType === 'imovel' ? 'Valor do imóvel' : 'Valor do veículo'}</FormLabel>
+                                  <FormControl>
+                                      <Input placeholder="R$ 0,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)} />
+                                  </FormControl>
+                                  <FormMessage />
+                              </FormItem>
+                          )}/>
+                          <FormField control={form.control} name="valorDesejado" render={({ field }) => (
+                              <FormItem>
+                                  <FormLabel>Valor desejado</FormLabel>
+                                  <FormControl>
+                                      <Input placeholder="R$ 0,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)}/>
+                                  </FormControl>
+                                  <FormMessage />
+                              </FormItem>
+                          )}/>
+                           <FormField control={form.control} name="estado" render={({ field }) => (
+                              <FormItem>
+                                  <FormLabel>Estado</FormLabel>
+                                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                      <FormControl>
+                                          <SelectTrigger>
+                                              <SelectValue placeholder="Selecione o estado" />
+                                          </SelectTrigger>
+                                      </FormControl>
+                                      <SelectContent>
+                                          {states.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
+                                      </SelectContent>
+                                  </Select>
+                                  <FormMessage />
+                              </FormItem>
+                          )}/>
+                          <FormField control={form.control} name="tipoCredito" render={({ field }) => (
+                               <FormItem>
+                                  <FormLabel>Crédito para:</FormLabel>
+                                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                      <FormControl>
+                                          <SelectTrigger>
+                                              <SelectValue />
+                                          </SelectTrigger>
+                                      </FormControl>
+                                      <SelectContent>
+                                          <SelectItem value="Pessoa Física">Pessoa Física</SelectItem>
+                                          <SelectItem value="Pessoa Jurídica">Pessoa Jurídica</SelectItem>
+                                      </SelectContent>
+                                  </Select>
+                                  <FormMessage />
+                              </FormItem>
+                          )}/>
+                          <FormField control={form.control} name="prazo" render={({ field }) => (
                              <FormItem>
-                                <FormLabel>Crédito para:</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                    <FormControl>
-                                        <SelectTrigger>
-                                            <SelectValue />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent>
-                                        <SelectItem value="Pessoa Física">Pessoa Física</SelectItem>
-                                        <SelectItem value="Pessoa Jurídica">Pessoa Jurídica</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}/>
-                        <FormField control={form.control} name="prazo" render={({ field }) => (
-                           <FormItem>
-                                <FormLabel>Prazo: {field.value} meses</FormLabel>
-                                <FormControl>
-                                    <Slider
-                                        min={36}
-                                        max={240}
-                                        step={12}
-                                        value={[field.value]}
-                                        onValueChange={(vals) => field.onChange(vals[0])}
-                                    />
-                                </FormControl>
-                           </FormItem>
-                        )}/>
-                        <Button type="submit" size="lg" className="w-full h-12 text-lg" disabled={isSubmitting}>
-                            {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Simular agora"}
-                        </Button>
-                    </form>
-                </Form>
+                                  <FormLabel>Prazo: {field.value} meses</FormLabel>
+                                  <FormControl>
+                                      <Slider
+                                          min={12}
+                                          max={prazoMaximo}
+                                          step={12}
+                                          value={[field.value]}
+                                          onValueChange={(vals) => field.onChange(vals[0])}
+                                      />
+                                  </FormControl>
+                             </FormItem>
+                          )}/>
+                          <Button type="submit" size="lg" className="w-full h-12 text-lg" disabled={isSubmitting}>
+                              {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Simular agora"}
+                          </Button>
+                      </form>
+                  </Form>
+                </div>
+              </Tabs>
             </CardContent>
         </Card>
     );
 }
 
 export default function Simulation() {
+    const [loanType, setLoanType] = useState<LoanType>('imovel');
+    
+    const bgImage = loanType === 'imovel' 
+      ? placeholderImages.simulationBgImovel 
+      : placeholderImages.simulationBgVeiculo;
+
     return (
     <section className="relative w-full overflow-hidden">
         <div className="absolute inset-0 z-[-1]">
             <Image
-                src={placeholderImages.simulationBgImovel.url}
-                alt="Background para simulação de imóvel"
+                key={loanType}
+                src={bgImage.url}
+                alt={`Background para simulação de ${loanType}`}
                 fill
                 quality={100}
-                className="object-cover object-left-top transform scale-110"
-                data-ai-hint={placeholderImages.simulationBgImovel.hint}
+                className="object-cover object-center"
+                data-ai-hint={bgImage.hint}
                 priority
             />
             <div className="absolute inset-0 bg-black/50" />
@@ -235,7 +278,7 @@ export default function Simulation() {
             </div>
               
             <div className="relative w-full flex justify-center lg:justify-end">
-               <SimulationForm />
+               <SimulationForm loanType={loanType} setLoanType={setLoanType} />
             </div>
         </div>
     </section>
