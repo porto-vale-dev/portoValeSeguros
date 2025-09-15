@@ -47,11 +47,6 @@ export default function HowItWorks() {
             </div>
           ))}
         </div>
-        <div className="mt-12 text-center">
-          <Button asChild size="lg">
-            <Link href="#contact">Simule agora</Link>
-          </Button>
-        </div>
       </div>
     </section>
   );

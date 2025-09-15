@@ -6,6 +6,7 @@ import AboutUs from "@/components/sections/about-us";
 import Testimonials from "@/components/sections/testimonials";
 import Faq from "@/components/sections/faq";
 import Footer from "@/components/layout/footer";
+import Contact from "@/components/sections/contact";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <AboutUs />
         <Testimonials />
         <Faq />
+        <Contact />
       </main>
       <Footer />
     </div>

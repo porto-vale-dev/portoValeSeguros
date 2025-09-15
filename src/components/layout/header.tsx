@@ -84,13 +84,6 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
-                   <Link
-                      href="#contact"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="rounded-md px-3 py-2 text-base font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
-                    >
-                      Contato
-                    </Link>
                 </nav>
                  <div className="border-t p-4">
                     <Button asChild className="w-full">
