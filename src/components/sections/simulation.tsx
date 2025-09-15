@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -48,11 +49,6 @@ const states = [
   { value: "RO", label: "Rondônia" }, { value: "RR", label: "Roraima" }, { value: "SC", label: "Santa Catarina" }, 
   { value: "SP", label: "São Paulo" }, { value: "SE", label: "Sergipe" }, { value: "TO", label: "Tocantins" }
 ];
-
-const backgroundImages = {
-  imovel: 'https://picsum.photos/seed/imovel/1280/720',
-  veiculo: 'https://picsum.photos/seed/veiculo/1280/720'
-};
 
 function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoanType: (type: LoanType) => void; }) {
     const { toast } = useToast();
@@ -254,12 +250,12 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
 export default function Simulation() {
     const [loanType, setLoanType] = useState<LoanType>('imovel');
     
-    const bgImage = backgroundImages[loanType];
+    const bgImage = loanType === 'imovel' ? '/img/slide1-carrossel-home.jpg' : '/img/slide2-carrossel-home.jpg';
     const dataAiHint = loanType === 'imovel' ? 'modern house' : 'new car';
 
 
     return (
-    <section className="relative w-full overflow-hidden">
+    <section id="contact" className="relative w-full overflow-hidden">
         <div className="absolute inset-0 z-[-1]">
             <Image
                 key={loanType}
@@ -291,3 +287,5 @@ export default function Simulation() {
     </section>
   )
 }
+
+    
