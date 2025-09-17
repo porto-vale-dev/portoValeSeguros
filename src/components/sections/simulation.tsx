@@ -218,147 +218,147 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
     }
 
     return (
-        <Card className="w-full max-w-md shadow-2xl">
-            <CardContent className="p-0">
-              <Tabs value={loanType} onValueChange={handleLoanTypeChange} className="w-full">
-                 <TabsList className="grid w-full grid-cols-2 h-16 rounded-t-lg rounded-b-none">
-                  <TabsTrigger value="imovel" className="h-full text-lg gap-2" disabled={step === 2}>
-                    <Home /> Imóvel
-                  </TabsTrigger>
-                  <TabsTrigger value="veiculo" className="h-full text-lg gap-2" disabled={step === 2}>
-                    <Car /> Veículo
-                  </TabsTrigger>
-                </TabsList>
-                <div className="p-6">
-                  <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                          {step === 1 && (
-                            <>
-                              <FormField control={form.control} name="valorBem" render={({ field }) => (
+      <Card className="w-full max-w-md shadow-2xl">
+          <CardContent className="p-0">
+            <Tabs value={loanType} onValueChange={handleLoanTypeChange} className="w-full">
+                <TabsList className="grid w-full grid-cols-2 h-16 rounded-t-lg rounded-b-none">
+                <TabsTrigger value="imovel" className="h-full text-lg gap-2" disabled={step === 2}>
+                  <Home /> Imóvel
+                </TabsTrigger>
+                <TabsTrigger value="veiculo" className="h-full text-lg gap-2" disabled={step === 2}>
+                  <Car /> Veículo
+                </TabsTrigger>
+              </TabsList>
+              <div className="p-6">
+                <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                        {step === 1 && (
+                          <>
+                            <FormField control={form.control} name="valorBem" render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>{loanType === 'imovel' ? 'Valor do imóvel' : 'Valor do veículo'}</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder={loanType === 'imovel' ? "R$ 250.000,00" : "R$ 20.000,00"} {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}/>
+                            <FormField control={form.control} name="valorDesejado" render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Valor desejado</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="R$ 50.000,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)}/>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}/>
+                            <FormField control={form.control} name="renda" render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Renda mensal</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="R$ 4.000,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)}/>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}/>
+                              <FormField control={form.control} name="estado" render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Estado</FormLabel>
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder="Selecione o estado" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            {states.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
+                                        </SelectContent>
+                                    </Select>
+                                    <FormMessage />
+                                </FormItem>
+                            )}/>
+                            <FormField control={form.control} name="tipoCredito" render={({ field }) => (
                                   <FormItem>
-                                      <FormLabel>{loanType === 'imovel' ? 'Valor do imóvel' : 'Valor do veículo'}</FormLabel>
-                                      <FormControl>
-                                          <Input placeholder={loanType === 'imovel' ? "R$ 250.000,00" : "R$ 20.000,00"} {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)} />
-                                      </FormControl>
-                                      <FormMessage />
-                                  </FormItem>
-                              )}/>
-                              <FormField control={form.control} name="valorDesejado" render={({ field }) => (
-                                  <FormItem>
-                                      <FormLabel>Valor desejado</FormLabel>
-                                      <FormControl>
-                                          <Input placeholder="R$ 50.000,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)}/>
-                                      </FormControl>
-                                      <FormMessage />
-                                  </FormItem>
-                              )}/>
-                              <FormField control={form.control} name="renda" render={({ field }) => (
-                                  <FormItem>
-                                      <FormLabel>Renda mensal</FormLabel>
-                                      <FormControl>
-                                          <Input placeholder="R$ 4.000,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)}/>
-                                      </FormControl>
-                                      <FormMessage />
-                                  </FormItem>
-                              )}/>
-                               <FormField control={form.control} name="estado" render={({ field }) => (
-                                  <FormItem>
-                                      <FormLabel>Estado</FormLabel>
-                                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                          <FormControl>
-                                              <SelectTrigger>
-                                                  <SelectValue placeholder="Selecione o estado" />
-                                              </SelectTrigger>
-                                          </FormControl>
-                                          <SelectContent>
-                                              {states.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
-                                          </SelectContent>
-                                      </Select>
-                                      <FormMessage />
-                                  </FormItem>
-                              )}/>
-                              <FormField control={form.control} name="tipoCredito" render={({ field }) => (
-                                   <FormItem>
-                                      <FormLabel>Crédito para:</FormLabel>
-                                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                          <FormControl>
-                                              <SelectTrigger>
-                                                  <SelectValue />
-                                              </SelectTrigger>
-                                          </FormControl>
-                                          <SelectContent>
-                                              <SelectItem value="Pessoa Física">Pessoa Física</SelectItem>
-                                              <SelectItem value="Pessoa Jurídica">Pessoa Jurídica</SelectItem>
-                                          </SelectContent>
-                                      </Select>
-                                      <FormMessage />
-                                  </FormItem>
-                              )}/>
-                              <FormField control={form.control} name="prazo" render={({ field }) => (
-                                 <FormItem>
-                                      <FormLabel>Prazo: {field.value} meses</FormLabel>
-                                      <FormControl>
-                                          <Slider
-                                              min={12}
-                                              max={prazoMaximo}
-                                              step={12}
-                                              value={[field.value]}
-                                              onValueChange={(vals) => field.onChange(vals[0])}
-                                          />
-                                      </FormControl>
-                                 </FormItem>
-                              )}/>
-                              <Button type="button" size="lg" className="w-full h-12 text-lg" onClick={handleNextStep}>
-                                  Avançar
-                              </Button>
-                            </>
-                          )}
+                                    <FormLabel>Crédito para:</FormLabel>
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            <SelectItem value="Pessoa Física">Pessoa Física</SelectItem>
+                                            <SelectItem value="Pessoa Jurídica">Pessoa Jurídica</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                    <FormMessage />
+                                </FormItem>
+                            )}/>
+                            <FormField control={form.control} name="prazo" render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Prazo: {field.value} meses</FormLabel>
+                                    <FormControl>
+                                        <Slider
+                                            min={12}
+                                            max={prazoMaximo}
+                                            step={12}
+                                            value={[field.value]}
+                                            onValueChange={(vals) => field.onChange(vals[0])}
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}/>
+                            <Button type="button" size="lg" className="w-full h-12 text-lg" onClick={handleNextStep}>
+                                Avançar
+                            </Button>
+                          </>
+                        )}
 
-                          {step === 2 && (
-                            <>
-                                <FormField control={form.control} name="nome" render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Nome Completo</FormLabel>
-                                        <FormControl>
-                                            <Input placeholder="Seu nome" {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}/>
-                                 <FormField control={form.control} name="email" render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>E-mail</FormLabel>
-                                        <FormControl>
-                                            <Input placeholder="seuemail@exemplo.com" {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}/>
-                                <FormField control={form.control} name="telefone" render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Telefone / WhatsApp</FormLabel>
-                                        <FormControl>
-                                            <Input placeholder="(00) 90000-0000" {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}/>
-                                <div className="flex gap-4">
-                                  <Button type="button" variant="outline" className="w-1/3" onClick={() => setStep(1)}>
-                                      <ArrowLeft className="mr-2" /> Voltar
-                                  </Button>
-                                  <Button type="submit" size="lg" className="w-2/3 h-12 text-lg" disabled={isSubmitting}>
-                                      {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Simular agora"}
-                                  </Button>
-                                </div>
-                            </>
-                          )}
-                      </form>
-                  </Form>
-                </div>
-              </Tabs>
-            </CardContent>
-        </Card>
+                        {step === 2 && (
+                          <>
+                              <FormField control={form.control} name="nome" render={({ field }) => (
+                                  <FormItem>
+                                      <FormLabel>Nome Completo</FormLabel>
+                                      <FormControl>
+                                          <Input placeholder="Seu nome" {...field} />
+                                      </FormControl>
+                                      <FormMessage />
+                                  </FormItem>
+                              )}/>
+                                <FormField control={form.control} name="email" render={({ field }) => (
+                                  <FormItem>
+                                      <FormLabel>E-mail</FormLabel>
+                                      <FormControl>
+                                          <Input placeholder="email@exemplo.com" {...field} />
+                                      </FormControl>
+                                      <FormMessage />
+                                  </FormItem>
+                              )}/>
+                              <FormField control={form.control} name="telefone" render={({ field }) => (
+                                  <FormItem>
+                                      <FormLabel>Telefone / WhatsApp</FormLabel>
+                                      <FormControl>
+                                          <Input placeholder="(00) 90000-0000" {...field} />
+                                      </FormControl>
+                                      <FormMessage />
+                                  </FormItem>
+                              )}/>
+                              <div className="flex gap-4">
+                                <Button type="button" variant="outline" className="w-1/3" onClick={() => setStep(1)}>
+                                    <ArrowLeft className="mr-2" /> Voltar
+                                </Button>
+                                <Button type="submit" size="lg" className="w-2/3 h-12 text-lg" disabled={isSubmitting}>
+                                    {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Simular agora"}
+                                </Button>
+                              </div>
+                          </>
+                        )}
+                    </form>
+                </Form>
+              </div>
+            </Tabs>
+          </CardContent>
+      </Card>
     );
 }
 
@@ -402,5 +402,9 @@ export default function Simulation() {
     </section>
   )
 }
+
+    
+
+    
 
     
