@@ -29,11 +29,11 @@ const testimonials = [
   },
   {
     id: 'testimonial-3',
-    name: 'Emily R.',
-    role: 'Autônoma',
-    text: 'Consegui o capital de giro que precisava com ótimas condições. A equipe de suporte foi incrivelmente prestativa e atenciosa.',
-    imageUrl: 'https://picsum.photos/seed/t3/100/100',
-    imageHint: 'person portrait',
+    name: 'Daniel Barcelos Silva',
+    role: '',
+    text: 'O consultor foi muito paciente e atencioso. Respondeu a todas as dúvidas com muita educação e esteve disponível a todo tempo para a interação, sem ser intrusivo. Destaco que a negociação ocorreu num período fora do horário comercial e ainda assim foi bem-sucedida.',
+    imageUrl: '',
+    imageHint: '',
   },
 ];
 
@@ -76,7 +76,7 @@ export default function Testimonials() {
                               </Avatar>
                             <div>
                               <p className="font-semibold">{testimonial.name}</p>
-                              <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                              {testimonial.role && <p className="text-sm text-muted-foreground">{testimonial.role}</p>}
                             </div>
                           </div>
                         </CardContent>
