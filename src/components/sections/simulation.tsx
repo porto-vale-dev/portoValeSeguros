@@ -185,6 +185,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
               <p className="text-3xl font-bold text-primary">R$ {resultado.parcelaFinal}</p>
             </div>
             <p className="text-sm text-muted-foreground">Taxa de juros: {resultado.taxaJuros}</p>
+            <p className="text-xs text-muted-foreground">Esses valores são uma simulação com base em uma taxa média. Por isso, estão sujeitos a mudanças após a análise de crédito pela equipe Porto Vale.</p>
             <Button size="lg" className="w-full" onClick={resetForm}>
               Fazer Nova Simulação
             </Button>
