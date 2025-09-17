@@ -24,6 +24,22 @@ export async function simulateCredit(data: any) {
     console.log("New credit simulation:", data);
   
     try {
+      // Enviar dados para o webhook
+      try {
+        const webhookUrl = 'https://n8n.portovaleconsorcio.com.br/webhook-test/8cf18544-6e51-4f72-b5df-91f59cf7b08d';
+        await fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        console.log("Webhook sent successfully.");
+      } catch (webhookError) {
+        console.error("Error sending webhook:", webhookError);
+        // Não interrompa o fluxo principal se o webhook falhar
+      }
+
       // 1. Salvar dados no Firestore (simulação)
       // Em um app real, você descomentaria esta parte
       /*
