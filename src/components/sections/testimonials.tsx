@@ -12,22 +12,6 @@ import { Button } from '../ui/button';
 
 const testimonials = [
   {
-    id: 'testimonial-1',
-    name: 'Sarah J.',
-    role: 'Dona de Pequena Empresa',
-    text: 'A assessoria da Porto Vale foi um divisor de águas para a expansão do meu negócio! Encontraram a melhor solução de crédito para mim.',
-    imageUrl: 'https://picsum.photos/seed/t1/100/100',
-    imageHint: 'person portrait',
-  },
-  {
-    id: 'testimonial-2',
-    name: 'Michael B.',
-    role: 'Comprador de Imóvel',
-    text: 'As opções de financiamento eram claras e o processo foi rápido. Estamos em nossa nova casa graças à Porto Vale.',
-    imageUrl: 'https://picsum.photos/seed/t2/100/100',
-    imageHint: 'person portrait',
-  },
-  {
     id: 'testimonial-3',
     name: 'Daniel Barcelos Silva',
     role: '',
