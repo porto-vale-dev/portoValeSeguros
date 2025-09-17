@@ -92,7 +92,7 @@ export default function Testimonials() {
         </div>
         <div className="mt-12 text-center">
             <Button asChild size="lg">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0TEkzLKk0KTAxYLRSNaiwNElONkk0NDUxSrQwSLJMszKosEgxtDCzTDE0SzY2N0pNNPUSLcgvKslXKEvMSVVIzs8rzi9KzswvBgBMlBdt&q=porto+vale+consorcios&rlz=1C1GCEU_pt-BRBR1162BR1163&oq=porto+vale&gs_lcrp=EgZjaHJvbWUqEAgBEC4YrwEYxwEYgAQYjgUyDggAEEUYJxg5GIAEGIoFMhAIARAuGK8BGMcBGIAEGI4FMgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEIMjY5NWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x94cc4a1542a80b9f:0x8d1869d16c372ea5,1,,,," target="_blank" rel="noopener noreferrer">
                     Deixe sua Avaliação no Google
                 </a>
             </Button>
