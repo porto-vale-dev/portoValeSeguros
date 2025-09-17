@@ -26,6 +26,10 @@ const formSchema = z.object({
   // Step 1
   valorBem: z.string().min(1, "Campo obrigatório"),
   valorDesejado: z.string().min(1, "Campo obrigatório"),
+  renda: z.string().min(1, "Campo obrigatório").refine((val) => {
+    const numericValue = parseFloat(val.replace(/\D/g, '')) / 100;
+    return numericValue >= 4000;
+  }, { message: "A renda mínima deve ser de R$ 4.000,00" }),
   estado: z.string().min(1, "Selecione um estado"),
   tipoCredito: z.string(),
   prazo: z.number().min(12).max(240),
@@ -69,6 +73,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
             // Step 1
             valorBem: "",
             valorDesejado: "",
+            renda: "",
             estado: "",
             tipoCredito: "Pessoa Física",
             prazo: prazoMaximo,
@@ -116,7 +121,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
     }
     
     const handleNextStep = async () => {
-        const fieldsToValidate: (keyof FormValues)[] = ['valorBem', 'valorDesejado', 'estado'];
+        const fieldsToValidate: (keyof FormValues)[] = ['valorBem', 'valorDesejado', 'renda', 'estado'];
         const isValid = await trigger(fieldsToValidate);
         if (isValid) {
             setStep(2);
@@ -130,6 +135,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
             valorImovel: values.tipoGarantia === 'imovel' ? parseFloat(values.valorBem.replace(/\D/g, '') || '0') / 100 : undefined,
             valorVeiculo: values.tipoGarantia === 'veiculo' ? parseFloat(values.valorBem.replace(/\D/g, '') || '0') / 100 : undefined,
             valorDesejado: parseFloat(values.valorDesejado.replace(/\D/g, '') || '0') / 100,
+            renda: parseFloat(values.renda.replace(/\D/g, '') || '0') / 100,
         }
         delete (numericValues as any).valorBem;
 
@@ -157,6 +163,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
       form.reset({
         valorBem: "",
         valorDesejado: "",
+        renda: "",
         estado: "",
         tipoCredito: "Pessoa Física",
         prazo: prazoMaximo,
@@ -185,7 +192,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
               <p className="text-3xl font-bold text-primary">R$ {resultado.parcelaFinal}</p>
             </div>
             <p className="text-sm text-muted-foreground">Taxa de juros: {resultado.taxaJuros}</p>
-            <p className="text-xs text-muted-foreground">Esses valores são uma simulação com base em uma taxa média. Por isso, estão sujeitos a mudanças após a análise de crédito pela equipe Porto Vale.</p>
+            <p className="text-xs text-muted-foreground">Esses valores são uma simulação com base em uma taxa média. Por isso, estão sujeitos a mudanças após a análise de crédito pela nossa equipe.</p>
             <Button size="lg" className="w-full" onClick={resetForm}>
               Fazer Nova Simulação
             </Button>
@@ -225,6 +232,15 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
                                       <FormLabel>Valor desejado</FormLabel>
                                       <FormControl>
                                           <Input placeholder="R$ 0,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)}/>
+                                      </FormControl>
+                                      <FormMessage />
+                                  </FormItem>
+                              )}/>
+                              <FormField control={form.control} name="renda" render={({ field }) => (
+                                  <FormItem>
+                                      <FormLabel>Renda mensal</FormLabel>
+                                      <FormControl>
+                                          <Input placeholder="R$ 4.000,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)}/>
                                       </FormControl>
                                       <FormMessage />
                                   </FormItem>
@@ -370,7 +386,3 @@ export default function Simulation() {
     </section>
   )
 }
-
-    
-
-    
