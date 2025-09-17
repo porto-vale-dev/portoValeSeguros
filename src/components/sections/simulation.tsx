@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Loader2, Home, Car } from 'lucide-react';
+import { Loader2, Home, Car, ArrowLeft } from 'lucide-react';
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
@@ -23,13 +23,19 @@ import { simulateCredit } from "@/app/actions";
 type LoanType = 'imovel' | 'veiculo';
 
 const formSchema = z.object({
+  // Step 1
   valorBem: z.string().min(1, "Campo obrigatório"),
   valorDesejado: z.string().min(1, "Campo obrigatório"),
   estado: z.string().min(1, "Selecione um estado"),
   tipoCredito: z.string(),
   prazo: z.number().min(12).max(240),
-  tipoGarantia: z.enum(['imovel', 'veiculo'])
+  tipoGarantia: z.enum(['imovel', 'veiculo']),
+  // Step 2
+  nome: z.string().min(2, "Nome é obrigatório."),
+  email: z.string().email("E-mail inválido."),
+  telefone: z.string().min(10, "Telefone é obrigatório.")
 });
+
 
 type FormValues = z.infer<typeof formSchema>;
 type SimulationResult = {
@@ -53,22 +59,28 @@ const states = [
 function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoanType: (type: LoanType) => void; }) {
     const { toast } = useToast();
     const [resultado, setResultado] = useState<SimulationResult | null>(null);
+    const [step, setStep] = useState(1);
 
     const prazoMaximo = loanType === 'imovel' ? 240 : 60;
 
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
+            // Step 1
             valorBem: "",
             valorDesejado: "",
             estado: "",
             tipoCredito: "Pessoa Física",
             prazo: prazoMaximo,
             tipoGarantia: loanType,
+            // Step 2
+            nome: "",
+            email: "",
+            telefone: "",
         },
     });
 
-    const { watch, formState: { isSubmitting } } = form;
+    const { watch, trigger, formState: { isSubmitting } } = form;
 
     const watchedPrazo = watch('prazo', prazoMaximo);
 
@@ -81,6 +93,8 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
         tipoGarantia: newLoanType,
         prazo: newPrazoMaximo
       });
+      setStep(1); // Reset to step 1 on tab change
+      setResultado(null);
     };
 
     const formatCurrency = (value: number | string) => {
@@ -100,6 +114,14 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
         const value = e.target.value.replace(/\D/g, '');
         field.onChange(value);
     }
+    
+    const handleNextStep = async () => {
+        const fieldsToValidate: (keyof FormValues)[] = ['valorBem', 'valorDesejado', 'estado'];
+        const isValid = await trigger(fieldsToValidate);
+        if (isValid) {
+            setStep(2);
+        }
+    };
 
     async function onSubmit(values: FormValues) {
       try {
@@ -130,6 +152,12 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
       }
     }
     
+    const resetForm = () => {
+      setResultado(null);
+      form.reset();
+      setStep(1);
+    }
+
     if (resultado) {
       return (
         <Card className="w-full max-w-md shadow-2xl">
@@ -147,7 +175,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
               <p className="text-3xl font-bold text-primary">R$ {resultado.parcelaFinal}</p>
             </div>
             <p className="text-sm text-muted-foreground">Taxa de juros: {resultado.taxaJuros}</p>
-            <Button size="lg" className="w-full" onClick={() => { setResultado(null); form.reset(); }}>
+            <Button size="lg" className="w-full" onClick={resetForm}>
               Fazer Nova Simulação
             </Button>
           </CardContent>
@@ -159,85 +187,129 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
         <Card className="w-full max-w-md shadow-2xl">
             <CardContent className="p-0">
               <Tabs value={loanType} onValueChange={handleLoanTypeChange} className="w-full">
-                <TabsList className="grid w-full grid-cols-2 h-16 rounded-t-lg rounded-b-none">
-                  <TabsTrigger value="imovel" className="h-full text-lg gap-2">
+                 <TabsList className="grid w-full grid-cols-2 h-16 rounded-t-lg rounded-b-none">
+                  <TabsTrigger value="imovel" className="h-full text-lg gap-2" disabled={step === 2}>
                     <Home /> Imóvel
                   </TabsTrigger>
-                  <TabsTrigger value="veiculo" className="h-full text-lg gap-2">
+                  <TabsTrigger value="veiculo" className="h-full text-lg gap-2" disabled={step === 2}>
                     <Car /> Veículo
                   </TabsTrigger>
                 </TabsList>
                 <div className="p-6">
                   <Form {...form}>
                       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                          <FormField control={form.control} name="valorBem" render={({ field }) => (
-                              <FormItem>
-                                  <FormLabel>{loanType === 'imovel' ? 'Valor do imóvel' : 'Valor do veículo'}</FormLabel>
-                                  <FormControl>
-                                      <Input placeholder="R$ 0,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)} />
-                                  </FormControl>
-                                  <FormMessage />
-                              </FormItem>
-                          )}/>
-                          <FormField control={form.control} name="valorDesejado" render={({ field }) => (
-                              <FormItem>
-                                  <FormLabel>Valor desejado</FormLabel>
-                                  <FormControl>
-                                      <Input placeholder="R$ 0,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)}/>
-                                  </FormControl>
-                                  <FormMessage />
-                              </FormItem>
-                          )}/>
-                           <FormField control={form.control} name="estado" render={({ field }) => (
-                              <FormItem>
-                                  <FormLabel>Estado</FormLabel>
-                                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          {step === 1 && (
+                            <>
+                              <FormField control={form.control} name="valorBem" render={({ field }) => (
+                                  <FormItem>
+                                      <FormLabel>{loanType === 'imovel' ? 'Valor do imóvel' : 'Valor do veículo'}</FormLabel>
                                       <FormControl>
-                                          <SelectTrigger>
-                                              <SelectValue placeholder="Selecione o estado" />
-                                          </SelectTrigger>
+                                          <Input placeholder="R$ 0,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)} />
                                       </FormControl>
-                                      <SelectContent>
-                                          {states.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
-                                      </SelectContent>
-                                  </Select>
-                                  <FormMessage />
-                              </FormItem>
-                          )}/>
-                          <FormField control={form.control} name="tipoCredito" render={({ field }) => (
-                               <FormItem>
-                                  <FormLabel>Crédito para:</FormLabel>
-                                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                      <FormMessage />
+                                  </FormItem>
+                              )}/>
+                              <FormField control={form.control} name="valorDesejado" render={({ field }) => (
+                                  <FormItem>
+                                      <FormLabel>Valor desejado</FormLabel>
                                       <FormControl>
-                                          <SelectTrigger>
-                                              <SelectValue />
-                                          </SelectTrigger>
+                                          <Input placeholder="R$ 0,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)}/>
                                       </FormControl>
-                                      <SelectContent>
-                                          <SelectItem value="Pessoa Física">Pessoa Física</SelectItem>
-                                          <SelectItem value="Pessoa Jurídica">Pessoa Jurídica</SelectItem>
-                                      </SelectContent>
-                                  </Select>
-                                  <FormMessage />
-                              </FormItem>
-                          )}/>
-                          <FormField control={form.control} name="prazo" render={({ field }) => (
-                             <FormItem>
-                                  <FormLabel>Prazo: {field.value} meses</FormLabel>
-                                  <FormControl>
-                                      <Slider
-                                          min={12}
-                                          max={prazoMaximo}
-                                          step={12}
-                                          value={[field.value]}
-                                          onValueChange={(vals) => field.onChange(vals[0])}
-                                      />
-                                  </FormControl>
-                             </FormItem>
-                          )}/>
-                          <Button type="submit" size="lg" className="w-full h-12 text-lg" disabled={isSubmitting}>
-                              {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Simular agora"}
-                          </Button>
+                                      <FormMessage />
+                                  </FormItem>
+                              )}/>
+                               <FormField control={form.control} name="estado" render={({ field }) => (
+                                  <FormItem>
+                                      <FormLabel>Estado</FormLabel>
+                                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                          <FormControl>
+                                              <SelectTrigger>
+                                                  <SelectValue placeholder="Selecione o estado" />
+                                              </SelectTrigger>
+                                          </FormControl>
+                                          <SelectContent>
+                                              {states.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
+                                          </SelectContent>
+                                      </Select>
+                                      <FormMessage />
+                                  </FormItem>
+                              )}/>
+                              <FormField control={form.control} name="tipoCredito" render={({ field }) => (
+                                   <FormItem>
+                                      <FormLabel>Crédito para:</FormLabel>
+                                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                          <FormControl>
+                                              <SelectTrigger>
+                                                  <SelectValue />
+                                              </SelectTrigger>
+                                          </FormControl>
+                                          <SelectContent>
+                                              <SelectItem value="Pessoa Física">Pessoa Física</SelectItem>
+                                              <SelectItem value="Pessoa Jurídica">Pessoa Jurídica</SelectItem>
+                                          </SelectContent>
+                                      </Select>
+                                      <FormMessage />
+                                  </FormItem>
+                              )}/>
+                              <FormField control={form.control} name="prazo" render={({ field }) => (
+                                 <FormItem>
+                                      <FormLabel>Prazo: {field.value} meses</FormLabel>
+                                      <FormControl>
+                                          <Slider
+                                              min={12}
+                                              max={prazoMaximo}
+                                              step={12}
+                                              value={[field.value]}
+                                              onValueChange={(vals) => field.onChange(vals[0])}
+                                          />
+                                      </FormControl>
+                                 </FormItem>
+                              )}/>
+                              <Button type="button" size="lg" className="w-full h-12 text-lg" onClick={handleNextStep}>
+                                  Avançar
+                              </Button>
+                            </>
+                          )}
+
+                          {step === 2 && (
+                            <>
+                                <FormField control={form.control} name="nome" render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Nome Completo</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="Seu nome" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}/>
+                                 <FormField control={form.control} name="email" render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>E-mail</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="seuemail@exemplo.com" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}/>
+                                <FormField control={form.control} name="telefone" render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Telefone / WhatsApp</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="(00) 90000-0000" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}/>
+                                <div className="flex gap-4">
+                                  <Button type="button" variant="outline" className="w-1/3" onClick={() => setStep(1)}>
+                                      <ArrowLeft className="mr-2" /> Voltar
+                                  </Button>
+                                  <Button type="submit" size="lg" className="w-2/3 h-12 text-lg" disabled={isSubmitting}>
+                                      {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Simular agora"}
+                                  </Button>
+                                </div>
+                            </>
+                          )}
                       </form>
                   </Form>
                 </div>
@@ -267,7 +339,7 @@ export default function Simulation() {
                 priority
                 data-ai-hint={dataAiHint}
             />
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-black/60" />
         </div>
 
         <div className="container mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10 py-20 md:py-32 lg:py-40">
@@ -287,3 +359,5 @@ export default function Simulation() {
     </section>
   )
 }
+
+    

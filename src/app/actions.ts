@@ -59,3 +59,5 @@ export async function simulateCredit(data: any) {
       return { success: false, error: "Não foi possível realizar a simulação. Tente novamente." };
     }
 }
+
+    
