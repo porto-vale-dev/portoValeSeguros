@@ -101,7 +101,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
         let numericValue = 0;
         if (typeof value === 'string') {
             numericValue = parseFloat(value.replace(/\D/g, '')) / 100;
-        } else {
+        } else if (typeof value === 'number') {
             numericValue = value;
         }
         
@@ -127,9 +127,9 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
       try {
         const numericValues = {
             ...values,
-            valorImovel: values.tipoGarantia === 'imovel' ? parseFloat(values.valorBem) : undefined,
-            valorVeiculo: values.tipoGarantia === 'veiculo' ? parseFloat(values.valorBem) : undefined,
-            valorDesejado: parseFloat(values.valorDesejado),
+            valorImovel: values.tipoGarantia === 'imovel' ? parseFloat(values.valorBem.replace(/\D/g, '') || '0') / 100 : undefined,
+            valorVeiculo: values.tipoGarantia === 'veiculo' ? parseFloat(values.valorBem.replace(/\D/g, '') || '0') / 100 : undefined,
+            valorDesejado: parseFloat(values.valorDesejado.replace(/\D/g, '') || '0') / 100,
         }
         delete (numericValues as any).valorBem;
 
@@ -154,7 +154,17 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
     
     const resetForm = () => {
       setResultado(null);
-      form.reset();
+      form.reset({
+        valorBem: "",
+        valorDesejado: "",
+        estado: "",
+        tipoCredito: "Pessoa Física",
+        prazo: prazoMaximo,
+        tipoGarantia: loanType,
+        nome: "",
+        email: "",
+        telefone: "",
+      });
       setStep(1);
     }
 
@@ -359,5 +369,7 @@ export default function Simulation() {
     </section>
   )
 }
+
+    
 
     
