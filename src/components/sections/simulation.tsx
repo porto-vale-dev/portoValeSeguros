@@ -218,10 +218,10 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
     }
 
     return (
-      <Card className="w-full max-w-md shadow-2xl">
-          <CardContent className="p-0">
-            <Tabs value={loanType} onValueChange={handleLoanTypeChange} className="w-full">
-                <TabsList className="grid w-full grid-cols-2 h-16 rounded-t-lg rounded-b-none">
+        <Card className="w-full max-w-md shadow-2xl">
+            <CardContent className="p-0">
+              <Tabs value={loanType} onValueChange={handleLoanTypeChange} className="w-full">
+                 <TabsList className="grid w-full grid-cols-2 h-16 rounded-t-lg rounded-b-none">
                 <TabsTrigger value="imovel" className="h-full text-lg gap-2" disabled={step === 2}>
                   <Home /> Imóvel
                 </TabsTrigger>
@@ -336,9 +336,9 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
                               )}/>
                               <FormField control={form.control} name="telefone" render={({ field }) => (
                                   <FormItem>
-                                      <FormLabel>Telefone / WhatsApp</FormLabel>
+                                      <FormLabel>WhatsApp</FormLabel>
                                       <FormControl>
-                                          <Input placeholder="(00) 90000-0000" {...field} />
+                                          <Input placeholder="(99) 99999-9999" {...field} />
                                       </FormControl>
                                       <FormMessage />
                                   </FormItem>
@@ -358,7 +358,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
               </div>
             </Tabs>
           </CardContent>
-      </Card>
+        </Card>
     );
 }
 
@@ -402,9 +402,3 @@ export default function Simulation() {
     </section>
   )
 }
-
-    
-
-    
-
-    
