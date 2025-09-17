@@ -238,7 +238,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
                                   <FormItem>
                                       <FormLabel>{loanType === 'imovel' ? 'Valor do imóvel' : 'Valor do veículo'}</FormLabel>
                                       <FormControl>
-                                          <Input placeholder="R$ 0,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)} />
+                                          <Input placeholder={loanType === 'imovel' ? "R$ 250.000,00" : "R$ 20.000,00"} {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)} />
                                       </FormControl>
                                       <FormMessage />
                                   </FormItem>
