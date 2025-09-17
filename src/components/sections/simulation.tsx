@@ -38,6 +38,17 @@ const formSchema = z.object({
   nome: z.string().min(2, "Nome é obrigatório."),
   email: z.string().email("E-mail inválido."),
   telefone: z.string().min(10, "Telefone é obrigatório.")
+}).superRefine((data, ctx) => {
+  if (data.tipoGarantia === 'imovel') {
+    const numericValue = parseFloat(data.valorBem.replace(/\D/g, '')) / 100;
+    if (numericValue < 250000) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['valorBem'],
+        message: 'O valor mínimo para imóvel é de R$ 250.000,00',
+      });
+    }
+  }
 });
 
 
