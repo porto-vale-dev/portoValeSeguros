@@ -25,7 +25,10 @@ type LoanType = 'imovel' | 'veiculo';
 const formSchema = z.object({
   // Step 1
   valorBem: z.string().min(1, "Campo obrigatório"),
-  valorDesejado: z.string().min(1, "Campo obrigatório"),
+  valorDesejado: z.string().min(1, "Campo obrigatório").refine((val) => {
+    const numericValue = parseFloat(val.replace(/\D/g, '')) / 100;
+    return numericValue >= 50000;
+  }, { message: "O valor mínimo desejado é de R$ 50.000,00" }),
   renda: z.string().min(1, "Campo obrigatório").refine((val) => {
     const numericValue = parseFloat(val.replace(/\D/g, '')) / 100;
     return numericValue >= 4000;
@@ -40,13 +43,15 @@ const formSchema = z.object({
   telefone: z.string().min(10, "Telefone é obrigatório.")
 }).superRefine((data, ctx) => {
   if (data.tipoGarantia === 'imovel') {
-    const numericValue = parseFloat(data.valorBem.replace(/\D/g, '')) / 100;
-    if (numericValue < 250000) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ['valorBem'],
-        message: 'O valor mínimo para imóvel é de R$ 250.000,00',
-      });
+    if (data.valorBem) {
+        const numericValue = parseFloat(data.valorBem.replace(/\D/g, '')) / 100;
+        if (numericValue < 250000) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ['valorBem'],
+            message: 'O valor mínimo para imóvel é de R$ 250.000,00',
+        });
+        }
     }
   }
 });
@@ -242,7 +247,7 @@ function SimulationForm({ loanType, setLoanType }: { loanType: LoanType; setLoan
                                   <FormItem>
                                       <FormLabel>Valor desejado</FormLabel>
                                       <FormControl>
-                                          <Input placeholder="R$ 0,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)}/>
+                                          <Input placeholder="R$ 50.000,00" {...field} onChange={(e) => handleCurrencyChange(e, field)} value={formatCurrency(field.value)}/>
                                       </FormControl>
                                       <FormMessage />
                                   </FormItem>
@@ -397,3 +402,5 @@ export default function Simulation() {
     </section>
   )
 }
+
+    
