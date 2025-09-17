@@ -35,6 +35,22 @@ const testimonials = [
     imageUrl: '',
     imageHint: '',
   },
+  {
+    id: 'testimonial-4',
+    name: 'Othon Monteiro',
+    role: '',
+    text: 'Olha desde o primeiro contato fui bem atendido pois a Sr (a) Carolina Martins Pessoal muito dedicada atenciosa ótima profissional meus parabéns pela profissional que vcs tem no time da Porto Seguro..... muito bem explicado ótima transparência passando muita confiança deixando o cliente sem dúvida parabéns',
+    imageUrl: '',
+    imageHint: '',
+  },
+  {
+    id: 'testimonial-5',
+    name: 'Alani Gardan',
+    role: '',
+    text: 'Acho a Porto excelente em todas as linhas. Recentemente, tive minha primeira experiência com a área de consórcios e, apesar de ter muitas dúvidas, fui atendida de forma impecável pelo consultor Renato Venerano, desde o início até a contratação. Além disso, ele tem realizado um pós-venda de excelência.',
+    imageUrl: '',
+    imageHint: '',
+  },
 ];
 
 export default function Testimonials() {
