@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Porto Vale | Início',
   description: 'Soluções de Crédito Inteligentes para um Futuro Financeiro Mais Brilhante',
   icons: {
-    icon: '/favicon.png',
+    icon: '/img/favicon.png',
   },
 };
 
