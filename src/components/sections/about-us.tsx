@@ -10,7 +10,7 @@ export default function AboutUs() {
             <div className="space-y-3">
                <span className="text-sm font-semibold uppercase tracking-wider text-primary">Sobre Nós</span>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Porto Vale Seguros
+                Porto Vale
               </h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Com vasta experiência no mercado de seguros, a Porto Vale se dedica a proteger o que é mais importante para você. Somos especialistas em encontrar as melhores soluções de seguro para o seu dia a dia.
