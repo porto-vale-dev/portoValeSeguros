@@ -16,8 +16,8 @@ export default function Home() {
     <div className="flex min-h-screen w-full flex-col bg-muted/20">
       <Header />
       <main className="flex-1">
-        <HeroBanner product={selectedProduct} />
         <Products onProductSelect={setSelectedProduct} selectedProduct={selectedProduct} />
+        <HeroBanner product={selectedProduct} />
         <AboutUs />
         <QuoteForm />
       </main>
