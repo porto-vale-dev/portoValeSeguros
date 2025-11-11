@@ -11,10 +11,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/", label: "Início" },
-  { href: "#about", label: "Sobre" },
-  { href: "#quote", label: "Simule Agora" },
-  { href: "#contact", label: "Contato" },
+  { href: "#", label: "Planos" },
+  { href: "#", label: "Vantagens" },
+  { href: "#", label: "Clientes" },
+  { href: "#", label: "Fale Conosco" },
 ];
 
 export default function Header() {
@@ -33,12 +33,12 @@ export default function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "bg-background/95 shadow-sm backdrop-blur-sm" : "bg-transparent"
+        isScrolled ? "bg-background/95 shadow-sm backdrop-blur-sm" : "bg-white"
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold">
-          <Image src="/img/Logo_PortoSeguro_Novo_Azul.png" alt="Porto Vale Seguros Logo" width={150} height={40} />
+          <Image src="/img/logo.png" alt="Porto Vale Seguros Logo" width={150} height={40} />
         </Link>
         
         <div className="flex items-center gap-4">
@@ -64,7 +64,7 @@ export default function Header() {
               <div className="flex h-full flex-col">
                  <div className="flex items-center justify-between border-b p-4">
                     <Link href="/" className="flex items-center gap-2 font-bold" onClick={() => setIsMenuOpen(false)}>
-                       <Image src="/img/Logo_PortoSeguro_Novo_Azul.png" alt="Porto Vale Seguros Logo" width={120} height={40} />
+                       <Image src="/img/logo.png" alt="Porto Vale Seguros Logo" width={120} height={40} />
                     </Link>
                     <SheetTrigger asChild>
                        <Button variant="ghost" size="icon">
