@@ -40,7 +40,7 @@ export default function HeroBanner({ product }: { product: Product }) {
           <h1 className="font-headline text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl drop-shadow-lg">
             Proteja o que<br/>mais importa com o Seguro Porto
           </h1>
-          <p className="font-headline text-2xl font-bold tracking-tight text-white/90 sm:text-3xl md:text-4xl drop-shadow-lg">
+          <p className="font-headline text-xl tracking-tight text-white/90 sm:text-2xl md:text-3xl drop-shadow-lg">
             {product.bannerTitle}
           </p>
           
