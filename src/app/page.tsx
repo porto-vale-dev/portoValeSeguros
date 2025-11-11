@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState } from 'react';
 import Header from "@/components/layout/header";
@@ -7,6 +6,7 @@ import HeroBanner from '@/components/sections/hero-banner';
 import Products from '@/components/sections/products';
 import AboutUs from '@/components/sections/about-us';
 import QuoteForm from '@/components/sections/quote-form';
+import OurInsurances from '@/components/sections/our-insurances';
 import { productsData, Product } from '@/lib/products-data';
 
 export default function Home() {
@@ -18,6 +18,7 @@ export default function Home() {
       <main className="flex-1">
         <Products onProductSelect={setSelectedProduct} selectedProduct={selectedProduct} />
         <HeroBanner product={selectedProduct} />
+        <OurInsurances />
         <AboutUs />
         <QuoteForm />
       </main>
