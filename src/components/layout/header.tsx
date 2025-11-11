@@ -11,10 +11,9 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "#", label: "Planos" },
-  { href: "#", label: "Vantagens" },
-  { href: "#", label: "Clientes" },
-  { href: "#", label: "Fale Conosco" },
+  { href: "#our-insurances", label: "Planos" },
+  { href: "#about-us", label: "Sobre Nós" },
+  { href: "#contact", label: "Fale Conosco" },
 ];
 
 export default function Header() {
@@ -60,18 +59,16 @@ export default function Header() {
                 <span className="sr-only">Abrir menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-xs bg-background">
+            <SheetContent side="right" className="w-full max-w-xs bg-background p-0">
               <div className="flex h-full flex-col">
                  <div className="flex items-center justify-between border-b p-4">
                     <Link href="/" className="flex items-center gap-2 font-bold" onClick={() => setIsMenuOpen(false)}>
                        <Image src="/img/logo.png" alt="Porto Vale Seguros Logo" width={120} height={40} />
                     </Link>
-                    <SheetTrigger asChild>
-                       <Button variant="ghost" size="icon">
-                        <X className="h-6 w-6" />
-                        <span className="sr-only">Fechar menu</span>
-                      </Button>
-                    </SheetTrigger>
+                    <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
+                      <X className="h-6 w-6" />
+                      <span className="sr-only">Fechar menu</span>
+                    </Button>
                 </div>
                 <nav className="flex flex-1 flex-col gap-4 p-4">
                   {navLinks.map((link) => (

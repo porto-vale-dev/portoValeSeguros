@@ -17,9 +17,8 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Links Rápidos</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="text-gray-300 hover:text-white">Planos</Link></li>
-              <li><Link href="#" className="text-gray-300 hover:text-white">Vantagens</Link></li>
-              <li><Link href="#" className="text-gray-300 hover:text-white">Clientes</Link></li>
+              <li><Link href="#our-insurances" className="text-gray-300 hover:text-white">Planos</Link></li>
+              <li><Link href="#about-us" className="text-gray-300 hover:text-white">Sobre Nós</Link></li>
               <li><Link href="#" className="text-gray-300 hover:text-white">Política de Privacidade</Link></li>
             </ul>
           </div>
