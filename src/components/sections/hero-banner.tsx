@@ -9,7 +9,7 @@ interface HeroBannerProps {
 
 export default function HeroBanner({ product }: HeroBannerProps) {
   return (
-    <section id="home" className="w-full py-12 md:py-20 lg:py-24">
+    <section id="home" className="w-full py-8">
        <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-stretch bg-gradient-to-br from-gray-900 to-[#001f3f] rounded-2xl shadow-2xl p-8 md:p-12 relative overflow-hidden">
           
