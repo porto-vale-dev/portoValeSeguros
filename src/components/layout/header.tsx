@@ -38,7 +38,7 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold">
-          <Image src="/img/porto-vale-logo.png" alt="Porto Vale Seguros Logo" width={150} height={40} />
+          <Image src="/img/Logo_PortoSeguro_Novo_Azul.png" alt="Porto Vale Seguros Logo" width={150} height={40} />
         </Link>
         
         <div className="flex items-center gap-4">
@@ -64,7 +64,7 @@ export default function Header() {
               <div className="flex h-full flex-col">
                  <div className="flex items-center justify-between border-b p-4">
                     <Link href="/" className="flex items-center gap-2 font-bold" onClick={() => setIsMenuOpen(false)}>
-                       <Image src="/img/porto-vale-logo.png" alt="Porto Vale Seguros Logo" width={120} height={40} />
+                       <Image src="/img/Logo_PortoSeguro_Novo_Azul.png" alt="Porto Vale Seguros Logo" width={120} height={40} />
                     </Link>
                     <SheetTrigger asChild>
                        <Button variant="ghost" size="icon">
