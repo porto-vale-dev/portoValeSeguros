@@ -13,21 +13,21 @@ export default function Products({ onProductSelect, selectedProduct }: ProductsP
   return (
     <section className="w-full bg-muted/40 py-3 md:py-4 lg:py-5 relative z-10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto grid max-w-2xl grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+        <div className="mx-auto grid max-w-2xl grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
           {productsData.map((product) => (
             <Card
               key={product.id}
               className={cn(
-                "flex flex-col text-center items-center cursor-pointer transition-all duration-300 transform hover:-translate-y-2",
+                "flex flex-col text-center items-center cursor-pointer transition-all duration-300 transform hover:-translate-y-1",
                 selectedProduct.id === product.id
                   ? 'bg-blue-600 text-white shadow-lg'
                   : 'bg-white hover:bg-blue-600 hover:text-white'
               )}
               onClick={() => onProductSelect(product)}
             >
-              <CardHeader className="flex flex-col items-center justify-center p-3">
-                <product.icon className="h-6 w-6 mb-1" />
-                <CardTitle className="text-sm md:text-base">{product.name}</CardTitle>
+              <CardHeader className="flex flex-col items-center justify-center p-2">
+                <product.icon className="h-4 w-4 mb-1" />
+                <CardTitle className="text-xs md:text-sm font-medium">{product.name}</CardTitle>
               </CardHeader>
             </Card>
           ))}
