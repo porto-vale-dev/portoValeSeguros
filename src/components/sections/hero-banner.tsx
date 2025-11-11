@@ -38,7 +38,7 @@ export default function HeroBanner({ product }: { product: Product }) {
           animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut", delay: 0.3 } }}
         >
           <h1 className="font-headline text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl drop-shadow-lg">
-            Proteja o que<br/>mais importa com o Seguro Porto
+            Proteja o que<br/>mais importa com a Porto
           </h1>
           <p className="font-headline text-xl tracking-tight text-white/90 sm:text-2xl md:text-3xl drop-shadow-lg">
             {product.bannerTitle}
