@@ -14,7 +14,7 @@ export default function Products({ onProductSelect, selectedProduct }: ProductsP
   return (
     <section className="w-full bg-muted/40 py-12 md:py-16 lg:py-20 -mt-16 relative z-10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+        <div className="mx-auto grid max-w-2xl grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {productsData.map((product) => (
             <Card
               key={product.id}
