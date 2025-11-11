@@ -2,7 +2,7 @@
 "use client";
 import React from 'react';
 import { productsData, Product } from '@/lib/products-data';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
 interface ProductsProps {
@@ -12,7 +12,7 @@ interface ProductsProps {
 
 export default function Products({ onProductSelect, selectedProduct }: ProductsProps) {
   return (
-    <section className="w-full bg-muted/40 py-12 md:py-16 lg:py-20 -mt-16 relative z-10">
+    <section className="w-full bg-muted/40 py-6 md:py-8 lg:py-10 -mt-16 relative z-10">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto grid max-w-2xl grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {productsData.map((product) => (
