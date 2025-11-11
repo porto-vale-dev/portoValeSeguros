@@ -1,9 +1,10 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Porto Seguro | Cotação de Seguros',
+  title: 'Porto Vale Seguros | Cotação de Seguros',
   description: 'Soluções de Seguro Inteligentes para um Futuro Mais Seguro',
   icons: {
     icon: '/img/favicon.png',

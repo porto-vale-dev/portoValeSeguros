@@ -1,24 +1,5 @@
+
 "use server";
-
-import { db } from '@/lib/firebase';
-import { addDoc, collection } from 'firebase/firestore';
-
-export async function submitContactForm(data: { name: string; email: string; message: string; }) {
-    console.log("New contact form submission:", data);
-    // In a real application, you would add logic here to send an email,
-    // save to a database, or integrate with a CRM.
-    
-    // Simulate network delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Simulate a potential error
-    if (data.email.includes("error")) {
-        throw new Error("Simulated server error.");
-    }
-
-    console.log("Contact form processed successfully.");
-    return { success: true, message: "Message received!" };
-}
 
 export async function submitQuoteForm(data: any) {
     console.log("New quote submission:", data);
@@ -41,7 +22,7 @@ export async function submitQuoteForm(data: any) {
       }
       
       // Simular delay da rede
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise(resolve => setTimeout(resolve, 1000));
   
       return { success: true, message: "Cotação enviada com sucesso! Em breve entraremos em contato." };
   

@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,9 +15,9 @@
     --primary-foreground: 0 0% 100%;
     --secondary: 220 13% 91%;
     --secondary-foreground: 240 10% 3.9%;
-    --muted: 220 13% 91%;
+    --muted: 220 14% 96%;
     --muted-foreground: 240 3.8% 46.1%;
-    --accent: 220 14% 96%;
+    --accent: 220 13% 91%;
     --accent-foreground: 240 10% 3.9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -80,8 +81,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image: url('/img/bg.png');
-    background-repeat: repeat;
   }
   html {
     scroll-behavior: smooth;
