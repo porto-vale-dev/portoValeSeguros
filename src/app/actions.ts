@@ -20,8 +20,8 @@ export async function submitContactForm(data: { name: string; email: string; mes
     return { success: true, message: "Message received!" };
 }
 
-export async function simulateCredit(data: any) {
-    console.log("New credit simulation:", data);
+export async function submitQuoteForm(data: any) {
+    console.log("New quote submission:", data);
   
     try {
       // Enviar dados para o webhook
@@ -39,39 +39,14 @@ export async function simulateCredit(data: any) {
         console.error("Error sending webhook:", webhookError);
         // Não interrompa o fluxo principal se o webhook falhar
       }
-
-      // 1. Salvar dados no Firestore (simulação)
-      // Em um app real, você descomentaria esta parte
-      /*
-      const ref = await addDoc(collection(db, "simulacoes"), {
-        ...data,
-        dataCriacao: new Date(),
-      });
-      console.log("Simulação salva com ID:", ref.id);
-      */
       
       // Simular delay da rede
       await new Promise(resolve => setTimeout(resolve, 1500));
   
-      // 2. Chamar Cloud Function (simulação de parcelas)
-      // Aqui simulamos a lógica da sua Cloud Function
-      const { valorDesejado, prazo } = data;
-      const taxaJuros = "1.59% a.m. + IPCA";
-  
-      // Exemplo simplificado: PRICE (valor alto inicial, menor no fim)
-      const parcelaInicial = (valorDesejado * 0.028).toFixed(2); 
-      const parcelaFinal = (valorDesejado / prazo).toFixed(2);
-      
-      const resultado = {
-        parcelaInicial: parseFloat(parcelaInicial).toLocaleString('pt-BR', { minimumFractionDigits: 2 }),
-        parcelaFinal: parseFloat(parcelaFinal).toLocaleString('pt-BR', { minimumFractionDigits: 2 }),
-        taxaJuros,
-      };
-  
-      return { success: true, data: resultado };
+      return { success: true, message: "Cotação enviada com sucesso! Em breve entraremos em contato." };
   
     } catch (error) {
-      console.error("Erro ao salvar simulação:", error);
-      return { success: false, error: "Não foi possível realizar a simulação. Tente novamente." };
+      console.error("Erro ao enviar cotação:", error);
+      return { success: false, error: "Não foi possível enviar sua cotação. Tente novamente." };
     }
 }

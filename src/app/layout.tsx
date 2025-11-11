@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Porto Vale | Início',
-  description: 'Soluções de Crédito Inteligentes para um Futuro Financeiro Mais Brilhante',
+  title: 'Porto Seguro | Cotação de Seguros',
+  description: 'Soluções de Seguro Inteligentes para um Futuro Mais Seguro',
   icons: {
     icon: '/img/favicon.png',
   },

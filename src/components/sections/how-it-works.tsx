@@ -1,4 +1,4 @@
-import { FileText, Clock, CircleDollarSign, ArrowRight } from 'lucide-react';
+import { FileText, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -6,18 +6,18 @@ import Link from 'next/link';
 const steps = [
   {
     icon: <FileText className="h-10 w-10 text-primary" />,
-    title: 'Simule e peça',
-    description: 'Preencha o formulário e siga o passo a passo. É rápido e 100% online.',
+    title: 'Preencha e cote',
+    description: 'Preencha o formulário com seus dados. É rápido, fácil e 100% online.',
   },
   {
     icon: <Clock className="h-10 w-10 text-primary" />,
-    title: 'Aguarde a análise',
-    description: 'Analisamos seu perfil para encontrar a melhor oferta para você.',
+    title: 'Aguarde nosso contato',
+    description: 'Analisamos seu perfil para encontrar a melhor cobertura e oferta para você.',
   },
   {
-    icon: <CircleDollarSign className="h-10 w-10 text-primary" />,
-    title: 'Dinheiro na conta',
-    description: 'Após a aprovação, o dinheiro cai na sua conta em até 24 horas.',
+    icon: <ShieldCheck className="h-10 w-10 text-primary" />,
+    title: 'Fique protegido',
+    description: 'Após a aprovação e contratação, você e seu patrimônio já estão protegidos.',
   },
 ];
 
@@ -27,10 +27,10 @@ export default function HowItWorks() {
       <div className="container mx-auto flex flex-col items-center px-4 md:px-6">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Online rápido e descomplicado
+            Online, rápido e descomplicado
           </h2>
           <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
-            Veja como é simples conseguir seu empréstimo com a Porto Vale.
+            Veja como é simples cotar seu seguro com a Porto.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
@@ -49,7 +49,7 @@ export default function HowItWorks() {
         </div>
         <div className="mt-16 text-center">
             <Button asChild size="lg">
-                <Link href="#contact">Simule agora</Link>
+                <Link href="#contact">Cote agora</Link>
             </Button>
         </div>
       </div>

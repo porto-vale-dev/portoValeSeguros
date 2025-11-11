@@ -7,20 +7,20 @@ import {
 
 const faqs = [
   {
-    question: 'Qual a pontuação de crédito necessária para me qualificar?',
-    answer: 'A pontuação de crédito necessária varia de acordo com o produto. Nossa ferramenta de Recomendação de IA pode ajudá-lo a encontrar produtos que correspondam ao seu perfil de crédito. Geralmente, uma pontuação acima de 650 abre mais opções.',
+    question: 'Como faço para cotar um seguro?',
+    answer: 'É muito simples! Basta preencher o formulário em nosso site com algumas informações básicas e um de nossos especialistas entrará em contato para oferecer a melhor proposta para você.',
   },
   {
-    question: 'Quanto tempo leva o processo de aprovação?',
-    answer: 'Os tempos de aprovação podem variar de alguns minutos para solicitações online a alguns dias úteis para empréstimos mais complexos. Nós nos esforçamos para processar todas as solicitações o mais rápido possível.',
+    question: 'Quais tipos de seguro a Porto oferece?',
+    answer: 'Oferecemos uma vasta gama de seguros, incluindo Seguro Auto, Seguro Residencial e Seguro de Vida. Cada um pode ser personalizado para atender às suas necessidades específicas.',
   },
   {
-    question: 'Existem taxas ocultas?',
-    answer: 'Acreditamos na transparência total. Todas as taxas potenciais, como taxas de originação ou multas por atraso no pagamento, são claramente descritas em seu contrato de empréstimo antes de você se comprometer.',
+    question: 'Em caso de sinistro, como devo proceder?',
+    answer: 'Acreditamos na transparência e agilidade. Em caso de sinistro, você pode nos contatar através dos nossos canais de atendimento 24h. Nossa equipe irá orientá-lo em todo o processo de forma rápida e eficiente.',
   },
   {
-    question: 'Posso quitar meu empréstimo antecipadamente?',
-    answer: 'Sim, a maioria dos nossos produtos de empréstimo permite o pagamento antecipado sem nenhuma penalidade. Incentivamos o gerenciamento financeiro responsável.',
+    question: 'Posso personalizar minha apólice de seguro?',
+    answer: 'Sim, todos os nossos seguros são flexíveis. Você pode adicionar ou remover coberturas para criar uma apólice que se ajuste perfeitamente às suas necessidades e ao seu orçamento.',
   },
   {
     question: 'Minhas informações pessoais estão seguras?',

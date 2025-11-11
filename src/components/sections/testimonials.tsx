@@ -14,26 +14,26 @@ const testimonials = [
   {
     id: 'testimonial-3',
     name: 'Daniel Barcelos Silva',
-    role: '',
-    text: 'O consultor foi muito paciente e atencioso. Respondeu a todas as dúvidas com muita educação e esteve disponível a todo tempo para a interação, sem ser intrusivo. Destaco que a negociação ocorreu num período fora do horário comercial e ainda assim foi bem-sucedida.',
+    role: 'Cliente Seguro Auto',
+    text: 'O consultor foi muito paciente e atencioso. Consegui o melhor preço para o seguro do meu carro e o processo foi incrivelmente rápido e sem burocracia. Recomendo a todos!',
     imageUrl: '',
-    imageHint: '',
+    imageHint: 'man portrait',
   },
   {
     id: 'testimonial-4',
     name: 'Othon Monteiro',
-    role: '',
-    text: 'Olha desde o primeiro contato fui bem atendido pois a Sr (a) Carolina Martins Pessoal muito dedicada atenciosa ótima profissional meus parabéns pela profissional que vcs tem no time da Porto Seguro..... muito bem explicado ótima transparência passando muita confiança deixando o cliente sem dúvida parabéns',
+    role: 'Cliente Seguro Residencial',
+    text: 'Desde o primeiro contato fui muito bem atendido. A consultora foi super dedicada e transparente, passando muita confiança e explicando cada detalhe da cobertura da minha casa. Ótima experiência!',
     imageUrl: '',
-    imageHint: '',
+    imageHint: 'smiling man',
   },
   {
     id: 'testimonial-5',
     name: 'Alani Gardan',
-    role: '',
-    text: 'Acho a Porto excelente em todas as linhas. Recentemente, tive minha primeira experiência com a área de consórcios e, apesar de ter muitas dúvidas, fui atendida de forma impecável pelo consultor Renato Venerano, desde o início até a contratação. Além disso, ele tem realizado um pós-venda de excelência.',
+    role: 'Cliente Seguro de Vida',
+    text: 'A Porto é excelente. Tive minha primeira experiência com o seguro de vida e, apesar de ter muitas dúvidas, fui atendida de forma impecável. O consultor realizou um pós-venda de excelência.',
     imageUrl: '',
-    imageHint: '',
+    imageHint: 'woman portrait',
   },
 ];
 
@@ -45,7 +45,7 @@ export default function Testimonials() {
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">O que nossos clientes dizem</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Veja o que nossos clientes satisfeitos têm a dizer sobre sua experiência com a Porto Vale.
+              Veja o que nossos clientes satisfeitos têm a dizer sobre sua experiência com a Porto.
             </p>
           </div>
         </div>
