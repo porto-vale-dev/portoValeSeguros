@@ -1,4 +1,3 @@
-
 "use client";
 import React from 'react';
 import { productsData, Product } from '@/lib/products-data';
@@ -12,7 +11,7 @@ interface ProductsProps {
 
 export default function Products({ onProductSelect, selectedProduct }: ProductsProps) {
   return (
-    <section className="w-full bg-muted/40 py-3 md:py-4 lg:py-5 -mt-16 relative z-10">
+    <section className="w-full bg-muted/40 py-3 md:py-4 lg:py-5 relative z-10">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto grid max-w-2xl grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {productsData.map((product) => (
