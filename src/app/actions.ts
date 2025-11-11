@@ -7,7 +7,7 @@ export async function submitQuoteForm(data: any) {
     try {
       // Enviar dados para o webhook
       try {
-        const webhookUrl = 'https://n8n.portovaleconsorcio.com.br/webhook-test/8cf18544-6e51-4f72-b5df-91f59cf7b08d';
+        const webhookUrl = 'https://n8n.portovaleconsorcio.com.br/webhook/porto-vale-seguros';
         await fetch(webhookUrl, {
           method: 'POST',
           headers: {

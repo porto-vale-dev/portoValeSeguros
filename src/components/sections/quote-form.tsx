@@ -12,6 +12,7 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { submitQuoteForm } from '@/app/actions';
 import { Loader2 } from 'lucide-react';
+import { Product } from '@/lib/products-data';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'O nome deve ter pelo menos 2 caracteres.' }),
@@ -21,7 +22,11 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function QuoteForm() {
+interface QuoteFormProps {
+  product: Product;
+}
+
+export default function QuoteForm({ product }: QuoteFormProps) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
 
@@ -34,10 +39,34 @@ export default function QuoteForm() {
     },
   });
 
+  const getDeviceType = () => {
+    if (typeof window !== "undefined") {
+        const userAgent = navigator.userAgent;
+        if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(userAgent)) {
+            return "Tablet";
+        }
+        if (/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/i.test(userAgent)) {
+            return "Mobile";
+        }
+    }
+    return "Desktop";
+  };
+
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     setIsSubmitting(true);
+
+    const params = new URLSearchParams(window.location.search);
+    const utmData = {
+      utm_source: params.get('utm_source') ?? '',
+      utm_medium: params.get('utm_medium') ?? '',
+      utm_campaign: params.get('utm_campaign') ?? '',
+      utm_term: params.get('utm_term') ?? '',
+      utm_content: params.get('utm_content') ?? '',
+      utm_device: getDeviceType(),
+    };
+
     try {
-      const result = await submitQuoteForm(data);
+      const result = await submitQuoteForm({ ...data, ...utmData, selectedProduct: product.name });
       if (result.success) {
         toast({
           title: "Sucesso!",

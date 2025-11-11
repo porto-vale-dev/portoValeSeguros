@@ -1,5 +1,5 @@
 
-import Image from 'next/image';
+import VideoPlayer from '@/components/video-player';
 
 export default function AboutUs() {
   return (
@@ -18,11 +18,9 @@ export default function AboutUs() {
               Nossa equipe de especialistas está pronta para oferecer um atendimento personalizado e encontrar a cobertura ideal que se encaixa perfeitamente em suas necessidades e orçamento.
             </p>
           </div>
-          <Image
-            src="/img/porto-vale-team.jpg"
-            alt="Nossa Equipe"
-            width={600}
-            height={400}
+          <VideoPlayer
+            src="https://storage.googleapis.com/consorcioportovale/imagensSitePV/video%20drone%20fachada.mp4"
+            poster="https://storage.googleapis.com/consorcioportovale/imagensSitePV/imagem-porto-vale.avif"
             className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
           />
         </div>

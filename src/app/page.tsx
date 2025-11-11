@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
       <Header />
-      <main className="flex-1">
+      <main className="mt-8">
         <Products selectedProduct={selectedProduct} onSelectProduct={setSelectedProduct} />
         <HeroBanner product={selectedProduct} />
         <OurInsurances />

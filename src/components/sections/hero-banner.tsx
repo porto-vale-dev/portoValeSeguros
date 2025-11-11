@@ -23,7 +23,7 @@ export default function HeroBanner({ product }: HeroBannerProps) {
           </div>
 
           <div className="relative z-10">
-            <QuoteForm />
+            <QuoteForm product={product} />
           </div>
 
           <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('/img/background-texture.png')] bg-repeat opacity-5 transform-gpu" />
