@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -42,9 +43,7 @@ export default function HeroBanner({ product }: { product: Product }) {
           <p className="font-headline text-2xl font-bold tracking-tight text-white/90 sm:text-3xl md:text-4xl drop-shadow-lg">
             {product.bannerTitle}
           </p>
-          <p className="max-w-[600px] text-lg text-gray-200 md:text-xl drop-shadow-md">
-            {product.bannerDescription}
-          </p>
+          
           <Button asChild size="lg" className="h-12 text-lg">
             <a href={product.ctaLink}>{product.ctaText}</a>
           </Button>
