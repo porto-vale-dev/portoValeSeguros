@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12 md:px-6">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
-            <Image src="/img/Logo_PortoSeguro_Novo_Azul_Branco.png" alt="Porto Vale Seguros Logo" width={150} height={40} className="mb-4" />
+            <Image src="/img/porto-vale-logo-branca.png" alt="Porto Vale Seguros Logo" width={150} height={40} className="mb-4" />
             <p className="text-sm text-blue-100">
               Protegendo o que é mais importante para você.
             </p>
