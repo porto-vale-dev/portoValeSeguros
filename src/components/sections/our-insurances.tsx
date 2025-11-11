@@ -1,7 +1,6 @@
 
 import { productsData } from '@/lib/products-data';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export default function OurInsurances() {
@@ -19,24 +18,19 @@ export default function OurInsurances() {
           {productsData.map((product) => {
             const Icon = product.icon;
             return (
-              <Card key={product.id} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                <CardHeader className="flex-row items-center gap-4 bg-muted/50 p-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <CardTitle className="text-lg font-semibold">{product.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-1 p-6">
-                  <CardDescription>{product.description}</CardDescription>
-                </CardContent>
-                <div className="border-t p-4">
-                  <Button asChild variant="link" className="w-full justify-start p-0">
-                    <Link href="#home">
-                      Saber Mais
-                    </Link>
-                  </Button>
-                </div>
-              </Card>
+              <Link key={product.id} href="#home" className="flex">
+                <Card className="flex flex-col w-full overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+                  <CardHeader className="flex-row items-center gap-4 bg-muted/50 p-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold">{product.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex-1 p-6">
+                    <CardDescription>{product.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
             );
           })}
         </div>
