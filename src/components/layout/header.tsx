@@ -3,12 +3,12 @@
 
 import * as React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import ImageWithFallback from "@/components/image-with-fallback";
 
 const navLinks = [
   { href: "#our-insurances", label: "Planos" },
@@ -37,7 +37,15 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold">
-          <Image src="https://storage.googleapis.com/consorcioportovale/imagensSitePV/PortoSeguros_Oficial.avif" alt="Porto Vale Seguros Logo" width={150} height={40} />
+          <ImageWithFallback
+            avif="https://storage.googleapis.com/consorcioportovale/imagensSitePV/PortoSeguros_Oficial.avif"
+            webp="https://storage.googleapis.com/consorcioportovale/imagensSitePV/PortoSeguros_Oficial.webp"
+            png="https://storage.googleapis.com/consorcioportovale/imagensSitePV/PortoSeguros_Oficial%20(1).png"
+            alt="Porto Vale Seguros Logo"
+            width={150}
+            height={40}
+            loading="eager"
+          />
         </Link>
         
         <div className="flex items-center gap-4">
@@ -63,7 +71,14 @@ export default function Header() {
               <div className="flex h-full flex-col">
                  <div className="flex items-center justify-between border-b p-4">
                     <Link href="/" className="flex items-center gap-2 font-bold" onClick={() => setIsMenuOpen(false)}>
-                       <Image src="https://storage.googleapis.com/consorcioportovale/imagensSitePV/PortoSeguros_Oficial.avif" alt="Porto Vale Seguros Logo" width={120} height={40} />
+                      <ImageWithFallback
+                        avif="https://storage.googleapis.com/consorcioportovale/imagensSitePV/PortoSeguros_Oficial.avif"
+                        webp="https://storage.googleapis.com/consorcioportovale/imagensSitePV/PortoSeguros_Oficial.webp"
+                        png="https://storage.googleapis.com/consorcioportovale/imagensSitePV/PortoSeguros_Oficial%20(1).png"
+                        alt="Porto Vale Seguros Logo"
+                        width={120}
+                        height={40}
+                      />
                     </Link>
                     <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
                       <X className="h-6 w-6" />
