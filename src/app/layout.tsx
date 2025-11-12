@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: 'Porto Vale Seguros | Cotação de Seguros',
   description: 'Soluções de Seguro Inteligentes para um Futuro Mais Seguro',
   icons: {
-    icon: '/img/favicon.png',
+    icon: '/img/favicon.ico',
   },
 };
 

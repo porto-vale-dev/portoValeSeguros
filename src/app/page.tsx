@@ -8,6 +8,7 @@ import Products from "@/components/sections/products";
 import { productsData } from "@/lib/products-data";
 import OurInsurances from "@/components/sections/our-insurances";
 import AboutUs from "@/components/sections/about-us";
+import FaqSection from "@/components/sections/faq-section";
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = React.useState(productsData[0]);
@@ -20,6 +21,7 @@ export default function Home() {
         <HeroBanner product={selectedProduct} />
         <OurInsurances selectedProduct={selectedProduct} onSelectProduct={setSelectedProduct} />
         <AboutUs />
+        <FaqSection />
       </main>
       <Footer />
     </div>
