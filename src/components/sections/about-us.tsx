@@ -12,10 +12,10 @@ export default function AboutUs() {
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Porto Vale</h2>
             <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Com vasta experiência no mercado de seguros, a Porto Vale se dedica a proteger o que é mais importante para você. Somos especialistas em encontrar as melhores soluções de seguro para o seu dia a dia.
+            Na <b>Porto Vale Seguros</b>, oferecemos proteção completa para pessoas, famílias e empresas.
             </p>
              <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Nossa equipe de especialistas está pronta para oferecer um atendimento personalizado e encontrar a cobertura ideal que se encaixa perfeitamente em suas necessidades e orçamento.
+Amparados pela solidez do Grupo Porto Vale, que há mais de <b>20 anos atua ao lado da Porto Seguro</b> como líder nacional em consórcios, ampliamos nossa experiência para o setor de seguros, garantindo credibilidade, inovação e confiança.
             </p>
           </div>
           <VideoPlayer

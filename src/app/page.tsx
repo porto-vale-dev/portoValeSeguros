@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -9,7 +8,6 @@ import Products from "@/components/sections/products";
 import { productsData } from "@/lib/products-data";
 import OurInsurances from "@/components/sections/our-insurances";
 import AboutUs from "@/components/sections/about-us";
-import StatsCard from "@/components/sections/stats-card";
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = React.useState(productsData[0]);
@@ -20,9 +18,8 @@ export default function Home() {
       <main className="mt-8">
         <Products selectedProduct={selectedProduct} onSelectProduct={setSelectedProduct} />
         <HeroBanner product={selectedProduct} />
-        <OurInsurances />
+        <OurInsurances selectedProduct={selectedProduct} onSelectProduct={setSelectedProduct} />
         <AboutUs />
-        <StatsCard />
       </main>
       <Footer />
     </div>
