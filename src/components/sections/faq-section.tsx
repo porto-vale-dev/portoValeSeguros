@@ -13,7 +13,7 @@ export default function FaqSection() {
 
       <Faq
         title="Por que eu preciso de um seguro?"
-        content="Porque imprevistos acontecem. O seguro protege seu patrimônio, sua renda e sua tranquilidade. É a forma mais inteligente de garantir que, mesmo em situações inesperadas, você e sua família fiquem amparados financeiramente."
+        content="Porque imprevistos acontecem. O seguro protege seu patrimônio, sua renda e sua tranquilidade. É a forma mais inteligente de. garantir que, mesmo em situações inesperadas, você e sua família fiquem amparados financeiramente."
       />
       <Faq
         title="O seguro realmente vale a pena?"
