@@ -1,5 +1,5 @@
 
-import { Instagram, Facebook, Mail, Phone, Linkedin } from 'lucide-react'
+import { Instagram, Facebook, Mail, Phone } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Map from '@/components/map'
@@ -33,9 +33,6 @@ export default function Footer() {
                 </Link>
                 <Link href="https://wa.me/5512999999999" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
                   <Phone className="h-5 w-5" />
-                </Link>
-                <Link href="#" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
-                  <Linkedin className="h-5 w-5" />
                 </Link>
               </div>
             </div>
