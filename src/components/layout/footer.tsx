@@ -10,13 +10,15 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12 md:px-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <Image
-              src="/img/PortoSeguros_AzueBranco.png"
-              alt="Porto Vale Seguros Logo" 
-              width={150} 
-              height={40} 
-              className="mb-4" 
-            />
+            <Link href="#home">
+                <Image
+                  src="/img/PortoSeguros_AzueBranco.png"
+                  alt="Porto Vale Seguros Logo" 
+                  width={150} 
+                  height={40} 
+                  className="mb-4" 
+                />
+            </Link>
             <p className="text-sm text-gray-400">
               Protegendo o que é mais importante para você.
             </p>
@@ -47,8 +49,10 @@ export default function Footer() {
               <li><Link href="#" className="text-gray-300 hover:text-white">Política de Privacidade</Link></li>
             </ul>
           </div>
-          <div>
-            <Map />
+          <div className="flex items-start">
+            <div className="w-full h-auto max-h-[200px]">
+              <Map />
+            </div>
           </div>
         </div>
         <div className="mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
