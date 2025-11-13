@@ -40,7 +40,7 @@ export default function FaqSection() {
         content="Basta entrar em contato com nosso atendimento. Orientamos cada passo, do aviso de sinistro até a indenização."
       />
       <Faq
-        title="Como saber qual seguro é ideal pra mim?"
+        title="Como saber qual seguro é ideal para mim?"
         content="Nosso papel é justamente esse: entender seu momento, seu patrimônio e seu objetivo. Assim, indicamos o plano ideal com o melhor custo-benefício."
       />
     </div>
