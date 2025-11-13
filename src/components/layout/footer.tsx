@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-gray-800 text-white">
       <div className="container mx-auto px-4 py-12 md:px-6">
-        <div className="grid gap-20 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-3">
           <div>
             <Image
               src="/img/PortoSeguros_AzueBranco.png"
@@ -21,23 +21,23 @@ export default function Footer() {
               Protegendo o que é mais importante para você.
             </p>
             <div className='my-6'>
-            <h3 className="mb-4 text-lg font-semibold">Contato</h3>
-            <div className="flex items-center gap-4">
-              <Link href="https://www.facebook.com/portovaleseguro" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
-                <Facebook className="h-5 w-5" />
-              </Link>
-              <Link href="https://www.instagram.com/portovaleseguro/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
-                <Instagram className="h-5 w-5" />
-              </Link>
-               <Link href="https://wa.me/5512999999999" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
-                <Phone className="h-5 w-5" />
-              </Link>
-              <Link href="#" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
-                <Linkedin className="h-5 w-5" />
-              </Link>
+              <h3 className="mb-4 text-lg font-semibold">Contato</h3>
+              <div className="flex items-center gap-4">
+                <Link href="https://www.facebook.com/portovaleseguro" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+                  <Facebook className="h-5 w-5" />
+                </Link>
+                <Link href="https://www.instagram.com/portovaleseguro/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+                  <Instagram className="h-5 w-5" />
+                </Link>
+                <Link href="https://wa.me/5512999999999" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+                  <Phone className="h-5 w-5" />
+                </Link>
+                <Link href="#" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+                  <Linkedin className="h-5 w-5" />
+                </Link>
+              </div>
             </div>
              <p className="mt-4 text-sm text-gray-400">Atendimento: 0800 494-6600</p>
-          </div>
           </div>
           <div>
             <h3 className="mb-4 text-lg font-semibold">Links Rápidos</h3>
@@ -47,7 +47,7 @@ export default function Footer() {
               <li><Link href="#" className="text-gray-300 hover:text-white">Política de Privacidade</Link></li>
             </ul>
           </div>
-          <div>
+          <div className='flex flex-col justify-between'>
             <Map />
           </div>
         </div>
