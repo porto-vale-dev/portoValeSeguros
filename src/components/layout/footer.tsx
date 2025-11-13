@@ -1,7 +1,7 @@
 
 import { Instagram, Facebook, Mail, Phone, Linkedin } from 'lucide-react'
 import Link from 'next/link'
-import ImageWithFallback from '@/components/image-with-fallback'
+import Image from 'next/image'
 import Map from '@/components/map'
 
 export default function Footer() {
@@ -10,10 +10,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12 md:px-6">
         <div className="grid gap-20 md:grid-cols-3">
           <div>
-            <ImageWithFallback 
-              avif='https://storage.googleapis.com/consorcioportovale/imagensSitePV/Logo%20Porto%20Vale%20-%20Varia%C3%A7%C3%B5es-03.avif'
-              webp='https://storage.googleapis.com/consorcioportovale/imagensSitePV/Logo%20Porto%20Vale%20-%20Varia%C3%A7%C3%B5es-03.webp'
-              png='https://storage.googleapis.com/consorcioportovale/imagensSitePV/Logo%20Porto%20Vale%20-%20Varia%C3%A7%C3%B5es-03.png'
+            <Image
+              src="/img/PortoSeguros_Oficial.png"
               alt="Porto Vale Seguros Logo" 
               width={150} 
               height={40} 
