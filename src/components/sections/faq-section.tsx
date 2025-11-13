@@ -21,7 +21,7 @@ export default function FaqSection() {
       />
       <Faq
         title="E se eu nunca usar o seguro?"
-        content="Melhor ainda — isso significa que você esteve seguro o tempo todo. É como ter um guarda-chuva: se não chover, ótimo. Mas quando chove, faz toda diferença."
+        content="Melhor ainda, isso significa que você esteve seguro o tempo todo. É como ter um guarda-chuva: se não chover, ótimo. Mas quando chove, faz toda diferença."
       />
       <Faq
         title="Como funciona o processo de contratação?"
@@ -37,7 +37,7 @@ export default function FaqSection() {
       />
       <Faq
         title="Como faço pra acionar o seguro se acontecer algo?"
-        content="Basta entrar em contato com nosso atendimento. Orientamos cada passo — do aviso de sinistro até a indenização."
+        content="Basta entrar em contato com nosso atendimento. Orientamos cada passo, do aviso de sinistro até a indenização."
       />
       <Faq
         title="Como saber qual seguro é ideal pra mim?"
