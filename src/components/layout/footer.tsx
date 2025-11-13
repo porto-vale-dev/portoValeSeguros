@@ -47,7 +47,7 @@ export default function Footer() {
               <li><Link href="#" className="text-gray-300 hover:text-white">Política de Privacidade</Link></li>
             </ul>
           </div>
-          <div className='flex flex-col justify-between'>
+          <div>
             <Map />
           </div>
         </div>
