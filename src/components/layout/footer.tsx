@@ -36,6 +36,7 @@ export default function Footer() {
                 <Linkedin className="h-5 w-5" />
               </Link>
             </div>
+             <p className="mt-4 text-sm text-gray-400">Atendimento: 0800 494-6600</p>
           </div>
           </div>
           <div>
