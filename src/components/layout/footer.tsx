@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid gap-20 md:grid-cols-3">
           <div>
             <Image
-              src="/img/PortoSeguros_Oficial.png"
+              src="/img/PortoSeguros_AzueBranco.png"
               alt="Porto Vale Seguros Logo" 
               width={150} 
               height={40} 
