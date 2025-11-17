@@ -28,6 +28,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`!scroll-smooth ${poppins.variable}`}>
       <head>
+        {/*
+          ===========================================================
+          INSIRA SEU CÓDIGO DO GOOGLE TAG MANAGER AQUI.
+          Substitua 'GTM-XXXXXXX' pelo seu ID de contêiner do GTM.
+          ===========================================================
+        */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -40,6 +46,12 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         <noscript>
+          {/*
+            ===========================================================
+            INSIRA SEU CÓDIGO DO GOOGLE TAG MANAGER (NOSCRIPT) AQUI.
+            Substitua 'GTM-XXXXXXX' pelo seu ID de contêiner do GTM.
+            ===========================================================
+          */}
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
             height="0"
