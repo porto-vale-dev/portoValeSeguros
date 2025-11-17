@@ -28,12 +28,13 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`!scroll-smooth ${poppins.variable}`}>
       <head>
-        {/*
-          ===========================================================
-          INSIRA SEU CÓDIGO DO GOOGLE TAG MANAGER AQUI.
-          Substitua 'GTM-XXXXXXX' pelo seu ID de contêiner do GTM.
-          ===========================================================
-        */}
+        {<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K3B6JTTS');</script>
+<!-- End Google Tag Manager -->}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -46,12 +47,10 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         <noscript>
-          {/*
-            ===========================================================
-            INSIRA SEU CÓDIGO DO GOOGLE TAG MANAGER (NOSCRIPT) AQUI.
-            Substitua 'GTM-XXXXXXX' pelo seu ID de contêiner do GTM.
-            ===========================================================
-          */}
+          {<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3B6JTTS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->}
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
             height="0"
