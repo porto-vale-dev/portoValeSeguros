@@ -54,7 +54,7 @@ export default function RootLayout({
         
         {/* Blip Chat Widget */}
         <Script 
-          src="https://unpkg.com/blip-chat-widget@1.8/dist/blip-chat-widget.js" 
+          src="https://unpkg.com/blip-chat-widget" 
           strategy="afterInteractive" 
         />
         <Script id="blip-chat-init" strategy="afterInteractive">
@@ -62,9 +62,10 @@ export default function RootLayout({
             (function () {
                 window.onload = function () {
                     new BlipChat()
-                    .withAppKey('SUA_CHAVE_DE_APLICACAO_AQUI')
-                    .withButton({"color":"#0072CE","icon":""})
-                    .build();
+                        .withAppKey('dGVzdGUydGVzdGU6MTZkYTU5MWMtNzA1NS00NzQ1LWE1MGEtYzhiMmVjZTQ4MmU4')
+                        .withButton({"color":"#f6f6f6","icon":""})
+                        .withCustomCommonUrl('https://portovale.chat.blip.ai/')
+                        .build();
                 }
             })();
           `}
