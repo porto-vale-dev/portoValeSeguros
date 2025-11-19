@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`!scroll-smooth ${poppins.variable}`}>
       <head>
-        {/* Substitua GTM-K3B6JTTS pelo seu ID do Google Tag Manager */}
+        {/* Google Tag Manager - Substitua GTM-K3B6JTTS pelo seu ID */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
