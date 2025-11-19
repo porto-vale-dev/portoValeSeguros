@@ -12,11 +12,13 @@ interface ProductsProps {
 }
 
 export default function Products({ selectedProduct, onSelectProduct }: ProductsProps) {
+  const mainProducts = productsData.slice(0, 4);
+
   return (
     <section id="products" className="w-full">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {productsData.map((product) => {
+          {mainProducts.map((product) => {
             const Icon = product.icon;
             const isSelected = selectedProduct.id === product.id;
             return (
