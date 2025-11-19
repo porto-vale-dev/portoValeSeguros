@@ -1,5 +1,5 @@
 
-import { Car, Home, HeartHandshake, Building, Smartphone, Laptop, PartyPopper, Plane, Stethoscope, Tractor, Truck, Shield, FileCheck, Landmark } from 'lucide-react';
+import { Car, Home, HeartHandshake, Building, Smartphone, Laptop, PartyPopper, Plane, Stethoscope, Tractor, Truck, Shield, FileCheck, Landmark, HandCoins } from 'lucide-react';
 
 export interface Product {
   id: string;
@@ -166,6 +166,28 @@ export const productsData: Product[] = [
     bannerTitle: 'Seguro Fiança Locatícia: aluguel sem dor de cabeça.',
     bannerDescription: 'A solução ideal para inquilinos e proprietários, substituindo o fiador com agilidade e segurança.',
     ctaText: 'Alugue sem Fiador',
+    ctaLink: '#quote'
+  },
+  {
+    id: 'emprestimo-auto',
+    name: 'Empréstimo com Garantia de Automóvel',
+    icon: HandCoins,
+    description: 'Crédito rápido utilizando seu carro como garantia.',
+    bannerImage: '/img/emprestimo-auto.jpeg',
+    bannerTitle: 'Empréstimo com Garantia de Automóvel: crédito na sua mão.',
+    bannerDescription: 'Use seu veículo para conseguir as melhores taxas de juros e realize seus projetos.',
+    ctaText: 'Simule seu Empréstimo',
+    ctaLink: '#quote'
+  },
+  {
+    id: 'emprestimo-imovel',
+    name: 'Empréstimo com Garantia de Imóvel',
+    icon: Landmark,
+    description: 'Use seu imóvel para obter crédito com as melhores condições.',
+    bannerImage: '/img/emprestimo-imovel.jpeg',
+    bannerTitle: 'Empréstimo com Garantia de Imóvel: mais crédito para você.',
+    bannerDescription: 'Transforme o valor do seu imóvel em crédito para investir nos seus sonhos, com prazos longos e juros baixos.',
+    ctaText: 'Simule Agora',
     ctaLink: '#quote'
   }
 ];
