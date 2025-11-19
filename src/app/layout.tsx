@@ -28,7 +28,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`!scroll-smooth ${poppins.variable}`}>
       <head>
-        {/* Google Tag Manager - Substitua GTM-K3B6JTTS pelo seu ID */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -40,7 +39,6 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="font-sans antialiased">
-        {/* Google Tag Manager (noscript) - Substitua GTM-K3B6JTTS pelo seu ID */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-K3B6JTTS"
@@ -63,7 +61,7 @@ export default function RootLayout({
                 window.onload = function () {
                     new BlipChat()
                         .withAppKey('dGVzdGUydGVzdGU6MTZkYTU5MWMtNzA1NS00NzQ1LWE1MGEtYzhiMmVjZTQ4MmU4')
-                        .withButton({"color":"#f6f6f6","icon":""})
+                        .withButton({"color":"#25D366","icon":""})
                         .withCustomCommonUrl('https://portovale.chat.blip.ai/')
                         .build();
                 }
