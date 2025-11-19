@@ -189,5 +189,16 @@ export const productsData: Product[] = [
     bannerDescription: 'Transforme o valor do seu imóvel em crédito para investir nos seus sonhos, com prazos longos e juros baixos.',
     ctaText: 'Simule Agora',
     ctaLink: '#quote'
+  },
+  {
+    id: 'financiamentos',
+    name: 'Financiamentos',
+    icon: Landmark,
+    description: 'Realize seus sonhos com nossas linhas de financiamento para veículos e imóveis.',
+    bannerImage: '/img/emprestimo-imovel.jpeg',
+    bannerTitle: 'Financiamentos: o impulso que você precisa para seus projetos.',
+    bannerDescription: 'Oferecemos as melhores condições para você financiar seu imóvel ou veículo. Conquiste seus objetivos.',
+    ctaText: 'Simule seu Financiamento',
+    ctaLink: '#quote'
   }
 ];
