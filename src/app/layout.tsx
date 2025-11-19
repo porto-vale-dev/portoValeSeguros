@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`!scroll-smooth ${poppins.variable}`}>
       <head>
-        {/* Google Tag Manager - Substitua GTM-XXXXXXX pelo seu ID */}
+        {/* Google Tag Manager - Substitua GTM-K3B6JTTS pelo seu ID */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -40,7 +40,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="font-sans antialiased">
-        {/* Google Tag Manager (noscript) - Substitua GTM-XXXXXXX pelo seu ID */}
+        {/* Google Tag Manager (noscript) - Substitua GTM-K3B6JTTS pelo seu ID */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-K3B6JTTS"
@@ -51,6 +51,24 @@ export default function RootLayout({
         </noscript>
         {children}
         <Toaster />
+        
+        {/* Blip Chat Widget */}
+        <Script 
+          src="https://unpkg.com/blip-chat-widget@1.8/dist/blip-chat-widget.js" 
+          strategy="afterInteractive" 
+        />
+        <Script id="blip-chat-init" strategy="afterInteractive">
+          {`
+            (function () {
+                window.onload = function () {
+                    new BlipChat()
+                    .withAppKey('SUA_CHAVE_DE_APLICACAO_AQUI')
+                    .withButton({"color":"#0072CE","icon":""})
+                    .build();
+                }
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );
