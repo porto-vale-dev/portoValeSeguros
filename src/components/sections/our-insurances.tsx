@@ -54,21 +54,25 @@ export default function OurInsurances({ selectedProduct, onSelectProduct }: OurI
   }
 
   return (
-    <section id="our-insurances" className="w-full py-12 md:py-20 lg:py-24 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">Nossos Seguros</h2>
-            <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-            Encontre a proteção ideal para cada momento da sua vida e para o seu patrimônio. Vamos cuidar do que é importante para você.
-            </p>
-        </div>
+    <>
+      <section id="our-insurances" className="w-full py-12 md:py-20 lg:py-24 bg-secondary">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">Nossos Seguros</h2>
+              <p className="mt-4 text-lg text-muted-foreground md:text-xl">
+              Encontre a proteção ideal para cada momento da sua vida e para o seu patrimônio. Vamos cuidar do que é importante para você.
+              </p>
+          </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {mainProducts.map(renderProductCard)}
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {mainProducts.map(renderProductCard)}
+          </div>
         </div>
+      </section>
 
-        {otherProducts.length > 0 && (
-          <div className="mt-16">
+      {otherProducts.length > 0 && (
+        <section className="w-full py-12 md:py-20 lg:py-24 bg-background">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center mb-12">
                 <h3 className="text-3xl font-bold tracking-tighter text-primary">Outras Soluções</h3>
                 <p className="mt-4 text-lg text-muted-foreground">Temos um portfólio completo para atender a todas as suas necessidades.</p>
@@ -93,8 +97,8 @@ export default function OurInsurances({ selectedProduct, onSelectProduct }: OurI
               <CarouselNext className="hidden md:flex" />
             </Carousel>
           </div>
-        )}
-      </div>
-    </section>
+        </section>
+      )}
+    </>
   );
 }
