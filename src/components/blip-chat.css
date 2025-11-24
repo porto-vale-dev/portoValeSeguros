@@ -212,6 +212,8 @@ a {
 @media screen and (max-width: 480px), screen and (max-height: 420px) {
   #blip-chat-container {
     position: fixed !important;
+    bottom: 50px !important;
+    right: 50px !important;
     display: inline-flex !important;
     height: auto !important;
     margin-bottom: 40px;
@@ -281,6 +283,6 @@ a {
 /* 2) Deslocar bolha e opções para a esquerda */
 .containerMessage .message-bubble,
 .containerMessage .option-message {
-  margin-right: 3.5em !important;
+  margin-right: 4.5em !important;
   pointer-events: auto;
 }

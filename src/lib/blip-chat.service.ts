@@ -38,7 +38,7 @@ class BlipChatService {
     if (window.BlipChat) {
       const newWidget = new window.BlipChat()
         .withAppKey(this.APP_KEY)
-        .withButton({ color: '#25D366' })
+        .withButton({ color: '#0c4ec0' })
         .withCustomCommonUrl(this.BLIP_CHAT_URL);
 
       if (openAndSendMessage) {
