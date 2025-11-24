@@ -91,7 +91,6 @@ class BlipChatService {
         console.warn('Falha ao destruir o widget:', e);
       }
     }
-    // Cria um novo widget, abre e envia a mensagem
     this.createWidget(param);
   }
 }

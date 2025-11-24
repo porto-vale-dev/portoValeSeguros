@@ -11,18 +11,17 @@ const BlipChat = () => {
   const [messagesOption] = useState(['Quero fazer uma simulação!', 'Quero saber mais']);
   const messageDelay = 1000;
 
-  // Usando refs para evitar problemas com closures em event listeners
   const messageBubbleRef = useRef<HTMLDivElement | null>(null);
   const messageOptionContainerRef = useRef<HTMLUListElement | null>(null);
   const containerMessageRef = useRef<HTMLDivElement | null>(null);
 
   const removeMessages = () => {
     const container = containerMessageRef.current;
-    if (messageBubbleRef.current && container && messageBubbleRef.current.parentNode === container) {
+    if (messageBubbleRef.current && container?.contains(messageBubbleRef.current)) {
         container.removeChild(messageBubbleRef.current);
         messageBubbleRef.current = null;
     }
-    if (messageOptionContainerRef.current && container && messageOptionContainerRef.current.parentNode === container) {
+    if (messageOptionContainerRef.current && container?.contains(messageOptionContainerRef.current)) {
         container.removeChild(messageOptionContainerRef.current);
         messageOptionContainerRef.current = null;
     }
@@ -109,7 +108,6 @@ const BlipChat = () => {
         };
 
         const addMessageBubbleIfAny = () => {
-            // Garante que não adicionará se já existir
             if (messages.length > 0 && !messageBubbleRef.current) {
                 setTimeout(() => addMessageBubble(), messageDelay);
             }
@@ -149,7 +147,7 @@ const BlipChat = () => {
     }).catch(error => {
       console.warn('Erro ao carregar script do Blip Chat:', error);
     });
-  }, [messages, messagesOption]); // Dependências
+  }, [messages, messagesOption]); 
 
   return <div ref={blipContainerRef} id="blip-chat-container"></div>;
 };
