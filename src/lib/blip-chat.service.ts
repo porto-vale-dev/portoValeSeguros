@@ -49,7 +49,7 @@ class BlipChatService {
             } catch (e) {
                 console.warn('Falha ao enviar mensagem no reload:', e);
             }
-          }, 500); // Adiciona um pequeno delay para garantir que o chat está pronto
+          }, 500);
         });
       }
 
