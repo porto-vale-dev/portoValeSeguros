@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import { Poppins } from 'next/font/google';
 import Script from 'next/script';
+import BlipChat from '@/components/blip-chat';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -50,25 +51,7 @@ export default function RootLayout({
         </noscript>
         {children}
         <Toaster />
-        
-        {/* Blip Chat Widget */}
-        <Script 
-          src="https://unpkg.com/blip-chat-widget" 
-          strategy="afterInteractive" 
-        />
-        <Script id="blip-chat-init" strategy="afterInteractive">
-          {`
-            (function () {
-                window.onload = function () {
-                    new BlipChat()
-                        .withAppKey('dGVzdGUydGVzdGU6MTZkYTU5MWMtNzA1NS00NzQ1LWE1MGEtYzhiMmVjZTQ4MmU4')
-                        .withButton({"color":"#25D366"})
-                        .withCustomCommonUrl('https://portovale.chat.blip.ai/')
-                        .build();
-                }
-            })();
-          `}
-        </Script>
+        <BlipChat />
       </body>
     </html>
   );
