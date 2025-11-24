@@ -1,3 +1,4 @@
+
 declare global {
   interface Window {
     BlipChat: any;
@@ -9,6 +10,8 @@ class BlipChatService {
   private scriptLoaded = false;
   private widget: any;
   public tt: string | null = null;
+  private readonly APP_KEY = 'dGVzdGUydGVzdGU6MTZkYTU5MWMtNzA1NS00NzQ1LWE1MGEtYzhiMmVjZTQ4MmU4';
+  private readonly BLIP_CHAT_URL = 'https://portovale.chat.blip.ai/';
 
   public loadScript(): Promise<void> {
     if (this.scriptLoaded) {
@@ -31,14 +34,36 @@ class BlipChatService {
     });
   }
 
-  public init() {
+  private createWidget(openAndSendMessage?: string) {
     if (window.BlipChat) {
-      this.widget = new window.BlipChat()
-        .withAppKey('dGVzdGUydGVzdGU6MTZkYTU5MWMtNzA1NS00NzQ1LWE1MGEtYzhiMmVjZTQ4MmU4')
+      const newWidget = new window.BlipChat()
+        .withAppKey(this.APP_KEY)
         .withButton({ color: '#25D366' })
-        .withCustomCommonUrl('https://portovale.chat.blip.ai/')
-        .build();
+        .withCustomCommonUrl(this.BLIP_CHAT_URL);
+
+      if (openAndSendMessage) {
+        newWidget.withEventHandler(newWidget.LOAD_EVENT, () => {
+          setTimeout(() => {
+            try {
+              newWidget.sendMessage({ type: 'text/plain', content: openAndSendMessage });
+            } catch (e) {
+                console.warn('Falha ao enviar mensagem no reload:', e);
+            }
+          }, 500); // Adiciona um pequeno delay para garantir que o chat está pronto
+        });
+      }
+
+      newWidget.build();
+      this.widget = newWidget;
+
+      if(openAndSendMessage) {
+        this.widget.toogleChat(true);
+      }
     }
+  }
+
+  public init() {
+    this.createWidget();
   }
 
   public getWidget() {
@@ -46,11 +71,15 @@ class BlipChatService {
   }
 
   public onEnter(callback: () => void) {
-    window.addEventListener('blip-chat-enter', callback);
+    if (this.widget && this.widget.withEventHandler) {
+        this.widget.withEventHandler('enter', callback);
+    }
   }
 
   public onLoad(callback: () => void) {
-    window.addEventListener('blip-chat-loaded', callback);
+    if (this.widget && this.widget.withEventHandler) {
+        this.widget.withEventHandler('load', callback);
+    }
   }
 
   public reload(param: string) {
@@ -62,7 +91,8 @@ class BlipChatService {
         console.warn('Falha ao destruir o widget:', e);
       }
     }
-    this.init();
+    // Cria um novo widget, abre e envia a mensagem
+    this.createWidget(param);
   }
 }
 
