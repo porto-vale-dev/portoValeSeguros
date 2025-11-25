@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -11,7 +10,7 @@ import { cn } from "@/lib/utils";
 import ImageWithFallback from "@/components/image-with-fallback";
 
 const navLinks = [
-  { href: "#our-insurances", label: "Planos" },
+  { href: "#our-insurances", label: "Nossos Planos" },
   { href: "#about-us", label: "Sobre Nós" },
   { href: "#contact", label: "Fale Conosco" },
 ];
