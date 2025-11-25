@@ -3,7 +3,7 @@ import VideoPlayer from '@/components/video-player';
 
 export default function AboutUs() {
   return (
-    <section id="about-us" className="w-full py-12 md:py-20 lg:py-24 bg-secondary">
+    <section id="about-us" className="w-full py-12 md:py-20 lg:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
           <div className="space-y-4">
