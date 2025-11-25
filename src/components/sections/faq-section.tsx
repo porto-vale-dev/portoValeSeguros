@@ -4,7 +4,7 @@ import Faq from "@/components/faq";
 
 export default function FaqSection() {
   return (
-    <div className="faq-container p-14 text-center" data-lazy>
+    <div className="faq-container bg-secondary p-14 text-center" data-lazy>
       <h2 className="text-4xl sm:text-4xl md:text-5xl font-bold text-primary mb-4">Ainda está com duvidas sobre o seguro?</h2>
       <p className="mx-auto mb-8 max-w-[600px] text-sm">
         Confira algumas dúvidas e informações que pode achar importante para
