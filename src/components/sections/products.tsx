@@ -26,9 +26,10 @@ export default function Products({ selectedProduct, onSelectProduct }: ProductsP
                 key={product.id}
                 className={cn(
                   'cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-xl',
+                  
                   isSelected
                     ? 'bg-primary text-primary-foreground ring-2 ring-primary'
-                    : 'bg-card text-card-foreground hover:bg-muted'
+                    : 'bg-card text-card-foreground hover:bg-muted', `product-${product.id}`
                 )}
                 onClick={() => onSelectProduct(product)}
               >
