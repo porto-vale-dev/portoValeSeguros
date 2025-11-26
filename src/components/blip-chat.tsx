@@ -7,7 +7,7 @@ import './blip-chat.css';
 
 const BlipChat = () => {
   const blipContainerRef = useRef<HTMLDivElement>(null);
-  const [messages] = useState(['<b>Black Porto</b>. Parcelas 40% menores + 0% de adesão.']);
+  const [messages] = useState(['Olá, como podemos ajudar?']);
   const [messagesOption] = useState(['Quero fazer uma simulação!', 'Quero saber mais']);
   const messageDelay = 1000;
 
@@ -115,6 +115,16 @@ const BlipChat = () => {
         
         const onBlipChatEnter = () => {
             removeMessages();
+            const widget = blipChatService.getWidget();
+            setTimeout(() => {
+                try {
+                    if (widget && typeof widget.sendMessage === 'function') {
+                        widget.sendMessage({ type: 'text/plain', content: 'Olá, quero saber mais' });
+                    }
+                } catch (e) {
+                    console.warn('Falha ao enviar mensagem no enter:', e);
+                }
+            }, 200);
         };
 
         const onBlipChatLoad = () => {
