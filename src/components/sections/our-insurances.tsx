@@ -32,7 +32,7 @@ export default function OurInsurances({ selectedProduct, onSelectProduct }: OurI
       <Card
         key={product.id}
         className={cn(
-          'cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-card text-card-foreground hover:bg-muted h-full flex flex-col'
+          'cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-card text-card-foreground hover:bg-muted h-full flex flex-col', `product-${product.id}`
         )}
         onClick={() => handleProductClick(product)}
       >
