@@ -54,7 +54,7 @@ export default function OurInsurances({ selectedProduct, onSelectProduct }: OurI
   return (
     <section id="our-insurances" className="w-full py-12 md:py-20 lg:py-24 bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">Nossos Planos</h2>
             <p className="mt-4 text-lg text-muted-foreground md:text-xl">
             Encontre a proteção ideal para cada momento da sua vida e para o seu patrimônio. Temos um portfólio completo para atender a todas as suas necessidades.
