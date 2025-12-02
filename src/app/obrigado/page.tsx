@@ -42,11 +42,11 @@ function ObrigadoContent() {
   );
 }
 
-
+// Envolvemos o componente principal com Suspense para que ele possa usar `useSearchParams`
 export default function ObrigadoPage() {
     return (
         <Suspense fallback={<div>Carregando...</div>}>
             <ObrigadoContent />
         </Suspense>
-    )
+    );
 }
