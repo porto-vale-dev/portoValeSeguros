@@ -51,6 +51,8 @@ export default function OurInsurances({ selectedProduct, onSelectProduct }: OurI
     );
   }
 
+  const startIndex = productsData.findIndex(p => p.id === 'vida');
+
   return (
     <section id="our-insurances" className="w-full py-12 md:py-20 lg:py-24 bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
@@ -66,6 +68,7 @@ export default function OurInsurances({ selectedProduct, onSelectProduct }: OurI
               opts={{
                 align: "start",
                 loop: true,
+                startIndex: startIndex !== -1 ? startIndex : 0,
               }}
               className="w-full max-w-6xl mx-auto"
             >
