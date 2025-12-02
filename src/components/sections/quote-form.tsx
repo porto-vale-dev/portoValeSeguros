@@ -18,7 +18,12 @@ import { Product } from '@/lib/products-data';
 const formSchema = z.object({
   name: z.string().min(2, { message: 'O nome deve ter pelo menos 2 caracteres.' }),
   email: z.string().email({ message: 'Por favor, insira um e-mail válido.' }),
-  phone: z.string().min(10, { message: 'Por favor, insira um telefone válido com DDD.' }),
+  phone: z.string()
+    .min(14, { message: 'Por favor, insira um telefone válido com DDD.' }) // (11) 98888-8888 -> 15 chars, (11) 8888-8888 -> 14 chars
+    .refine(phone => {
+      const cleaned = phone.replace(/\D/g, '');
+      return !/(\d)\1{8,}/.test(cleaned);
+    }, { message: 'Número de telefone inválido. Verifique os dígitos.' }),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -41,6 +46,28 @@ export default function QuoteForm({ product }: QuoteFormProps) {
     },
   });
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+    value = value.replace(/\D/g, ''); // Remove all non-digits
+    value = value.substring(0, 11); // Limit to 11 digits
+    
+    if (value.length > 10) {
+      // (XX) XXXXX-XXXX
+      value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+    } else if (value.length > 6) {
+      // (XX) XXXX-XXXX
+      value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+    } else if (value.length > 2) {
+      // (XX) XXXX
+      value = value.replace(/^(\d{2})(\d{0,4}).*/, '($1) $2');
+    } else if (value.length > 0) {
+      // (XX
+      value = value.replace(/^(\d*)/, '($1');
+    }
+    
+    form.setValue('phone', value, { shouldValidate: true });
+  };
+  
   const getDeviceType = () => {
     if (typeof window !== "undefined") {
         const userAgent = navigator.userAgent;
@@ -133,7 +160,13 @@ export default function QuoteForm({ product }: QuoteFormProps) {
                 <FormItem>
                   <FormLabel>Telefone (com DDD)</FormLabel>
                   <FormControl>
-                    <Input type="tel" placeholder="(00) 90000-0000" {...field} />
+                    <Input 
+                      type="tel" 
+                      placeholder="(00) 90000-0000" 
+                      {...field} 
+                      onChange={handlePhoneChange}
+                      maxLength={15}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
