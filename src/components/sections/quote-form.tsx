@@ -5,6 +5,7 @@ import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -28,6 +29,7 @@ interface QuoteFormProps {
 
 export default function QuoteForm({ product }: QuoteFormProps) {
   const { toast } = useToast();
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const form = useForm<FormData>({
@@ -67,14 +69,15 @@ export default function QuoteForm({ product }: QuoteFormProps) {
 
     try {
       const result = await submitQuoteForm({ ...data, ...utmData, selectedProduct: product.name });
-      if (result.success) {
-        toast({
-          title: "Sucesso!",
-          description: result.message,
-        });
+      if (result.success && result.data) {
         form.reset();
+        const queryParams = new URLSearchParams({
+          name: result.data.name,
+          product: result.data.selectedProduct
+        }).toString();
+        router.push(`/obrigado?${queryParams}`);
       } else {
-        throw new Error(result.error);
+        throw new Error(result.error || "Ocorreu um erro desconhecido.");
       }
     } catch (error) {
       toast({

@@ -24,7 +24,7 @@ export async function submitQuoteForm(data: any) {
       // Simular delay da rede
       await new Promise(resolve => setTimeout(resolve, 1000));
   
-      return { success: true, message: "Cotação enviada com sucesso! Em breve entraremos em contato." };
+      return { success: true, message: "Cotação enviada com sucesso! Em breve entraremos em contato.", data };
   
     } catch (error) {
       console.error("Erro ao enviar cotação:", error);
