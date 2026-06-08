@@ -30,7 +30,7 @@ export default function Footer() {
                 <Link href="https://www.instagram.com/portovaleseguro/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
                   <Instagram className="h-5 w-5" />
                 </Link>
-                <Link href="https://wa.me/5512999999999" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+                <Link href="tel:08004946600" className="text-gray-300 hover:text-white">
                   <Phone className="h-5 w-5" />
                 </Link>
               </div>
