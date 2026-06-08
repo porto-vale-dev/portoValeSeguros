@@ -35,7 +35,7 @@ export default function Footer() {
                 </Link>
               </div>
             </div>
-             <p className="mt-4 text-sm text-gray-400">Atendimento: 0800 494-6600</p>
+             <p className="mt-4 text-sm text-gray-400">Atendimento: 08004946600</p>
           </div>
           <div>
             <h3 className="mb-4 text-lg font-semibold">Links Rápidos</h3>
