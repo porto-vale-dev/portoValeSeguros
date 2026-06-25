@@ -10,6 +10,7 @@ class BlipChatService {
   private scriptLoaded = false;
   private widget: any;
   public tt: string | null = null;
+  private isOptionPending = false;
   private readonly APP_KEY = 'dGVzdGUydGVzdGU6MTZkYTU5MWMtNzA1NS00NzQ1LWE1MGEtYzhiMmVjZTQ4MmU4';
   private readonly BLIP_CHAT_URL = 'https://portovale.chat.blip.ai/';
 
@@ -42,22 +43,34 @@ class BlipChatService {
         .withCustomCommonUrl(this.BLIP_CHAT_URL);
 
       if (openAndSendMessage) {
-        newWidget.withEventHandler(newWidget.LOAD_EVENT, () => {
+        this.isOptionPending = true;
+        // OnLoad fires when the widget finishes connecting — send the message then.
+        newWidget.withEventHandler('OnLoad', () => {
           setTimeout(() => {
             try {
               newWidget.sendMessage({ type: 'text/plain', content: openAndSendMessage });
             } catch (e) {
-                console.warn('Falha ao enviar mensagem no reload:', e);
+              console.warn('Falha ao enviar mensagem no reload:', e);
             }
+            this.isOptionPending = false;
           }, 500);
         });
       }
 
+      // OnEnter fires whenever the chat opens (user click or toogleChat).
+      // Skip when an option message is already being handled to avoid sending 'Oi' on top of it.
+      newWidget.withEventHandler('OnEnter', () => {
+        if (!this.isOptionPending) {
+          window.dispatchEvent(new Event('blip-chat-enter'));
+        }
+      });
+
       newWidget.build();
       this.widget = newWidget;
 
-      if(openAndSendMessage) {
-        this.widget.toogleChat(true);
+      // Open the chat immediately after build for option clicks — same pattern as reference.
+      if (openAndSendMessage) {
+        newWidget.toogleChat(true);
       }
     }
   }
@@ -68,18 +81,6 @@ class BlipChatService {
 
   public getWidget() {
     return this.widget;
-  }
-
-  public onEnter(callback: () => void) {
-    if (this.widget && this.widget.withEventHandler) {
-        this.widget.withEventHandler('enter', callback);
-    }
-  }
-
-  public onLoad(callback: () => void) {
-    if (this.widget && this.widget.withEventHandler) {
-        this.widget.withEventHandler('load', callback);
-    }
   }
 
   public reload(param: string) {

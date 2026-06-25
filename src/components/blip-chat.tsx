@@ -119,7 +119,7 @@ const BlipChat = () => {
             setTimeout(() => {
                 try {
                     if (widget && typeof widget.sendMessage === 'function') {
-                        widget.sendMessage({ type: 'text/plain', content: 'Olá, quero saber mais' });
+                        widget.sendMessage({ type: 'text/plain', content: 'Oi' });
                     }
                 } catch (e) {
                     console.warn('Falha ao enviar mensagem no enter:', e);
@@ -127,31 +127,14 @@ const BlipChat = () => {
             }, 200);
         };
 
-        const onBlipChatLoad = () => {
-          removeMessages();
-          const widget = blipChatService.getWidget();
-          const content = blipChatService.tt?.trim() ? blipChatService.tt : 'Oi';
-          setTimeout(() => {
-            try {
-              if (widget && typeof widget.sendMessage === 'function') {
-                widget.sendMessage({ type: 'text/plain', content });
-              }
-            } catch (e) {
-              console.warn('Falha ao enviar mensagem no load:', e);
-            }
-          }, 200);
-        };
-
         addContainerMessage();
         addMessageBubbleIfAny();
-        
+
         window.addEventListener('blip-chat-enter', onBlipChatEnter);
-        window.addEventListener('blip-chat-load', onBlipChatLoad);
 
         // Cleanup
         return () => {
             window.removeEventListener('blip-chat-enter', onBlipChatEnter);
-            window.removeEventListener('blip-chat-load', onBlipChatLoad);
         }
 
     }).catch(error => {
