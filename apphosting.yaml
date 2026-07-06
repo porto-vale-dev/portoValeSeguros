@@ -5,3 +5,12 @@ runConfig:
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
   maxInstances: 1
+
+env:
+  # Feature flag do widget Blip Chat. "true" habilita, qualquer outro valor desabilita.
+  # Variáveis NEXT_PUBLIC_* são embutidas no bundle em tempo de build (availability: BUILD).
+  # Para reativar o chat: mude para "true" e faça novo deploy. Ver docs/blip-chat.md.
+  - variable: NEXT_PUBLIC_BLIP_CHAT_ENABLED
+    value: "false"
+    availability:
+      - BUILD

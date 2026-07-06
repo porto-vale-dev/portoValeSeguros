@@ -13,6 +13,7 @@ import BlipChat from '@/components/blip-chat';
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = React.useState(productsData[0]);
+  const blipChatEnabled = process.env.NEXT_PUBLIC_BLIP_CHAT_ENABLED === 'true';
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
@@ -25,7 +26,7 @@ export default function Home() {
         <FaqSection />
       </main>
       <Footer />
-      <BlipChat />
+      {blipChatEnabled && <BlipChat />}
     </div>
   );
 }
