@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, Shield, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Canal de Privacidade | Porto Vale Seguros",
+  title: "Canal LGPD | Porto Vale Seguros",
   description:
     "Saiba como exercer seus direitos de titular de dados pessoais junto à Porto Vale, em conformidade com a LGPD.",
 };
@@ -16,7 +16,7 @@ const PRIVACY_EMAIL = "privacidade@portovaleconsorcios.com.br";
 // Subject decodifica para "Solicitação de Direitos do Titular - LGPD"
 const MAILTO_HREF = `mailto:${PRIVACY_EMAIL}?subject=Solicita%C3%A7%C3%A3o%20de%20Direitos%20do%20Titular%20-%20LGPD`;
 
-export default function CanalDePrivacidadePage() {
+export default function CanalLgpdPage() {
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
       <Header />
@@ -26,7 +26,7 @@ export default function CanalDePrivacidadePage() {
             <span className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
               <ShieldCheck aria-hidden="true" strokeWidth={1.5} className="h-7 w-7" />
             </span>
-            <h1 className="text-2xl font-bold text-foreground md:text-3xl">Canal de Privacidade</h1>
+            <h1 className="text-2xl font-bold text-foreground md:text-3xl">Canal LGPD</h1>
             <p className="mt-2 text-muted-foreground">
               Bem-vindo ao canal de solicitação de direitos do Titular.
             </p>

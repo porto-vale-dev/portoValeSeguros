@@ -8,6 +8,15 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/canal-de-privacidade',
+        destination: '/canal-lgpd',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

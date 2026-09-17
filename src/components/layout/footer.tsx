@@ -43,7 +43,7 @@ export default function Footer() {
               <li><Link href="#our-insurances" className="text-gray-300 hover:text-white">Nossos Planos</Link></li>
               <li><Link href="#about-us" className="text-gray-300 hover:text-white">Sobre Nós</Link></li>
               <li><Link href="/politicas-de-privacidade" className="text-gray-300 hover:text-white">Política de Privacidade</Link></li>
-              <li><Link href="/canal-de-privacidade" className="text-gray-300 hover:text-white">Canal de Privacidade</Link></li>
+              <li><Link href="/canal-lgpd" className="text-gray-300 hover:text-white">Canal LGPD</Link></li>
             </ul>
           </div>
           <div className="flex items-start">

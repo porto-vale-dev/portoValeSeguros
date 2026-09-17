@@ -326,7 +326,7 @@ export default function PoliticasDePrivacidadePage() {
             <li>Solicitação de revisão de decisões automatizadas, quando aplicável.</li>
           </ul>
           <p className={pCls}>
-            As solicitações poderão ser encaminhadas ao canal de privacidade indicado nesta
+            As solicitações poderão ser encaminhadas ao Canal LGPD indicado nesta
             Política.
           </p>
 
@@ -582,7 +582,7 @@ export default function PoliticasDePrivacidadePage() {
             terceiros.
           </p>
 
-          <h2 className={h2Cls}>18. EXERCÍCIO DOS DIREITOS E CANAL DE PRIVACIDADE</h2>
+          <h2 className={h2Cls}>18. EXERCÍCIO DOS DIREITOS E CANAL LGPD</h2>
           <p className={pCls}>
             Para exercer qualquer direito previsto na LGPD ou esclarecer dúvidas relacionadas ao
             tratamento de dados pessoais, o titular poderá entrar em contato por meio dos canais
@@ -725,7 +725,7 @@ export default function PoliticasDePrivacidadePage() {
             <li>Demandas oriundas da Autoridade Nacional de Proteção de Dados.</li>
           </ul>
           <p className={pCls}>
-            <strong>Canal de Privacidade:</strong>
+            <strong>Canal LGPD:</strong>
           </p>
           <p className={pCls}>
             <strong>E-mail:</strong> juridico@portovaleconsorcios.com.br
