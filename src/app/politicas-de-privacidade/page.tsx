@@ -70,7 +70,7 @@ export default function PoliticasDePrivacidadePage() {
           </p>
           <p className={pCls}>
             <strong>E-mail para assuntos relacionados à privacidade:</strong>{" "}
-            juridico@portovaleconsorcios.com.br
+            privacidade@portovaleconsorcios.com.br
           </p>
 
           <h2 className={h2Cls}>3. CONCEITOS IMPORTANTES</h2>
@@ -592,7 +592,7 @@ export default function PoliticasDePrivacidadePage() {
             <strong>Telefone:</strong> (12) 2018-1515
           </p>
           <p className={pCls}>
-            <strong>E-mail:</strong> juridico@portovaleconsorcios.com.br
+            <strong>E-mail:</strong> privacidade@portovaleconsorcios.com.br
           </p>
           <p className={pCls}>
             A Porto Vale analisará e responderá às solicitações nos prazos previstos pela
@@ -608,7 +608,7 @@ export default function PoliticasDePrivacidadePage() {
             <strong>Encarregado (DPO):</strong> Talita de Fátima Lemes
           </p>
           <p className={pCls}>
-            <strong>E-mail:</strong> juridico@portovaleconsorcios.com.br
+            <strong>E-mail:</strong> privacidade@portovaleconsorcios.com.br
           </p>
           <p className={pCls}>
             O Encarregado atua como canal de comunicação entre a Porto Vale, os titulares dos
@@ -728,7 +728,7 @@ export default function PoliticasDePrivacidadePage() {
             <strong>Canal LGPD:</strong>
           </p>
           <p className={pCls}>
-            <strong>E-mail:</strong> juridico@portovaleconsorcios.com.br
+            <strong>E-mail:</strong> privacidade@portovaleconsorcios.com.br
           </p>
           <p className={pCls}>
             <strong>Encarregado pelo Tratamento de Dados Pessoais (DPO):</strong> Talita de Fátima
