@@ -1,0 +1,152 @@
+/*
+ * Design Tokens — Porto Vale
+ *
+ * Valores espelhados do Design System de referência do simulador. Nenhum
+ * componente deve declarar cor, radius, sombra ou espacamento literal:
+ * sempre consumir um token daqui.
+ *
+ * A rampa da marca e os tokens semânticos vivem em `:root`, com nomes que
+ * não colidem com as variáveis do restante do site (`--background`,
+ * `--primary`, `--radius`...). Este CSS só é carregado nas rotas da LP.
+ *
+ * Os tokens de fonte são a exceção: ficam em `.pv-root`, o contêiner da LP,
+ * porque as variáveis do `next/font` (`--font-sora`, `--font-lora`) são
+ * aplicadas nele — o `<html>` pertence ao layout raiz do site. Declarados em
+ * `:root`, apontariam para variáveis inexistentes ali.
+ */
+
+:root {
+	/* === MARCA === */
+	--pv-navy: #0a1628;
+	--pv-blue-dark: #1a3a8f;
+	--pv-blue: #2459e1;
+	--pv-blue-mid: #3b82f6;
+	--pv-blue-light: #60a5fa;
+	--pv-cyan: #06b6d4;
+	--pv-cyan-light: #38bdf8;
+	--pv-beige: #f0ede8;
+	--pv-beige-dark: #e3dfd9;
+
+	/* === NEUTROS === */
+	--pv-white: #ffffff;
+	--pv-gray-100: #f8f9fa;
+	--pv-gray-200: #e9ecef;
+	--pv-gray-400: #9ca3af;
+	--pv-gray-600: #6b7280;
+	--pv-gray-800: #1f2937;
+	--pv-black: #0f172a;
+
+	/* === SUCESSO / WHATSAPP === */
+	--pv-green: #25d366;
+	--pv-green-dark: #1da851;
+	--pv-green-light: rgba(37, 211, 102, 0.1);
+
+	/* Tons de texto dos callouts e hover do botao escuro. */
+	--pv-navy-hover: #0f2040;
+	--pv-cyan-text: #0e7490;
+	--pv-green-text: #15803d;
+	--pv-green-shadow: rgba(37, 211, 102, 0.32);
+
+	/* === ERRO === */
+	--pv-red: #dc2626;
+	--pv-red-dark: #b91c1c;
+
+	/* === TINTAS DE APOIO ===
+	 * Superficies translucidas derivadas da marca. Ficam como token para que
+	 * nenhum componente invente um alfa próprio.
+	 */
+	--pv-tint-blue: rgba(36, 89, 225, 0.07);
+	--pv-tint-blue-weak: rgba(36, 89, 225, 0.05);
+	--pv-tint-blue-soft: rgba(36, 89, 225, 0.06);
+	--pv-tint-blue-medium: rgba(36, 89, 225, 0.1);
+	--pv-tint-blue-border: rgba(36, 89, 225, 0.16);
+	--pv-tint-blue-ring: rgba(36, 89, 225, 0.12);
+	--pv-tint-blue-focus: rgba(36, 89, 225, 0.18);
+	--pv-tint-blue-shadow: rgba(36, 89, 225, 0.35);
+	--pv-tint-cyan: rgba(6, 182, 212, 0.07);
+	--pv-tint-cyan-border: rgba(6, 182, 212, 0.18);
+	--pv-tint-green-border: rgba(37, 211, 102, 0.22);
+
+	/* Superficies sobre o painel escuro. */
+	--pv-overlay-inverse-weak: rgba(255, 255, 255, 0.08);
+	--pv-overlay-inverse-soft: rgba(255, 255, 255, 0.12);
+	--pv-overlay-inverse-strong: rgba(255, 255, 255, 0.55);
+	--pv-text-inverse-strong: rgba(255, 255, 255, 0.7);
+	--pv-text-inverse-muted: rgba(255, 255, 255, 0.6);
+
+	/* Cortina do modal. */
+	--pv-scrim: rgba(10, 22, 40, 0.45);
+
+	/* === ESPACAMENTO === */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 20px;
+	--space-6: 24px;
+	--space-8: 32px;
+	--space-10: 40px;
+	--space-12: 48px;
+	--space-16: 64px;
+
+	/* === TRANSICAO === */
+	--transition: 200ms ease;
+
+	/* === LAYOUT === */
+	--layout-side-panel-width: 42%;
+	--layout-side-panel-max: 460px;
+	--layout-side-panel-content: 360px;
+	--layout-step-max: 440px;
+	--layout-step-max-wide: 480px;
+	--layout-stage-nav-max: 640px;
+}
+
+/* Tokens semânticos — o que os componentes consomem. */
+:root {
+	/* Cores semanticas */
+	--color-primary: var(--pv-blue);
+	--color-primary-dark: var(--pv-blue-dark);
+	--color-primary-mid: var(--pv-blue-mid);
+	--color-accent: var(--pv-cyan);
+
+	--color-bg-default: var(--pv-white);
+	--color-bg-muted: var(--pv-beige);
+	--color-bg-subtle: var(--pv-gray-100);
+	--color-bg-dark: var(--pv-navy);
+
+	--color-text: var(--pv-black);
+	--color-text-strong: var(--pv-gray-800);
+	--color-text-muted: var(--pv-gray-600);
+	--color-text-subtle: var(--pv-gray-400);
+	--color-text-inverse: var(--pv-white);
+	--color-border: var(--pv-gray-200);
+	/* Borda de controles pequenos (caixa de seleção), que precisa aparecer
+	   sobre o fundo branco. */
+	--color-border-strong: var(--pv-gray-400);
+	/* Trilho de controle desligado: precisa contrastar com a bolinha branca. */
+	--color-control-off: var(--pv-gray-400);
+
+	--color-success: var(--pv-green);
+	--color-success-dark: var(--pv-green-dark);
+	--color-danger: var(--pv-red);
+	--color-danger-dark: var(--pv-red-dark);
+
+	/* Radius */
+	--radius-sm: 6px;
+	--radius-md: 12px;
+	--radius-lg: 20px;
+	--radius-xl: 28px;
+	--radius-pill: 999px;
+
+	/* Sombras */
+	--shadow-sm: 0 1px 3px rgba(10, 22, 40, 0.08);
+	--shadow-md: 0 4px 16px rgba(10, 22, 40, 0.1);
+	--shadow-lg: 0 8px 32px rgba(10, 22, 40, 0.14);
+}
+
+/* Tipografia — `--font-sora` e `--font-lora` vêm do `next/font` no layout da
+   LP, aplicadas no mesmo elemento. */
+.pv-root {
+	--font-display: var(--font-sora), "Segoe UI", system-ui, sans-serif;
+	--font-serif: var(--font-lora), Georgia, "Times New Roman", serif;
+}

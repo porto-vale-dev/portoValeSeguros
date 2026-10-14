@@ -1,0 +1,104 @@
+/*
+ * Reset e regras de base da LP.
+ *
+ * O `<html>` e o `<body>` pertencem ao layout raiz do site, que já aplica o
+ * reset do Tailwind (preflight). Por isso tudo aqui vale só dentro de
+ * `.pv-root`, o contêiner da LP, e nada vaza para o restante do site.
+ *
+ * Os seletores de elemento usam `:where(.pv-root)`, que não soma
+ * especificidade: qualquer classe de componente (`.pv-btn`, `.pv-control`)
+ * continua vencendo o reset, como acontecia com as camadas `@layer` no
+ * projeto original.
+ */
+
+/* Papel do `<body>` no projeto original: fundo, tipografia e altura. */
+.pv-root {
+	background: var(--color-bg-muted);
+	color: var(--color-text);
+	font-family: var(--font-display);
+	font-size: 16px;
+	line-height: 1.6;
+	min-height: 100dvh;
+	-webkit-text-size-adjust: 100%;
+}
+
+/* Mesmo fundo no `<body>`, para a rolagem elástica não mostrar o branco. */
+body:has(.pv-root) {
+	background: var(--color-bg-muted);
+}
+
+:where(.pv-root) *,
+:where(.pv-root) *::before,
+:where(.pv-root) *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:where(.pv-root) a {
+	color: var(--color-primary);
+	text-decoration: none;
+}
+
+:where(.pv-root) button,
+:where(.pv-root) input,
+:where(.pv-root) select,
+:where(.pv-root) textarea {
+	color: inherit;
+	font: inherit;
+}
+
+/*
+ * Pinta os controles desenhados pelo navegador — caixa de seleção, faixa
+ * e o realce do calendário nativo — com a cor da marca.
+ */
+:where(.pv-root) input,
+:where(.pv-root) select,
+:where(.pv-root) textarea {
+	accent-color: var(--color-primary);
+}
+
+:where(.pv-root) ::selection {
+	background: var(--color-primary);
+	color: var(--color-text-inverse);
+}
+
+:where(.pv-root) img,
+:where(.pv-root) svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* Foco visível consistente em toda a LP. */
+:where(.pv-root) :focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:where(.pv-root) *,
+	:where(.pv-root) *::before,
+	:where(.pv-root) *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/*
+ * Conteúdo disponível apenas para leitores de tela. A raiz no seletor dá a
+ * especificidade necessária para vencer a classe de componente com que ele
+ * é combinado (ex.: `.pv-field-label`).
+ */
+.pv-root .sr-only {
+	border: 0;
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}

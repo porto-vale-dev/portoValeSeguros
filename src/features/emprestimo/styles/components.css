@@ -1,0 +1,782 @@
+/*
+ * Biblioteca visual global — Design System Porto Vale.
+ *
+ * Cada classe `pv-*` aqui é a definição visual de um componente de
+ * `features/emprestimo/ui`. A aparencia e controlada por este arquivo e pelos
+ * tokens; o JSX apenas escolhe variantes.
+ *
+ * Ordem da cascata: tokens -> base -> componentes globais -> feature.
+ */
+
+/* ----------------------------------------------------------------
+ * Botao
+ * ---------------------------------------------------------------- */
+.pv-btn {
+	align-items: center;
+	border: none;
+	cursor: pointer;
+	display: inline-flex;
+	font-family: var(--font-display);
+	font-size: 15px;
+	font-weight: 600;
+	gap: var(--space-2);
+	line-height: 1;
+	outline: none;
+	text-decoration: none;
+	transition: all var(--transition);
+}
+
+.pv-btn:focus {
+	outline: none;
+}
+
+.pv-btn:focus-visible {
+	box-shadow: 0 0 0 4px var(--pv-tint-blue-focus);
+	outline: 2px solid var(--color-primary);
+	outline-offset: 3px;
+	white-space: nowrap;
+}
+
+.pv-btn:disabled,
+.pv-btn[aria-disabled="true"] {
+	cursor: not-allowed;
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+/* --- Variantes --- */
+.pv-btn-primary {
+	background: var(--color-primary);
+	border-radius: var(--radius-pill);
+	color: var(--color-text-inverse);
+	padding: 14px 28px;
+}
+
+.pv-btn-primary:hover {
+	background: var(--color-primary-dark);
+	box-shadow: 0 6px 20px var(--pv-tint-blue-shadow);
+	transform: translateY(-1px);
+}
+
+.pv-btn-secondary {
+	background: transparent;
+	border: 1.5px solid var(--color-primary);
+	border-radius: var(--radius-pill);
+	color: var(--color-primary);
+	padding: 13px 27px;
+}
+
+.pv-btn-secondary:hover {
+	background: var(--pv-tint-blue-soft);
+	transform: translateY(-1px);
+}
+
+.pv-btn-ghost {
+	background: transparent;
+	border-radius: var(--radius-pill);
+	color: var(--color-primary);
+	padding: 14px 28px;
+}
+
+.pv-btn-ghost:hover {
+	background: var(--pv-tint-blue-soft);
+}
+
+.pv-btn-dark {
+	background: var(--color-bg-dark);
+	border-radius: var(--radius-pill);
+	color: var(--color-text-inverse);
+	padding: 14px 28px;
+}
+
+.pv-btn-dark:hover {
+	background: var(--pv-navy-hover);
+	transform: translateY(-1px);
+}
+
+.pv-btn-success {
+	background: var(--color-success);
+	border-radius: var(--radius-pill);
+	color: var(--color-text-inverse);
+	padding: 14px 28px;
+}
+
+.pv-btn-success:hover {
+	background: var(--color-success-dark);
+	transform: translateY(-1px);
+}
+
+/* Botao de WhatsApp: sempre em largura total, na cor da marca do canal. */
+.pv-btn-whatsapp {
+	align-items: center;
+	background: var(--color-success);
+	border: none;
+	border-radius: var(--radius-pill);
+	color: var(--color-text-inverse);
+	cursor: pointer;
+	display: inline-flex;
+	font-family: var(--font-display);
+	font-size: 15px;
+	font-weight: 700;
+	gap: var(--space-3);
+	justify-content: center;
+	padding: 16px 28px;
+	width: 100%;
+}
+
+.pv-btn-whatsapp:hover {
+	background: var(--color-success-dark);
+	box-shadow: 0 6px 20px var(--pv-green-shadow);
+	transform: translateY(-1px);
+}
+
+.pv-btn-whatsapp:focus {
+	outline: none;
+}
+
+.pv-btn-whatsapp:focus-visible {
+	outline: 2px solid var(--color-success);
+	outline-offset: 3px;
+}
+
+.pv-btn-whatsapp-hint {
+	color: var(--color-text-subtle);
+	font-size: 12px;
+	margin-top: var(--space-2);
+	text-align: center;
+}
+
+/* Acao destrutiva, visualmente distinta (ex.: reiniciar simulação). */
+.pv-btn-danger {
+	background: var(--color-danger);
+	border-radius: var(--radius-pill);
+	color: var(--color-text-inverse);
+	padding: 14px 28px;
+}
+
+.pv-btn-danger:hover {
+	background: var(--color-danger-dark);
+	transform: translateY(-1px);
+}
+
+/* --- Tamanhos --- */
+.pv-btn-sm {
+	font-size: 13px;
+	padding: 10px 20px;
+}
+
+.pv-btn-lg {
+	font-size: 17px;
+	padding: 18px 36px;
+}
+
+.pv-btn-block {
+	justify-content: center;
+	width: 100%;
+}
+
+/* ----------------------------------------------------------------
+ * Card
+ * ---------------------------------------------------------------- */
+.pv-card {
+	background: var(--color-bg-default);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-xl);
+	padding: var(--space-6);
+	transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.pv-card-dark {
+	background: var(--color-bg-dark);
+	border-color: var(--pv-overlay-inverse-weak);
+}
+
+.pv-card-flush {
+	padding: 0;
+}
+
+.pv-card-title {
+	color: var(--color-text);
+	font-size: 16px;
+	font-weight: 700;
+	margin-bottom: var(--space-2);
+}
+
+.pv-card-body {
+	color: var(--color-text-muted);
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.pv-card-dark .pv-card-title {
+	color: var(--color-text-inverse);
+}
+
+.pv-card-dark .pv-card-body {
+	color: var(--pv-text-inverse-strong);
+}
+
+/* Separador interno de card. */
+.pv-divider {
+	border: none;
+	border-top: 1px solid var(--color-border);
+	margin: var(--space-5) 0;
+}
+
+.pv-divider-tight {
+	margin: var(--space-4) 0;
+}
+
+/* ----------------------------------------------------------------
+ * Callout
+ * ---------------------------------------------------------------- */
+.pv-callout {
+	align-items: flex-start;
+	border-radius: var(--radius-lg);
+	display: flex;
+	font-size: 14px;
+	gap: var(--space-4);
+	line-height: 1.65;
+	padding: var(--space-4) var(--space-5);
+}
+
+.pv-callout strong {
+	font-weight: 700;
+}
+
+.pv-callout-icon {
+	flex-shrink: 0;
+	font-size: 18px;
+	margin-top: 1px;
+}
+
+.pv-callout-blue {
+	background: var(--pv-tint-blue-soft);
+	border: 1px solid var(--pv-tint-blue-border);
+	color: var(--color-primary-dark);
+}
+
+.pv-callout-cyan {
+	background: var(--pv-tint-cyan);
+	border: 1px solid var(--pv-tint-cyan-border);
+	color: var(--pv-cyan-text);
+}
+
+.pv-callout-green {
+	background: var(--pv-green-light);
+	border: 1px solid var(--pv-tint-green-border);
+	color: var(--pv-green-text);
+}
+
+.pv-callout-danger {
+	background: rgb(from var(--color-danger) r g b / 0.07);
+	border: 1px solid rgb(from var(--color-danger) r g b / 0.2);
+	color: var(--color-danger-dark);
+}
+
+/* ----------------------------------------------------------------
+ * Titulo combinado — Sora + Lora italico
+ * ---------------------------------------------------------------- */
+.pv-heading-combo {
+	color: var(--color-text);
+	font-size: 32px;
+	font-weight: 800;
+	line-height: 1.15;
+}
+
+.pv-heading-combo em {
+	color: var(--color-primary);
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-weight: 600;
+}
+
+.pv-heading-combo-white {
+	color: var(--color-text-inverse);
+}
+
+.pv-heading-combo-white em {
+	color: var(--pv-cyan-light);
+}
+
+/* ----------------------------------------------------------------
+ * Faixa de indicadores
+ * ---------------------------------------------------------------- */
+.pv-stat-strip {
+	align-items: stretch;
+	background: var(--color-bg-default);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	display: flex;
+	overflow: hidden;
+}
+
+/* Rótulo acima do valor: a ordem do DOM já é a ordem visual. */
+.pv-stat-strip-item {
+	border-right: 1px solid var(--color-border);
+	flex: 1;
+	padding: var(--space-4) var(--space-5);
+}
+
+.pv-stat-strip-item:last-child {
+	border-right: none;
+}
+
+.pv-stat-strip-label {
+	color: var(--color-text-subtle);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	margin-bottom: var(--space-1);
+	text-transform: uppercase;
+}
+
+.pv-stat-strip-value {
+	color: var(--color-primary);
+	font-size: 22px;
+	font-weight: 800;
+	line-height: 1.1;
+}
+
+@media (max-width: 480px) {
+	.pv-stat-strip {
+		flex-direction: column;
+	}
+
+	.pv-stat-strip-item {
+		border-bottom: 1px solid var(--color-border);
+		border-right: none;
+	}
+
+	.pv-stat-strip-item:last-child {
+		border-bottom: none;
+	}
+}
+
+/* ----------------------------------------------------------------
+ * Campo de formulário
+ * ---------------------------------------------------------------- */
+.pv-field {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	min-width: 0;
+}
+
+.pv-field-label {
+	color: var(--color-text-strong);
+	font-size: 12.5px;
+	font-weight: 700;
+}
+
+.pv-field-optional {
+	color: var(--color-text-subtle);
+	font-weight: 500;
+}
+
+.pv-field-hint {
+	color: var(--color-text-subtle);
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.pv-field-hint-success {
+	color: var(--color-success-dark);
+}
+
+.pv-field-error {
+	color: var(--color-danger);
+	font-size: 12px;
+}
+
+.pv-field-row {
+	display: grid;
+	gap: var(--space-3);
+	grid-template-columns: 1fr 1fr;
+}
+
+.pv-field-row-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 480px) {
+	.pv-field-row,
+	.pv-field-row-3 {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ----------------------------------------------------------------
+ * Controles de entrada
+ * ---------------------------------------------------------------- */
+.pv-control {
+	background: var(--color-bg-default);
+	border: 1.5px solid var(--color-border);
+	border-radius: var(--radius-md);
+	color: var(--color-text);
+	font-family: var(--font-display);
+	font-size: 15px;
+	padding: 13px 16px;
+	transition: border-color var(--transition), box-shadow var(--transition);
+	width: 100%;
+}
+
+.pv-control::placeholder {
+	color: var(--color-text-subtle);
+}
+
+.pv-control:focus {
+	border-color: var(--color-primary);
+	box-shadow: 0 0 0 4px var(--pv-tint-blue-ring);
+	outline: none;
+}
+
+.pv-control:disabled {
+	background: var(--color-bg-subtle);
+	color: var(--color-text-muted);
+	cursor: not-allowed;
+}
+
+.pv-control[aria-invalid="true"] {
+	border-color: var(--color-danger);
+}
+
+.pv-select-trigger {
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	gap: var(--space-3);
+	justify-content: space-between;
+	text-align: left;
+}
+
+.pv-select-trigger[data-placeholder] {
+	color: var(--color-text-subtle);
+}
+
+.pv-select-value {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.pv-select-icon {
+	color: var(--color-text-muted);
+	flex-shrink: 0;
+}
+
+.pv-select-content {
+	background: var(--color-bg-default);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-lg);
+	max-height: 280px;
+	overflow: hidden;
+	width: var(--radix-select-trigger-width);
+	z-index: 60;
+}
+
+.pv-select-viewport {
+	padding: var(--space-1);
+}
+
+.pv-select-item {
+	align-items: center;
+	border-radius: var(--radius-sm);
+	cursor: pointer;
+	display: flex;
+	font-size: 14px;
+	justify-content: space-between;
+	outline: none;
+	padding: 10px var(--space-3);
+	user-select: none;
+}
+
+.pv-select-item[data-highlighted] {
+	background: var(--pv-tint-blue-soft);
+	color: var(--color-primary-dark);
+}
+
+.pv-select-item[data-state="checked"] {
+	color: var(--color-primary);
+	font-weight: 700;
+}
+
+.pv-select-indicator {
+	color: var(--color-primary);
+	font-size: 12px;
+}
+
+.pv-select-scroll {
+	align-items: center;
+	color: var(--color-text-subtle);
+	display: flex;
+	font-size: 9px;
+	height: 20px;
+	justify-content: center;
+}
+
+/* ----------------------------------------------------------------
+ * Linha de marcação
+ * ---------------------------------------------------------------- */
+.pv-checkline-group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.pv-checkline {
+	align-items: flex-start;
+	color: var(--color-text-strong);
+	cursor: pointer;
+	display: flex;
+	font-size: 13px;
+	gap: var(--space-3);
+	line-height: 1.55;
+}
+
+.pv-checkbox {
+	align-items: center;
+	background: var(--color-bg-default);
+	border: 1.5px solid var(--color-border-strong);
+	border-radius: var(--radius-sm);
+	color: transparent;
+	cursor: pointer;
+	display: inline-flex;
+	flex-shrink: 0;
+	height: 18px;
+	justify-content: center;
+	margin-top: 2px;
+	transition: all var(--transition);
+	width: 18px;
+}
+
+.pv-checkbox[data-state="checked"] {
+	background: var(--color-primary);
+	border-color: var(--color-primary);
+	color: var(--color-text-inverse);
+}
+
+.pv-checkbox[aria-invalid="true"] {
+	border-color: var(--color-danger);
+}
+
+.pv-checkbox-indicator {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.pv-checkline-text {
+	cursor: pointer;
+}
+
+/* ----------------------------------------------------------------
+ * Slider
+ * ---------------------------------------------------------------- */
+.pv-slider-label {
+	color: var(--color-text-muted);
+	font-size: 13px;
+	margin-bottom: var(--space-3);
+	text-align: center;
+}
+
+.pv-slider-value {
+	color: var(--color-text);
+	font-size: 32px;
+	font-weight: 800;
+	line-height: 1;
+	margin-bottom: var(--space-4);
+	text-align: center;
+}
+
+.pv-slider {
+	align-items: center;
+	display: flex;
+	height: 22px;
+	margin-bottom: var(--space-2);
+	position: relative;
+	touch-action: none;
+	user-select: none;
+	width: 100%;
+}
+
+.pv-slider-track {
+	background: var(--color-border);
+	border-radius: var(--radius-pill);
+	flex-grow: 1;
+	height: 4px;
+	position: relative;
+}
+
+.pv-slider-range-fill {
+	background: var(--color-primary);
+	border-radius: var(--radius-pill);
+	height: 100%;
+	position: absolute;
+}
+
+.pv-slider-thumb {
+	background: var(--color-primary);
+	border-radius: 50%;
+	box-shadow: var(--shadow-sm);
+	cursor: grab;
+	display: block;
+	height: 22px;
+	transition: transform var(--transition);
+	width: 22px;
+}
+
+.pv-slider-thumb:hover {
+	transform: scale(1.15);
+}
+
+.pv-slider-thumb:active {
+	cursor: grabbing;
+}
+
+.pv-slider-thumb:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 3px;
+}
+
+.pv-slider-range {
+	color: var(--color-text-subtle);
+	display: flex;
+	font-size: 11px;
+	justify-content: space-between;
+	margin-bottom: var(--space-6);
+}
+
+/* ----------------------------------------------------------------
+ * Sanfona (FAQ)
+ *
+ * Sobre `<details>`/`<summary>` nativos. O marcador padrão do navegador
+ * sai e dá lugar ao chevron do Design System, que gira quando o item abre.
+ * ---------------------------------------------------------------- */
+.pv-accordion {
+	background: var(--color-bg-default);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+}
+
+.pv-accordion-item {
+	border-bottom: 1px solid var(--color-border);
+}
+
+.pv-accordion-item:last-child {
+	border-bottom: none;
+}
+
+.pv-accordion-trigger {
+	color: var(--color-text);
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 700;
+	list-style: none;
+	padding: var(--space-4) var(--space-5);
+	transition: background var(--transition);
+}
+
+/*
+ * Pergunta e seta na mesma linha. O flex fica neste `span`, e não no
+ * `summary`, porque CSS injetado por extensões costuma redefinir o
+ * `display` do `summary` (ver `AccordionItem`).
+ */
+.pv-accordion-row {
+	align-items: center;
+	display: flex;
+	gap: var(--space-4);
+	justify-content: space-between;
+}
+
+.pv-accordion-title {
+	min-width: 0;
+}
+
+.pv-accordion-trigger::-webkit-details-marker {
+	display: none;
+}
+
+.pv-accordion-trigger:hover {
+	background: var(--pv-tint-blue-weak);
+}
+
+.pv-accordion-trigger:focus-visible {
+	outline-offset: -2px;
+}
+
+.pv-accordion-icon {
+	color: var(--color-primary);
+	flex-shrink: 0;
+	transition: transform var(--transition);
+}
+
+.pv-accordion-item[open] .pv-accordion-icon {
+	transform: rotate(180deg);
+}
+
+.pv-accordion-content {
+	color: var(--color-text-muted);
+	font-size: 13.5px;
+	line-height: 1.65;
+	padding: 0 var(--space-5) var(--space-5);
+}
+
+/* ----------------------------------------------------------------
+ * Botao em forma de link
+ * ---------------------------------------------------------------- */
+.pv-link-btn {
+	background: none;
+	border: none;
+	color: var(--color-primary);
+	cursor: pointer;
+	font-family: var(--font-display);
+	font-size: 13.5px;
+	font-weight: 700;
+	padding: 0;
+}
+
+.pv-link-btn:hover {
+	text-decoration: underline;
+}
+
+
+/* ----------------------------------------------------------------
+ * Legenda de apoio
+ * ---------------------------------------------------------------- */
+.pv-caption {
+	color: var(--color-text-subtle);
+	font-size: 11.5px;
+	line-height: 1.5;
+	text-align: center;
+}
+
+/* ----------------------------------------------------------------
+ * Logo
+ * ---------------------------------------------------------------- */
+.pv-logo {
+	height: auto;
+	max-width: 100%;
+}
+
+/* ----------------------------------------------------------------
+ * Spinner
+ * ---------------------------------------------------------------- */
+.pv-spinner {
+	animation: pv-spin 700ms linear infinite;
+	border: 2px solid currentColor;
+	border-radius: 50%;
+	border-right-color: transparent;
+	display: inline-block;
+	height: 1em;
+	width: 1em;
+}
+
+@keyframes pv-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
