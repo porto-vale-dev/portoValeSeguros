@@ -6,7 +6,10 @@ import { cn } from "@/lib/utils";
 
 import { useFieldControl } from "./field";
 
-export type InputProps = InputHTMLAttributes<HTMLInputElement>;
+export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+  /** Placa de veículo: caixa alta, negrito e espaçamento largo. */
+  plate?: boolean;
+};
 
 /**
  * Campo de texto do Design System. Ligado automaticamente ao `Field` pai.
@@ -15,14 +18,14 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement>;
  * `register` do React Hook Form não consegue focar o campo com erro.
  */
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { className, ...props },
+  { className, plate, ...props },
   ref,
 ) {
   const fieldProps = useFieldControl();
 
   return (
     <input
-      className={cn("pv-control", className)}
+      className={cn("pv-control", plate && "pv-control-plate", className)}
       ref={ref}
       {...fieldProps}
       {...props}

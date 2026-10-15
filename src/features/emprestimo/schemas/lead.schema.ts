@@ -4,6 +4,7 @@ import { CREDIT_RESTRICTION_OPTIONS } from "../constants/simulator.constants";
 import {
   isValidCpf,
   isValidMobilePhone,
+  isValidPlate,
   isValidVehicleYear,
 } from "../domain/document-validation";
 
@@ -11,7 +12,6 @@ import {
   emailField,
   fullNameField,
   requiredOption,
-  requiredText,
 } from "./fields";
 
 /** Etapa `dados` — identificação, contato, veículo e consentimento. */
@@ -35,7 +35,10 @@ export const leadShape = {
     .min(1, "Informe o ano.")
     .refine((value) => isValidVehicleYear(value), "Informe um ano válido."),
 
-  vehicleModel: requiredText("Informe o modelo do veículo."),
+  vehiclePlate: z
+    .string()
+    .min(1, "Informe a placa do veículo.")
+    .refine(isValidPlate, "Informe uma placa válida."),
 
   cpf: z
     .string()

@@ -65,7 +65,8 @@ export type LeadPayload = {
     cpf: string;
     possuiRestricaoSpcSerasa: boolean;
     veiculoAno: number;
-    veiculoModelo: string;
+    /** Caixa alta e sem hífen: `ABC1234` ou `ABC1D23`. */
+    veiculoPlaca: string;
     aceitePrivacidade: boolean;
   };
   /** Presente apenas na etapa `valor`. */

@@ -62,3 +62,12 @@ export function isValidVehicleYear(
   // Modelos do ano seguinte já circulam a partir do segundo semestre.
   return year >= VEHICLE_YEAR_MIN && year <= reference.getFullYear() + 1;
 }
+
+/**
+ * Placa brasileira, já normalizada por `maskPlate`: o padrão antigo
+ * (`ABC1234`) ou o Mercosul (`ABC1D23`). Os dois diferem só no quinto
+ * caractere, letra no Mercosul.
+ */
+export function isValidPlate(value: string): boolean {
+  return /^[A-Z]{3}\d[A-Z0-9]\d{2}$/.test(value);
+}

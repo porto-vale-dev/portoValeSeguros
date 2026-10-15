@@ -51,7 +51,7 @@ export function buildLeadPayload({
       cpf: digitsOnly(values.cpf),
       possuiRestricaoSpcSerasa: values.creditRestriction === "sim",
       veiculoAno: Number(values.vehicleYear),
-      veiculoModelo: values.vehicleModel.trim(),
+      veiculoPlaca: values.vehiclePlate,
       aceitePrivacidade: values.acceptPrivacy,
     },
 

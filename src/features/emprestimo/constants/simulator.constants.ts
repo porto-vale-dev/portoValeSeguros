@@ -25,7 +25,7 @@ export const THANK_YOU_PATH = "/emprestimo/obrigado";
  * Parâmetros da oferta
  * ---------------------------------------------------------------------- */
 
-export const CREDIT_MIN = 5000;
+export const CREDIT_MIN = 10000;
 export const CREDIT_MAX = 300000;
 export const CREDIT_STEP = 1000;
 export const CREDIT_DEFAULT = 30000;
@@ -34,13 +34,13 @@ export const CREDIT_DEFAULT = 30000;
  * Prazo usado na parcela estimada. É o maior prazo oferecido, então a
  * parcela exibida é a menor possível ("a partir de").
  */
-export const REFERENCE_TERM_MONTHS = 72;
+export const REFERENCE_TERM_MONTHS = 60;
 
 /**
- * Taxa mensal ilustrativa (2,01% a.m.), herdada do ProjetoBV.
- * Precisa de validação do responsável financeiro antes de produção.
+ * Taxa mensal "a partir de" (1,89% a.m.), definida no briefing de ajustes
+ * da LP (out/2026). A parcela exibida é uma estimativa.
  */
-export const MONTHLY_RATE = 0.0201;
+export const MONTHLY_RATE = 0.0189;
 
 /* -------------------------------------------------------------------------
  * Opções de formulário

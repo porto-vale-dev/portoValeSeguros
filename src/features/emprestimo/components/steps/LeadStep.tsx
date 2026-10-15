@@ -16,7 +16,7 @@ import {
   maskEmail,
   maskName,
   maskPhone,
-  maskVehicleText,
+  maskPlate,
   maskYear,
 } from "../../utils/masks";
 import { StepLayout } from "../StepLayout";
@@ -93,11 +93,14 @@ export function LeadStep() {
             placeholder={content.fields.vehicleYearPlaceholder}
           />
           <TextField
+            autoCapitalize="characters"
             autoComplete="off"
-            label={content.fields.vehicleModel}
-            mask={maskVehicleText}
-            name="vehicleModel"
-            placeholder={content.fields.vehicleModelPlaceholder}
+            label={content.fields.vehiclePlate}
+            mask={maskPlate}
+            name="vehiclePlate"
+            placeholder={content.fields.vehiclePlatePlaceholder}
+            plate
+            spellCheck={false}
           />
         </FieldRow>
 

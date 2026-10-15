@@ -13,9 +13,9 @@ import type { InstallmentEstimate } from "../types/simulator.types";
  *   factor  = (1 + i) ^ n
  *   parcela = principal * (i * factor) / (factor - 1)
  *
- * Atenção: a taxa usada pelo simulador é ILUSTRATIVA (ver `MONTHLY_RATE` em
- * `constants/simulator.constants.ts`). Antes de produção o número precisa
- * ser confirmado pelo responsável financeiro.
+ * A taxa e o prazo vêm de `constants/simulator.constants.ts`. O resultado é
+ * uma estimativa: a LP avisa que a simulação é ilustrativa e sujeita a
+ * análise de crédito.
  */
 
 export type InstallmentInput = {
@@ -23,7 +23,7 @@ export type InstallmentInput = {
   principal: number;
   /** Quantidade de parcelas. */
   months: number;
-  /** Taxa de juros mensal em decimal (0.0201 = 2,01% a.m.). */
+  /** Taxa de juros mensal em decimal (0.0189 = 1,89% a.m.). */
   monthlyRate: number;
 };
 

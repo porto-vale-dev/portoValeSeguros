@@ -27,7 +27,7 @@ visual:
 | `src/features/emprestimo/ui` | Componentes do Design System da LP (botão, campo, select, slider…) |
 | `src/features/emprestimo/styles` | Tokens, reset e estilos da LP — carregados só nas rotas `/emprestimo` |
 | `src/features/emprestimo/content/simulator-content.ts` | **Todos os textos** da LP, incluindo o FAQ |
-| `src/features/emprestimo/constants/simulator.constants.ts` | Faixa de valor (R$ 5 mil a R$ 300 mil), taxa, prazo e rotas |
+| `src/features/emprestimo/constants/simulator.constants.ts` | Faixa de valor (R$ 10 mil a R$ 300 mil), taxa (1,89% a.m.), prazo (60 meses) e rotas |
 | `src/features/emprestimo/schemas` | Validação dos campos |
 | `src/features/emprestimo/services/lead.service.ts` | Único ponto que envia o lead |
 | `src/features/emprestimo/config/env.ts` | URL do webhook |
@@ -76,6 +76,22 @@ vai para o navegador de qualquer forma. O n8n só aceita chamadas de
 
 O formulário tem um campo invisível anti-robô (`website`). Não o remova: o n8n
 descarta os envios em que ele vem preenchido.
+
+**Placa do veículo.** A LP envia `lead.veiculoPlaca` (caixa alta, sem hífen:
+`ABC1234` ou `ABC1D23`), que o n8n valida de novo. A placa vai **só ao C2S**: a
+tabela `leads_unificados_seguros` não tem coluna para ela, então
+`ano_veiculo_modelo` recebe apenas o ano. Os leads que o n8n remonta a partir do
+Postgres (envio parcial após 15 minutos e reenvios) chegam ao C2S sem a placa.
+
+**Título no C2S.** O n8n cria o lead como "Novo Lead Premium - Empréstimo com
+garantia de automóvel". A palavra "Premium" é a regra que põe o lead na fila
+certa do C2S: não a tire do título.
+
+**Mudança de campo ou de taxa.** O n8n tem cópia do prazo e da taxa (nó
+"Preparar reenvio") e valida os campos do envio ("Validar e normalizar").
+Mudou algo aqui? Atualize o workflow "Simulador Empréstimo" antes de publicar,
+aceitando o formato antigo e o novo ao mesmo tempo, porque visitantes com a
+página já aberta continuam enviando o formato antigo por um tempo.
 
 ## Rastreamento
 

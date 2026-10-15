@@ -103,11 +103,12 @@ export function maskEmail(value: string): string {
   return value.toLowerCase().replace(/\s/g, "").slice(0, 120);
 }
 
-/** Modelo de veículo: letras, dígitos e separadores. */
-export function maskVehicleText(value: string): string {
-  return collapseSpaces(
-    value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ0-9 './-]/g, ""),
-  ).slice(0, 40);
+/** Placa: caixa alta, apenas A-Z e 0-9, no máximo 7 caracteres. */
+export function maskPlate(value: string): string {
+  return value
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, "")
+    .slice(0, 7);
 }
 
 /**
@@ -124,5 +125,5 @@ export const MASK_MAX_LENGTH: ReadonlyMap<(value: string) => string, number> =
     [maskYear, 4],
     [maskName, 80],
     [maskEmail, 120],
-    [maskVehicleText, 40],
+    [maskPlate, 7],
   ]);
