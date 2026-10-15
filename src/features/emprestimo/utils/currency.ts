@@ -28,7 +28,7 @@ export function formatCurrencyCompact(value: number): string {
   return compactFormatter.format(value);
 }
 
-/** `R$ 5 mil` — extremos da faixa do slider. */
+/** `R$ 10 mil` — extremos da faixa do slider. */
 export function formatCurrencyThousands(value: number): string {
   return `R$ ${thousandsFormatter.format(value / 1000)} mil`;
 }

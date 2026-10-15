@@ -17,6 +17,8 @@ type TextFieldProps = Omit<
   /** Formatador aplicado a cada digitação (CPF, telefone, ano...). */
   mask?: (value: string) => string;
   name: StringFieldName;
+  /** Variante de placa do `Input`. */
+  plate?: boolean;
 };
 
 /**
@@ -30,6 +32,7 @@ export function TextField({
   label,
   mask,
   name,
+  plate,
   ...inputProps
 }: TextFieldProps) {
   const { errors, form } = useSimulatorContext();
@@ -54,6 +57,7 @@ export function TextField({
         {...inputProps}
         maxLength={maxLength}
         onChange={handleChange}
+        plate={plate}
       />
     </Field>
   );

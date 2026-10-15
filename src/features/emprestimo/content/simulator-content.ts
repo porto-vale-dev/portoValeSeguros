@@ -21,7 +21,7 @@ const RATE_LABEL = `${(MONTHLY_RATE * 100).toFixed(2).replace(".", ",")}% a.m.`;
 /** Título da capa, com o trecho em ênfase em Lora itálico. */
 const COVER_TITLE: readonly TextSegment[] = [
   { text: "Simule seu " },
-  { em: true, text: "empréstimo com garantia de veículo" },
+  { em: true, text: "crédito com garantia de veículo" },
   { text: " em poucos minutos" },
 ];
 
@@ -71,8 +71,8 @@ export const simulatorContent = {
       creditRestrictionPlaceholder: "Selecione",
       vehicleYear: "Ano do veículo",
       vehicleYearPlaceholder: "Ex.: 2020",
-      vehicleModel: "Modelo do veículo",
-      vehicleModelPlaceholder: "Ex.: Onix",
+      vehiclePlate: "Placa do veículo",
+      vehiclePlatePlaceholder: "ABC1D23",
       cpf: "CPF",
       cpfPlaceholder: "000.000.000-00",
     },
@@ -101,29 +101,14 @@ export const simulatorContent = {
     sending: "Enviando...",
   },
 
-  /** Perguntas e respostas oficiais enviadas pela equipe. */
+  /** Perguntas e respostas oficiais (briefing de ajustes, out/2026). */
   faq: {
     title: "Perguntas frequentes",
     items: [
       {
-        question: "Como funciona o processo de empréstimo?",
+        question: "O que é o Empréstimo com Garantia de Veículo?",
         answer:
-          "O empréstimo com garantia de veículo, também conhecido como refinanciamento de veículo, é uma modalidade de crédito em que você utiliza um carro quitado como garantia do contrato. O veículo continua no seu nome e pode ser usado normalmente durante o pagamento das parcelas, ficando apenas alienado à instituição financeira até a quitação da dívida. Como o risco da operação é menor, essa modalidade costuma oferecer taxas de juros mais baixas, prazos maiores e limites de crédito mais altos do que um empréstimo pessoal tradicional.",
-      },
-      {
-        question: "É cobrado algum valor antecipado no processo?",
-        answer:
-          "O empréstimo com garantia de veículo funciona utilizando um carro quitado como garantia da operação. Após a solicitação, o Santander realiza a análise de crédito e a avaliação do veículo. Se aprovado, o veículo permanece com o proprietário, ficando apenas alienado até a quitação da dívida.",
-      },
-      {
-        question: "Meu carro não está quitado, posso solicitar um empréstimo?",
-        answer:
-          "É necessário atender aos critérios da análise de crédito da instituição. Atualmente, clientes com restrições no CPF não podem contratar essa modalidade.",
-      },
-      {
-        question: "Posso continuar usando o meu carro?",
-        answer:
-          "Sim. Você continua sendo dono do carro e pode seguir usando o veículo normalmente. O objetivo da garantia é diminuir o valor da taxa e da parcela mensal pra você.",
+          "É uma modalidade de empréstimo em que você utiliza seu veículo quitado como garantia. Isso permite ter acesso a taxas de juros mais baixas e prazos maiores, sem a necessidade de vender seu carro.",
       },
       {
         question: "Quais são as documentações necessárias no processo?",
@@ -131,9 +116,24 @@ export const simulatorContent = {
           "Apenas documento de identificação (CNH ou RG), comprovante de endereço e comprovante de renda.",
       },
       {
-        question: "Quanto tempo leva pro dinheiro cair na minha conta?",
+        question: "É possível substituir a garantia após a contratação do empréstimo?",
         answer:
-          "Costuma levar poucos dias, dependendo do envio dos documentos e da vistoria. Depois da assinatura do contrato, o dinheiro é depositado em até 24h na sua conta.",
+          "Após a assinatura do contrato, não é possível substituir a garantia, pois as taxas e os prazos foram definidos com base na garantia informada. Caso deseje utilizar outra garantia, será necessário quitar o contrato atual e solicitar um novo empréstimo.",
+      },
+      {
+        question: "Posso usar o carro normalmente durante o empréstimo?",
+        answer:
+          "Sim. O veículo permanece em seu nome e pode ser utilizado normalmente durante todo o período do contrato, sem restrições ao uso no dia a dia.",
+      },
+      {
+        question: "Em quanto tempo o dinheiro é liberado na conta?",
+        answer:
+          "O valor do empréstimo é liberado em até 1 dia útil após a aprovação da garantia.",
+      },
+      {
+        question: "É possível antecipar parcelas ou quitar o empréstimo?",
+        answer:
+          "Sim. Você pode quitar o contrato ou antecipar o pagamento das parcelas a qualquer momento. Para isso, entre em contato pelos canais oficiais de atendimento.",
       },
     ],
   },

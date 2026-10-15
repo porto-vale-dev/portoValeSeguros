@@ -33,7 +33,7 @@ export const SIMULATOR_DEFAULT_VALUES: SimulatorFormValues = {
   phone: "",
   creditRestriction: "",
   vehicleYear: "",
-  vehicleModel: "",
+  vehiclePlate: "",
   cpf: "",
   acceptPrivacy: false,
   website: "",
