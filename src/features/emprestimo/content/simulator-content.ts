@@ -37,7 +37,7 @@ export const simulatorContent = {
   },
 
   sidePanel: {
-    title: "Seu veículo já pode virar o crédito que você precisa.",
+    title: "Seu veículo pode virar o crédito que você precisa.",
     text: "Empréstimo com garantia de veículo, com as menores taxas do mercado e sem deixar de rodar com seu carro.",
     stats: [
       { value: "120%", label: "do valor do veículo em crédito" },
