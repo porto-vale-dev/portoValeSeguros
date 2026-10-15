@@ -33,7 +33,7 @@ export const simulatorContent = {
   },
 
   brand: {
-    name: "Porto Vale Seguros",
+    name: "PORTO VALE CRÉDITO",
   },
 
   sidePanel: {
