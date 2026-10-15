@@ -2,13 +2,13 @@ import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
-/** Proporção dos arquivos recortados (705 x 160). */
-const ASPECT_RATIO = 705 / 160;
+/** Proporção do arquivo original (2048 x 462). */
+const ASPECT_RATIO = 2048 / 462;
 
 type LogoProps = {
   /**
    * Fundo em que o logo será exibido.
-   * `claro` usa a tipografia em preto; `escuro`, em branco.
+   * `claro` usa a tipografia em navy; `escuro`, em branco.
    */
   background?: "claro" | "escuro";
   className?: string;
@@ -21,18 +21,17 @@ type LogoProps = {
 };
 
 /**
- * Logo Porto Vale Seguros.
+ * Logo Porto Vale — o mesmo do ProjetoBV.
  *
- * São os logos do site (`public/img/PortoSeguros_*.png`) recortados sem a
- * margem transparente, para alinhar com o texto. O símbolo é sempre ciano;
- * só a tipografia muda de cor conforme o fundo. Nenhum componente deve
- * referenciar esses arquivos diretamente.
+ * O símbolo é sempre ciano; só a tipografia muda de cor conforme o fundo,
+ * por isso existem dois arquivos em `public/img/emprestimo`. Nenhum
+ * componente deve referenciar esses arquivos diretamente.
  */
 export function Logo({
   background = "claro",
   className,
   height = 24,
-  label = "Porto Vale Seguros",
+  label = "Porto Vale Crédito",
   priority = false,
 }: LogoProps) {
   return (
@@ -43,8 +42,8 @@ export function Logo({
       priority={priority}
       src={
         background === "escuro"
-          ? "/img/emprestimo/logo-porto-vale-seguros-branco.png"
-          : "/img/emprestimo/logo-porto-vale-seguros.png"
+          ? "/img/emprestimo/porto-vale.svg"
+          : "/img/emprestimo/porto-vale-escuro.svg"
       }
       width={Math.round(height * ASPECT_RATIO)}
     />

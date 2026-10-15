@@ -31,7 +31,7 @@ visual:
 | `src/features/emprestimo/schemas` | Validação dos campos |
 | `src/features/emprestimo/services/lead.service.ts` | Único ponto que envia o lead |
 | `src/features/emprestimo/config/env.ts` | URL do webhook |
-| `public/img/emprestimo` | Logos do site recortados sem margem |
+| `public/img/emprestimo` | Logo Porto Vale (o mesmo do ProjetoBV), em versão clara e escura |
 
 Para mudar um texto, comece por `simulator-content.ts`. Para mudar a taxa ou a
 faixa de valor, use `simulator.constants.ts`.

@@ -15,7 +15,7 @@ export function SimulatorSidePanel() {
         <div className="app-side-logo">
           <Logo
             background="escuro"
-            height={40}
+            height={34}
             label={simulatorContent.brand.name}
           />
         </div>

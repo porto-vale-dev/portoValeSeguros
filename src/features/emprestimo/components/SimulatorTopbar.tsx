@@ -7,7 +7,7 @@ export function SimulatorTopbar() {
   return (
     <header className="app-topbar">
       <div className="app-logo">
-        <Logo height={28} label={simulatorContent.brand.name} priority />
+        <Logo height={24} label={simulatorContent.brand.name} priority />
       </div>
     </header>
   );
