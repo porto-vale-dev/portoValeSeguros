@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Callout,
   FieldRow,
   HeadingCombo,
   RichText,
@@ -40,11 +39,6 @@ export function LeadStep() {
       }
       sub={content.sub}
     >
-      <Callout icon="ⓘ" tone="blue">
-        <strong>{content.callout.strong}</strong>
-        {content.callout.text}
-      </Callout>
-
       <StatStrip items={content.stats} />
 
       <div className="step-fields">

@@ -53,10 +53,6 @@ export const simulatorContent = {
   dados: {
     title: COVER_TITLE,
     sub: `Crédito facilitado de até 120% do valor do seu veículo, sem deixar de rodar com ele. Garanta as menores taxas sem comprometer seu orçamento, e tenha até ${REFERENCE_TERM_MONTHS} meses para pagar.`,
-    callout: {
-      strong: "Lembre-se:",
-      text: " multas e impostos do veículo devem estar regularizados.",
-    },
     stats: [
       { label: "Crédito de até", value: "120% do veículo" },
       { label: "Taxa a partir de", value: RATE_LABEL },
