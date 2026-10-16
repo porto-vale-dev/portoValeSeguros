@@ -42,6 +42,9 @@ export const REFERENCE_TERM_MONTHS = 60;
  */
 export const MONTHLY_RATE = 0.0189;
 
+/** Carência até a primeira parcela, em dias. */
+export const FIRST_INSTALLMENT_DAYS = 60;
+
 /* -------------------------------------------------------------------------
  * Opções de formulário
  * ---------------------------------------------------------------------- */
