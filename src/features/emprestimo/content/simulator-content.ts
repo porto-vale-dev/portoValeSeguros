@@ -3,6 +3,7 @@ import type { TextSegment } from "@/features/emprestimo/ui";
 import {
   CREDIT_MAX,
   CREDIT_MIN,
+  FIRST_INSTALLMENT_DAYS,
   MONTHLY_RATE,
   REFERENCE_TERM_MONTHS,
 } from "../constants/simulator.constants";
@@ -43,6 +44,7 @@ export const simulatorContent = {
       { value: "120%", label: "do valor do veículo em crédito" },
       { value: RATE_LABEL, label: "taxa de juros a partir de" },
       { value: `${REFERENCE_TERM_MONTHS} meses`, label: "de prazo para pagar" },
+      { value: `${FIRST_INSTALLMENT_DAYS} dias`, label: "para pagar a 1ª parcela" },
     ],
   },
 
@@ -113,7 +115,7 @@ export const simulatorContent = {
       {
         question: "Quais são as documentações necessárias no processo?",
         answer:
-          "Apenas documento de identificação (CNH ou RG), comprovante de endereço e comprovante de renda.",
+          "Apenas documento de identificação (CNH ou RG).",
       },
       {
         question: "É possível substituir a garantia após a contratação do empréstimo?",

@@ -398,6 +398,38 @@
 	}
 }
 
+/*
+ * Desktop com pouca altura (notebook de 1366x768 mostra cerca de 650px de
+ * página). O painel é fixo e não rola: com quatro destaques, o respiro
+ * diminui para a logo e o último item não serem cortados.
+ */
+@media (min-width: 1024px) and (max-height: 760px) {
+	.app-side-panel {
+		padding-block: var(--space-6);
+	}
+
+	.app-side-logo {
+		margin-bottom: var(--space-6);
+	}
+
+	.app-side-title {
+		font-size: 26px;
+		margin-bottom: var(--space-3);
+	}
+
+	.app-side-text {
+		margin-bottom: var(--space-6);
+	}
+
+	.app-side-stats {
+		gap: var(--space-3);
+	}
+
+	.app-side-stats li {
+		padding-top: var(--space-3);
+	}
+}
+
 @media (max-width: 480px) {
 	.app-topbar {
 		padding: var(--space-3) var(--space-4);
